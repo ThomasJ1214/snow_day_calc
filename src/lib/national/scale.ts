@@ -17,3 +17,6 @@ export function snowColor(inches: number): [number, number, number, number] {
   return c;
 }
 
+
+/** Geographic bounds of the HRRR overlay image (covers the full HRRR CONUS domain). Shared by server renderer and map. */
+export const OVERLAY_BOUNDS = { west: -135, east: -60, south: 20, north: 54 };

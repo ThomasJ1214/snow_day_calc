@@ -35,3 +35,13 @@ export function timeAgo(iso: string | null): string {
 export function riskTone(pct: number): "low" | "moderate" | "high" | "very-high" {
   return pct >= 75 ? "very-high" : pct >= 50 ? "high" : pct >= 25 ? "moderate" : "low";
 }
+
+/** Short timezone name (e.g. "EST") for an IANA zone; falls back to the provided label. */
+export function tzAbbr(timezone: string, fallback: string): string {
+  try {
+    const part = new Intl.DateTimeFormat("en-US", { timeZone: timezone, timeZoneName: "short" }).formatToParts(new Date()).find((p) => p.type === "timeZoneName");
+    return part?.value ?? fallback;
+  } catch {
+    return fallback;
+  }
+}

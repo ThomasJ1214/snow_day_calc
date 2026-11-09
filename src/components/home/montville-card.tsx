@@ -31,9 +31,7 @@ export function MontvilleCard() {
           <h2 className="font-display text-xl font-semibold">Montville, NJ right now</h2>
           <p className="mt-3 text-sm text-text-2">Next 72 hours</p>
           <p className="font-display text-5xl font-extrabold leading-none tabular">{fmtIn(w.likely)}</p>
-          <p className="mt-1 text-sm text-text-3 tabular">
-            {fmtIn(w.low)} to {fmtIn(w.high)}
-          </p>
+          <p className="mt-1 text-sm text-text-3 tabular">{w.high === 0 ? "No snow expected" : `${fmtIn(w.low)} to ${fmtIn(w.high)}`}</p>
           <div className="mt-5 border-t border-line pt-4">
             <p className="text-sm text-text-2">Montville Township High School, {p.targetDayLabel.split(",")[0]}</p>
             {p.prediction ? (

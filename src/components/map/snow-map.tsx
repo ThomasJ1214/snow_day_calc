@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import type { GeoJSONSource, Map as MlMap, MapMouseEvent } from "maplibre-gl";
 import { Pause, Play } from "lucide-react";
 import { encodeSlug } from "@/lib/geo/slug";
-import { SNOW_SCALE } from "@/lib/national/scale";
+import { OVERLAY_BOUNDS as OB, SNOW_SCALE } from "@/lib/national/scale";
 import { cn } from "@/components/ui/primitives";
 
 export interface MapCity {
@@ -33,10 +33,10 @@ const NOHRSC = "https://mapservices.weather.noaa.gov/raster/rest/services/snow/N
 const tiles = (base: string, show: string) =>
   `${base}?bbox={bbox-epsg-3857}&bboxSR=3857&imageSR=3857&size=256,256&format=png32&transparent=true&layers=show:${show}&f=image`;
 const BOUNDS: [[number, number], [number, number], [number, number], [number, number]] = [
-  [-126, 50],
-  [-66, 50],
-  [-66, 23],
-  [-126, 23],
+  [OB.west, OB.north],
+  [OB.east, OB.north],
+  [OB.east, OB.south],
+  [OB.west, OB.south],
 ];
 
 function styleUrl() {
@@ -72,6 +72,7 @@ export function SnowMap({
     let disposed = false;
     (async () => {
       const maplibre = await import("maplibre-gl");
+      maplibre.setWorkerUrl("/maplibre/maplibre-gl-worker.mjs");
       if (disposed || !el.current) return;
       const m = new maplibre.Map({ container: el.current, style: styleUrl(), center, zoom, attributionControl: { compact: true }, cooperativeGestures: false });
       map.current = m;
@@ -192,7 +193,7 @@ export function SnowMap({
   return (
     <div className={cn("overflow-hidden rounded-3xl border border-line", className)}>
       <div className="relative h-[420px] w-full sm:h-[520px]">
-        <div ref={el} className="absolute inset-0" aria-label="Interactive snowfall map. Click anywhere for that location's forecast." role="region" />
+        <div ref={el} className="h-full w-full" aria-label="Interactive snowfall map. Click anywhere for that location's forecast." role="region" />
         {failed && <p className="absolute inset-x-4 top-4 rounded-xl bg-bg-2 p-3 text-sm text-text-2">The basemap couldn&apos;t load. Snowfall layers may still appear.</p>}
         <div className="glass-strong absolute bottom-3 left-3 max-w-[calc(100%-1.5rem)] rounded-2xl p-3 text-xs">
           {isHrrr ? (

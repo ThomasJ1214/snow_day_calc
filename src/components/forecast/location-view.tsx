@@ -14,7 +14,7 @@ import { FavoriteButton, ShareButton, UnitToggle } from "./actions";
 import { Notice, Panel, PanelTitle, Skeleton } from "@/components/ui/primitives";
 import { useApi } from "@/lib/client/use-api";
 import { useRecents, lastSeen, rememberSeen } from "@/lib/client/storage";
-import { fmtCm, fmtDay, fmtIn, fmtLocal, timeAgo } from "@/lib/client/format";
+import { fmtCm, fmtDay, fmtIn, fmtLocal, timeAgo, tzAbbr } from "@/lib/client/format";
 import { encodeSlug } from "@/lib/geo/slug";
 
 const SnowMap = dynamic(() => import("@/components/map/snow-map").then((m) => m.SnowMap), { ssr: false, loading: () => <Skeleton className="h-[480px]" /> });
@@ -69,6 +69,7 @@ export function LocationView({ name, lat, lon }: { name: string; lat: number; lo
 
   const s = f.snow;
   const w72 = s.windows["72"];
+  const tz = tzAbbr(f.location.timezone, f.location.timezoneAbbr);
   const fav = { type: "location" as const, name, lat, lon, slug };
 
   return (
@@ -111,7 +112,13 @@ export function LocationView({ name, lat, lon }: { name: string; lat: number; lo
             <p className="text-sm text-text-2">Next 72 hours, most likely</p>
             <p className="font-display text-6xl font-extrabold leading-none tracking-tight tabular sm:text-7xl">{amount(w72.likely)}</p>
             <p className="mt-2 text-text-2 tabular">
-              Range {amount(w72.low)} to {amount(w72.high)} <span className="text-text-3">({unit === "in" ? fmtCm(w72.likely) : fmtIn(w72.likely)})</span>
+              {w72.high === 0 ? (
+                "No snow expected"
+              ) : (
+                <>
+                  Range {amount(w72.low)} to {amount(w72.high)} <span className="text-text-3">({unit === "in" ? fmtCm(w72.likely) : fmtIn(w72.likely)})</span>
+                </>
+              )}
             </p>
             <dl className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
               <div>
@@ -164,7 +171,7 @@ export function LocationView({ name, lat, lon }: { name: string; lat: number; lo
         <div className="mt-6 grid gap-6 lg:grid-cols-2">
           <WindowsTable snow={s} />
           <div>
-            <h3 className="mb-2 text-sm font-medium text-text-3">By day ({f.location.timezoneAbbr})</h3>
+            <h3 className="mb-2 text-sm font-medium text-text-3">By day ({tz})</h3>
             <ul className="divide-y divide-line">
               {s.daily.map((d) => (
                 <li key={d.date} className="flex items-center justify-between py-2.5 text-sm tabular">
@@ -183,7 +190,7 @@ export function LocationView({ name, lat, lon }: { name: string; lat: number; lo
       </Panel>
 
       <Panel>
-        <PanelTitle aside={`Times in ${f.location.timezoneAbbr}`}>Hour by hour</PanelTitle>
+        <PanelTitle aside={`Times in ${tz}`}>Hour by hour</PanelTitle>
         <HourlyStrip hourly={s.hourly} unit={unit} />
       </Panel>
 

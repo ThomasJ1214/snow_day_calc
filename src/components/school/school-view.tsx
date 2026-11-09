@@ -188,9 +188,7 @@ export function SchoolView({ id }: { id: string }) {
           <div className="min-w-0">
             <p className="text-sm text-text-2">Next 24 hours at this school</p>
             <p className="font-display text-5xl font-extrabold tabular">{fmtIn(w24.likely)}</p>
-            <p className="text-text-2 tabular">
-              Range {fmtIn(w24.low)} to {fmtIn(w24.high)}
-            </p>
+            <p className="text-text-2 tabular">{w24.high === 0 ? "No snow expected" : `Range ${fmtIn(w24.low)} to ${fmtIn(w24.high)}`}</p>
             {(p.forecast.alerts ?? []).length > 0 && (
               <ul className="mt-4 space-y-1 text-sm">
                 {p.forecast.alerts!.map((a) => (
@@ -215,9 +213,9 @@ export function SchoolView({ id }: { id: string }) {
           {p.calendar.upcomingNoSchool.length > 0 ? (
             <ul className="mt-3 divide-y divide-line text-sm">
               {p.calendar.upcomingNoSchool.map((d) => (
-                <li key={d.date} className="flex justify-between gap-3 py-2">
-                  <span className="text-text-2">{fmtDay(d.date)}</span>
-                  <span className="truncate text-right text-text">{d.reason}</span>
+                <li key={d.date} className="flex min-w-0 justify-between gap-3 py-2">
+                  <span className="shrink-0 text-text-2">{fmtDay(d.date)}</span>
+                  <span className="min-w-0 truncate text-right text-text">{d.reason}</span>
                 </li>
               ))}
             </ul>

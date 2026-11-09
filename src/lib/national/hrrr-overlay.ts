@@ -4,10 +4,9 @@ import { lambertIJ } from "@/lib/grib2/decode";
 import { encodePng, inverseMercatorY, mercatorY } from "./raster";
 import { snowColor } from "./scale";
 
-/** Geographic bounds of the rendered overlay (covers the HRRR CONUS domain). */
-export const OVERLAY_BOUNDS = { west: -126, east: -66, south: 23, north: 50 };
-const W = 1200;
-const H = 640;
+import { OVERLAY_BOUNDS } from "./scale";
+const W = 1400;
+const H = 820;
 const cache = new Map<string, Buffer>();
 
 /** Renders HRRR accumulated snowfall (0–lead h) as a Web-Mercator PNG for a MapLibre image source. */

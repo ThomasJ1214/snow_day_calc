@@ -73,8 +73,7 @@ body {
   background:
     radial-gradient(60rem 36rem at 12% -8%, var(--glow-1), transparent 70%),
     radial-gradient(50rem 30rem at 92% 4%, var(--glow-2), transparent 70%),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
-  background-attachment: fixed;
+    linear-gradient(180deg, var(--bg) 0, var(--bg-2) 60rem, var(--bg) 100%);
   font-family: var(--font-sans);
   font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;

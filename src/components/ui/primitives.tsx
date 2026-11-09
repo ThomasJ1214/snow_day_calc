@@ -5,7 +5,7 @@ import type { ComponentProps, ReactNode } from "react";
 export const cn = (...a: Parameters<typeof clsx>) => twMerge(clsx(a));
 
 export function Panel({ className, strong, ...p }: ComponentProps<"section"> & { strong?: boolean }) {
-  return <section className={cn(strong ? "glass-strong" : "glass", "rounded-3xl p-5 sm:p-6", className)} {...p} />;
+  return <section className={cn(strong ? "glass-strong" : "glass", "min-w-0 rounded-3xl p-5 sm:p-6", className)} {...p} />;
 }
 
 export function PanelTitle({ children, aside, className }: { children: ReactNode; aside?: ReactNode; className?: string }) {
