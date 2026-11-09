@@ -104,7 +104,7 @@ export async function fetchDeterministic(lat: number, lon: number): Promise<Resu
   const url =
     `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
     `&hourly=${HOURLY.join(",")}&models=${DETERMINISTIC_MODELS.map((m) => m.id).join(",")}` +
-    `&forecast_days=4&timezone=auto`;
+    `&past_days=1&forecast_days=4&timezone=auto`;
   try {
     const d = await fetchJson<OMResponse>(url, { revalidate: 600, timeoutMs: 15_000 });
     const time = d.hourly.time as string[];
@@ -159,7 +159,7 @@ export async function fetchEnsemble(lat: number, lon: number): Promise<Result<En
   const vars = ["precipitation", "snowfall", "temperature_2m", "relative_humidity_2m", "wind_gusts_10m"];
   const url =
     `https://ensemble-api.open-meteo.com/v1/ensemble?latitude=${lat}&longitude=${lon}` +
-    `&hourly=${vars.join(",")}&models=${ENSEMBLE_MODELS.map((m) => m.id).join(",")}&forecast_days=4&timezone=auto`;
+    `&hourly=${vars.join(",")}&models=${ENSEMBLE_MODELS.map((m) => m.id).join(",")}&past_days=1&forecast_days=4&timezone=auto`;
   try {
     const d = await fetchJson<OMResponse>(url, { revalidate: 900, timeoutMs: 20_000 });
     const time = d.hourly.time as string[];

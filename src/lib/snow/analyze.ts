@@ -32,6 +32,8 @@ export interface HourPoint {
   precipMm: number | null;
   phase: Phase | null;
   iceMm: number;
+  /** True for hours before "now" (model analysis of what likely already fell). */
+  past: boolean;
 }
 
 export interface SnowAnalysis {
@@ -60,6 +62,10 @@ export interface AnalyzeInput {
   elevationM?: number | null;
   /** Preferred deterministic model ids for weather display fields, best first. */
   primaryOrder?: string[];
+  /** Field-wise composite used for temperature/wind/visibility display (not part of the spread). */
+  display?: HourlySeries;
+  /** Include up to this many hours before now in `hourly` (flagged past), e.g. overnight snow already fallen. */
+  lookbackHours?: number;
 }
 
 function phaseAt(s: HourlySeries, i: number, elevationM?: number | null): Phase | null {
@@ -108,7 +114,7 @@ export function analyzeSnow(input: AnalyzeInput): SnowAnalysis {
   const method: SnowAnalysis["method"] = ensemble.length >= 3 ? "ensemble" : "model-spread";
   const members: HourlySeries[] = method === "ensemble" ? ensemble : detIds.map((id) => deterministic[id]);
   const primaryId = (input.primaryOrder ?? []).find((id) => deterministic[id]) ?? detIds[0];
-  const primary: HourlySeries | undefined = primaryId ? deterministic[primaryId] : members[0];
+  const primary: HourlySeries | undefined = input.display ?? (primaryId ? deterministic[primaryId] : members[0]);
 
   const memberSnow = members.map((s) => s.time.map((_, i) => hourlySnowCm(s, i, elevationM)));
   const memberWindows = memberSnow.map((arr) => windowTotals(arr, nowIndex));
@@ -133,11 +139,13 @@ export function analyzeSnow(input: AnalyzeInput): SnowAnalysis {
   const timeline = (primary ?? members[0])?.time ?? [];
   const horizon = Math.max(0, Math.min(HORIZON_HOURS, timeline.length - nowIndex));
   const memberCum = memberSnow.map((arr) => cumulative(arr, nowIndex, horizon));
+  const lookback = Math.min(input.lookbackHours ?? 0, nowIndex);
   const hourly: HourPoint[] = [];
-  for (let h = 0; h < horizon; h++) {
+  for (let h = -lookback; h < horizon; h++) {
     const i = nowIndex + h;
+    const past = h < 0;
     const rates = memberSnow.map((arr) => arr[i]).filter((v): v is number => v != null);
-    const cums = memberCum.map((c) => c[h]).filter((v): v is number => v != null);
+    const cums = past ? [] : memberCum.map((c) => c[h]).filter((v): v is number => v != null);
     const lowP = method === "ensemble" ? 0.1 : 0;
     const highP = method === "ensemble" ? 0.9 : 1;
     hourly.push({
@@ -156,11 +164,13 @@ export function analyzeSnow(input: AnalyzeInput): SnowAnalysis {
       precipMm: primary?.precipMm[i] ?? null,
       phase: primary && (primary.precipMm[i] ?? 0) > 0 ? phaseAt(primary, i, elevationM) : null,
       iceMm: primary ? round(iceMmAt(primary, i, elevationM)) : 0,
+      past,
     });
   }
 
   // Daily totals by local calendar date (the date part of the local time string).
-  const dayKeys = [...new Set(hourly.map((p) => p.time.slice(0, 10)))];
+  const future = hourly.filter((p) => !p.past);
+  const dayKeys = [...new Set(future.map((p) => p.time.slice(0, 10)))];
   const daily = dayKeys.map((date) => {
     const totals = memberSnow
       .map((arr) => {
@@ -185,12 +195,12 @@ export function analyzeSnow(input: AnalyzeInput): SnowAnalysis {
     };
   });
 
-  const snowing = hourly.filter((p) => p.rateLikely >= SNOWING_RATE_CM);
+  const snowing = future.filter((p) => p.rateLikely >= SNOWING_RATE_CM);
   const startTime = snowing[0]?.time ?? null;
   const endTime = snowing.at(-1)?.time ?? null;
   let peakRateCmH = 0;
   let peakTime: string | null = null;
-  for (const p of hourly) {
+  for (const p of future) {
     if (p.rateLikely > peakRateCmH) {
       peakRateCmH = p.rateLikely;
       peakTime = p.time;
@@ -211,7 +221,7 @@ export function analyzeSnow(input: AnalyzeInput): SnowAnalysis {
 
   const transitions: SnowAnalysis["transitions"] = [];
   let last: Phase | null = null;
-  for (const p of hourly) {
+  for (const p of future) {
     if (!p.phase) continue;
     if (last && p.phase !== last) transitions.push({ time: p.time, from: last, to: p.phase });
     last = p.phase;
@@ -233,7 +243,7 @@ export function analyzeSnow(input: AnalyzeInput): SnowAnalysis {
   }
 
   const best = windows["72"].likely > 0 || unavailableWindows.includes("72") ? windows["72"] : windows["24"];
-  const hoursToOnset = startTime ? hourly.findIndex((p) => p.time === startTime) : null;
+  const hoursToOnset = startTime ? future.findIndex((p) => p.time === startTime) : null;
   const confidence = computeConfidence({
     low: best.low,
     likely: best.likely,

@@ -1,8 +1,8 @@
 import { addDays, toMs } from "./dates";
 
-const NO_SCHOOL =
+export const NO_SCHOOL =
   /\b(no school|no classes|no students|schools? closed|district closed|holiday|break|recess|vacation|teacher (work ?day|in-?service|planning)|professional (development|learning)|staff development|in-?service|conference day|records day|non-?student day)\b/i;
-const EXCLUDE = /\b(early (dismissal|release)|half[- ]day|board|meeting|concert|game|practice|deadline|registration|make-?up day)\b/i;
+export const EXCLUDE_NON_CLOSURE = /\b(early (dismissal|release)|half[- ]day|board|meeting|concert|game|practice|deadline|registration|make-?up day|party|celebration|luncheon|dinner|parade|fundraiser)\b/i;
 const MAX_EVENT_DAYS = 31;
 
 function unfold(ics: string): string[] {
@@ -22,7 +22,7 @@ export function parseNoSchoolDays(ics: string): { date: string; summary: string 
     if (line === "BEGIN:VEVENT") ev = {};
     else if (line === "END:VEVENT" && ev) {
       const { start, summary } = ev;
-      if (start && summary && NO_SCHOOL.test(summary) && !EXCLUDE.test(summary)) {
+      if (start && summary && NO_SCHOOL.test(summary) && !EXCLUDE_NON_CLOSURE.test(summary)) {
         let end = ev.end ?? addDays(start, 1);
         if (!ev.allDay && ev.end) end = addDays(ev.end, ev.end === start ? 1 : 0);
         const days = Math.min(MAX_EVENT_DAYS, Math.max(1, Math.round((toMs(end) - toMs(start)) / 86_400_000)));

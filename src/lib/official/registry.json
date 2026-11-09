@@ -1,7 +1,27 @@
 {
-  "generatedAt": "2026-11-09T17:39:27.536Z",
+  "generatedAt": "2026-11-09T17:50:17.293Z",
   "description": "Districts whose official website publishes a machine-readable RSS/Atom news feed, discovered and validated by scripts/discover-feeds.ts. Only these are verified automatically.",
   "districts": [
+    {
+      "leaid": "3410650",
+      "name": "Montville Township School District",
+      "state": "NJ",
+      "website": "https://www.montville.net",
+      "feeds": [
+        {
+          "type": "apptegy",
+          "url": "https://www.montville.net",
+          "label": "Official district alert banner & news (montville.net)",
+          "parentOrgId": 3526,
+          "orgId": 14160
+        }
+      ],
+      "apptegyCalendar": {
+        "parentOrgId": 3526,
+        "orgId": 14160
+      },
+      "notes": "Verified 2026-11-09: alert banners carry the district's weather closure/delay announcements (e.g. 2025-02-06, 2025-12-23, 2026-01-26, 2026-02-23 closures)."
+    },
     {
       "leaid": "0200300",
       "name": "Hoonah City School District",
@@ -22,6 +42,642 @@
         {
           "type": "rss",
           "url": "https://www.kibsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0100690",
+      "name": "Choctaw County",
+      "state": "AL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.choctawal.org/feed/rss2",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0101620",
+      "name": "Gadsden City",
+      "state": "AL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.gcs.k12.al.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0504080",
+      "name": "CEDARVILLE SCHOOL DISTRICT",
+      "state": "AR",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://soft-club.org/posts.rss",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0506150",
+      "name": "FLIPPIN SCHOOL DISTRICT",
+      "state": "AR",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://soft-club.org/posts.rss",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0507110",
+      "name": "GURDON SCHOOL DISTRICT",
+      "state": "AR",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://soft-club.org/posts.rss",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0503420",
+      "name": "LEAD HILL SCHOOL DISTRICT",
+      "state": "AR",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://soft-club.org/posts.rss",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0510440",
+      "name": "NETTLETON SCHOOL DISTRICT",
+      "state": "AR",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://soft-club.org/posts.rss",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0400480",
+      "name": "Aguila Elementary District (4249)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.aguilaschool.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0400520",
+      "name": "Ajo Unified District (4409)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.ajoschools.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0404770",
+      "name": "Altar Valley Elementary District (4418)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.altarvalleyschools.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0400840",
+      "name": "Arlington Elementary District (4274)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "http://arlingtonelem.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0400870",
+      "name": "Ash Creek Elementary District (4187)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://ashcreekschool.wordpress.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0403950",
+      "name": "Baboquivari Unified School District #40 (4412)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.busd40.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0402790",
+      "name": "Eloy Elementary District (4448)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.eloyesd.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0403290",
+      "name": "Ganado Unified School District (4157)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.ganado.k12.az.us/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0400026",
+      "name": "Heber-Overgaard Unified District (4392)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.heberovergaardschools.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0404320",
+      "name": "Liberty Elementary District (4266)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://liberty25.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0404530",
+      "name": "Maine Consolidated School District (4199)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://mcsd10.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0405220",
+      "name": "Mohawk Valley Elementary District (4503)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.mohawkvalleyschool.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0406630",
+      "name": "Pomerene Elementary District (4188)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.pomereneschool.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0406810",
+      "name": "Queen Creek Unified District (4245)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.qcusd.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0407020",
+      "name": "Riverside Elementary District (4257)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.resdonline.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0407500",
+      "name": "Santa Cruz Elementary District (4459)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.sced28.com/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0407530",
+      "name": "Santa Cruz Valley Union High School District (4454)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.scvuhs.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0407920",
+      "name": "Sonoita Elementary District (4461)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.elgink12.com/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0408520",
+      "name": "Tolleson Union High School District (4288)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.tuhsd.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0409250",
+      "name": "Willcox Unified District (4170)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.wusd13.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0409540",
+      "name": "Young Elementary District (4213)",
+      "state": "AZ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.youngschool.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0602610",
+      "name": "Anaheim Elementary",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://anaheimelementary.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0603720",
+      "name": "Ballard Elementary",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://ballardschool.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0604620",
+      "name": "Benicia Unified",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://beniciaunified.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0604740",
+      "name": "Berkeley Unified",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.berkeleyschools.net/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0604860",
+      "name": "Big Creek Elementary",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.bigcreekschool.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0606000",
+      "name": "Bridgeville Elementary",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.bridgevilleschool.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0607200",
+      "name": "Campbell Union",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.campbellusd.org/newsfeed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0600009",
+      "name": "Cuyama Joint Unified",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "http://www.cuyamaunified.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0611610",
+      "name": "Dunham Elementary",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://dunhamsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0613500",
+      "name": "Fallbrook Union Elementary",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.fuesd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0614010",
+      "name": "Forestville Union Elementary",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://forestvilleusd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0615000",
+      "name": "General Shafter Elementary",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://generalshafter.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0617520",
+      "name": "Hope Elementary",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.hope-esd.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0617760",
+      "name": "Howell Mountain Elementary",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.hmesd.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0620250",
+      "name": "La Mesa-Spring Valley",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.lmsvschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0620790",
+      "name": "Lakeside Union Elementary",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.lsusd.net/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0624000",
+      "name": "Mark West Union Elementary",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://mwusd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0624720",
+      "name": "Mesa Union Elementary",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://mesaschool.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0626910",
+      "name": "New Haven Unified",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://mynhusd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0631400",
+      "name": "Potter Valley Community Unified",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.pottervalleyschools.us/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0691036",
+      "name": "Santa Cruz County Office of Education",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://santacruzcoe.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0635970",
+      "name": "Saugus Union",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.saugususd.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0637290",
+      "name": "Soquel Union Elementary",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.suesd.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0601415",
+      "name": "Washington Unified",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.washingtonunified.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0642420",
+      "name": "Whitmore Union Elementary",
+      "state": "CA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://whitmoreelementary.org/feed/",
           "label": "District news feed"
         }
       ]
@@ -202,6 +858,606 @@
         {
           "type": "rss",
           "url": "https://www.sussexvt.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1201740",
+      "name": "ST. JOHNS",
+      "state": "FL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.stjohns.k12.fl.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1201770",
+      "name": "ST. LUCIE",
+      "state": "FL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.stlucie.k12.fl.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1202010",
+      "name": "WASHINGTON",
+      "state": "FL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.wcsdschools.com/?a=RSS.Feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1302610",
+      "name": "Hall County",
+      "state": "GA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.hallco.org/web/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1903300",
+      "name": "Alburnett Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://alburnettcsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1903540",
+      "name": "Ames Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://amescsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1904200",
+      "name": "Ballard Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://ballard.k12.ia.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1904440",
+      "name": "BCLUW Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.bcluw.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1905790",
+      "name": "Burlington Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://bcsds.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1906660",
+      "name": "Center Point-Urbana Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://cpuschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1906750",
+      "name": "Centerville Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.centervilleschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1906900",
+      "name": "Central Decatur Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://centraldecatur.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1913350",
+      "name": "Clayton Ridge Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.claytonridgeschools.com/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1900009",
+      "name": "Colfax-Mingo Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://colfaxmingo.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1907860",
+      "name": "College Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.crprairie.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1908520",
+      "name": "Dallas Center-Grimes Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://dcgschools.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1908730",
+      "name": "Decorah Community School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://decorah.k12.ia.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1909480",
+      "name": "Dubuque Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.dbqschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1912480",
+      "name": "George-Little Rock Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://george-littlerock.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1912510",
+      "name": "Gilbert Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://gilbertcsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1914640",
+      "name": "Indianola Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.indianola.k12.ia.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1915450",
+      "name": "Johnston Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.johnstoncsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1915630",
+      "name": "Keokuk Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://keokukschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1916110",
+      "name": "Lake Mills Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.lake-mills.k12.ia.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1918780",
+      "name": "Mason City Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://masoncityschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1919200",
+      "name": "Midland Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.midland.k12.ia.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1918840",
+      "name": "MOC-Floyd Valley Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://mocfv.org/index.php/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1919650",
+      "name": "Monticello Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.monticello.k12.ia.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1919890",
+      "name": "Mount Pleasant Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://mtpcsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1920040",
+      "name": "Mount Vernon Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://mvcsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1920100",
+      "name": "Murray Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.murraycsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1920130",
+      "name": "Muscatine Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.muscatine.k12.ia.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1920250",
+      "name": "Nevada Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.nevadacubs.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1920610",
+      "name": "Newton Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.newtoncsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1917100",
+      "name": "North Cedar Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.north-cedar.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1900006",
+      "name": "North Fayette Valley Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.nfvschools.com/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1905750",
+      "name": "North Iowa Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.northiowa.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1920850",
+      "name": "North Mahaska Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://nmwarhawks.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1921240",
+      "name": "Norwalk Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.norwalkschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1921840",
+      "name": "Osage Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.osageschools.com/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1922470",
+      "name": "Pella Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.pellaschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1923340",
+      "name": "Postville Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.postvilleschools.com/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1924150",
+      "name": "Riceville Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.riceville.k12.ia.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1926790",
+      "name": "South Winneshiek Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.southwinn.com/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1900022",
+      "name": "Union Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.union.k12.ia.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1928680",
+      "name": "Urbandale Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://urbandaleschools.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1930510",
+      "name": "Waukee Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.waukeeschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1930900",
+      "name": "West Delaware County Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://w-delaware.k12.ia.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1931080",
+      "name": "West Marshall Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://wmcsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1931830",
+      "name": "Winfield-Mt Union Comm School District",
+      "state": "IA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://wmucsd.org/rss.xml",
           "label": "District news feed"
         }
       ]
@@ -406,6 +1662,3642 @@
         {
           "type": "rss",
           "url": "https://windsorcusd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1802610",
+      "name": "Decatur County Community Schools",
+      "state": "IN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.decaturco.k12.in.us/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1803150",
+      "name": "Eastern Howard School Corporation",
+      "state": "IN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.eastern.k12.in.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1803810",
+      "name": "Frontier School Corporation",
+      "state": "IN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://frontierschoolsin.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1804050",
+      "name": "Greenfield-Central Com Schools",
+      "state": "IN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.gcsc.k12.in.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1805190",
+      "name": "Jennings County School Corporation",
+      "state": "IN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.jcsc.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1810680",
+      "name": "Lewis Cass Schools",
+      "state": "IN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.lewiscass.net/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1807080",
+      "name": "Monroe Central School Corp",
+      "state": "IN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://monroecentral.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1806510",
+      "name": "MSD Martinsville Schools",
+      "state": "IN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://msdofmartinsville.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1807560",
+      "name": "New Prairie United School Corp",
+      "state": "IN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.npusc.k12.in.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1808760",
+      "name": "Penn-Harris-Madison School Corp",
+      "state": "IN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.phmschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1808820",
+      "name": "Perry Township Schools",
+      "state": "IN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.perryschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1811430",
+      "name": "Tri-County School Corporation",
+      "state": "IN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.trico.k12.in.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1812150",
+      "name": "Wabash City Schools",
+      "state": "IN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.apaches.k12.in.us/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1813230",
+      "name": "Whitko Community School Corp",
+      "state": "IN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://whitko.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2003720",
+      "name": "Baldwin City",
+      "state": "KS",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.usd348.com/?dl_name=rss",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2003870",
+      "name": "Beloit",
+      "state": "KS",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.usd273.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2004620",
+      "name": "Chapman",
+      "state": "KS",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://usd473.net/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2004710",
+      "name": "Cherokee",
+      "state": "KS",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://usd247.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2004020",
+      "name": "Otis-Bison",
+      "state": "KS",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.usd403.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2100270",
+      "name": "Bardstown Independent",
+      "state": "KY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://bardstown.kyschools.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2101320",
+      "name": "Corbin Independent",
+      "state": "KY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.corbinschools.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2503360",
+      "name": "Carver",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://carver.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2503510",
+      "name": "Chelmsford",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://chelmsfordschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2509090",
+      "name": "Edgartown",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://mvyps.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2505220",
+      "name": "Georgetown",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://georgetown.k12.ma.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2505270",
+      "name": "Gill-Montague",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.gmrsd.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2505490",
+      "name": "Greenfield",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://gpsk12.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2505580",
+      "name": "Hadley",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.hadleyschools.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2506510",
+      "name": "King Philip",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.kingphilip.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2500036",
+      "name": "Ma Academy for Math and Science",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.massacademy.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2507380",
+      "name": "Martha's Vineyard",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://mvrhs.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2508040",
+      "name": "Monson",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.monsonschools.com/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2508760",
+      "name": "North Brookfield",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://nbschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2504650",
+      "name": "Oak Bluffs",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://mvyps.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2509140",
+      "name": "Old Colony Regional Vocational Technical",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://oldcolony.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2509360",
+      "name": "Peabody",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://peabody.k12.ma.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2510380",
+      "name": "Salem",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://salemk12.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2510890",
+      "name": "Somerville",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.somerville.k12.ma.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2511580",
+      "name": "Tewksbury",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.tewksbury.k12.ma.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2512570",
+      "name": "Tisbury",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://mvyps.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2500043",
+      "name": "Up-Island Regional",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://mvyps.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2512270",
+      "name": "Wellesley",
+      "state": "MA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://wellesleyps.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2400030",
+      "name": "Allegany County Public Schools",
+      "state": "MD",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://acpsmd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2303980",
+      "name": "Carrabassett Valley Public Schools",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://carrabassettvalley.gov/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2300062",
+      "name": "East Machias Public Schools",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.aos96.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2314818",
+      "name": "Eustis Public Schools",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.strattonschool.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2306900",
+      "name": "Jonesboro Public Schools",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.aos96.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2307710",
+      "name": "Machias Public Schools",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.aos96.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2300067",
+      "name": "Machiasport Public Schools",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.aos96.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2307980",
+      "name": "Marshfield Public Schools",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.aos96.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2314530",
+      "name": "MSAD 46",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.aos94.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2308580",
+      "name": "Nashville Plt Public Schools",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.sad32.org/?feed=rss2",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2309090",
+      "name": "Northfield Public Schools",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.aos96.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2314810",
+      "name": "Portage Lake Public Schools",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.sad32.org/?feed=rss2",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2310320",
+      "name": "Roque Bluffs Public Schools",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.aos96.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2310710",
+      "name": "RSU 15/MSAD 15",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://msad15.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2314779",
+      "name": "RSU 18",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://rsu18.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2314784",
+      "name": "RSU 23",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://rsu23.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2311280",
+      "name": "RSU 32/MSAD 32",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.sad32.org/?feed=rss2",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2314560",
+      "name": "RSU 59/MSAD 59",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.msad59.org/feed/rss2",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2314700",
+      "name": "RSU 60/MSAD 60",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.rsu60.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2313500",
+      "name": "Wesley Public Schools",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.aos96.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2300068",
+      "name": "Whiting Public Schools",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.aos96.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2313710",
+      "name": "Whitneyville Public Schools",
+      "state": "ME",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.aos96.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2602220",
+      "name": "Allegan Public Schools",
+      "state": "MI",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://alleganps.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2603660",
+      "name": "AuTrain-Onota Public Schools",
+      "state": "MI",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "http://www.autrainonota.com/feeds/posts/default",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2607170",
+      "name": "Buckley Community Schools",
+      "state": "MI",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.buckleyschools.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2611600",
+      "name": "Dearborn City School District",
+      "state": "MI",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://dearbornschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2614700",
+      "name": "Fowler Public Schools",
+      "state": "MI",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://fowlerschools.net/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2617640",
+      "name": "Hanover-Horton School District",
+      "state": "MI",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.hanoverhorton.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2617760",
+      "name": "Harper Woods The School District of the City of",
+      "state": "MI",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.hwschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2620010",
+      "name": "Kaleva Norman Dickson School District",
+      "state": "MI",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://wordpress.com/blog/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2622410",
+      "name": "Manistee Area Public Schools",
+      "state": "MI",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.manisteemariners.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2623520",
+      "name": "Mendon Community School District",
+      "state": "MI",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://mendonschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2625560",
+      "name": "Niles Community Schools",
+      "state": "MI",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://nilesschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2635910",
+      "name": "West Ottawa Public School District",
+      "state": "MI",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.westottawa.net/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2636480",
+      "name": "Wolverine Community School District",
+      "state": "MI",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.wolverineschools.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2705760",
+      "name": "Blooming Prairie Public Schools",
+      "state": "MN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://blossoms.k12.mn.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2707380",
+      "name": "CALEDONIA PUBLIC SCHOOL DISTRICT",
+      "state": "MN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.cps.k12.mn.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2700150",
+      "name": "CLINTON-GRACEVILLE-BEARDSLEY",
+      "state": "MN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.graceville.k12.mn.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2714070",
+      "name": "HINCKLEY-FINLAYSON SCHOOL DISTRICT",
+      "state": "MN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.hf.k12.mn.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2714970",
+      "name": "HUTCHINSON PUBLIC SCHOOL DISTRICT",
+      "state": "MN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.isd423.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2740740",
+      "name": "LAKE SUPERIOR PUBLIC SCHOOL DIST.",
+      "state": "MN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.isd381.k12.mn.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2717940",
+      "name": "Laporte Public School District",
+      "state": "MN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.laporte.k12.mn.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2718570",
+      "name": "MADELIA PUBLIC SCHOOL DISTRICT",
+      "state": "MN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.madelia.k12.mn.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2720580",
+      "name": "MENAHGA PUBLIC SCHOOL DISTRICT",
+      "state": "MN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.menahga.k12.mn.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2720670",
+      "name": "MILACA PUBLIC SCHOOL DISTRICT",
+      "state": "MN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.milaca.k12.mn.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2733720",
+      "name": "NETT LAKE PUBLIC SCHOOL DISTRICT",
+      "state": "MN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.nettlakeschool.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2723880",
+      "name": "NORTHFIELD PUBLIC SCHOOL DISTRICT",
+      "state": "MN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://northfieldschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2730480",
+      "name": "Red Wing Public School District",
+      "state": "MN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.redwing.k12.mn.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2700466",
+      "name": "Rock Ridge Public Schools",
+      "state": "MN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://rrps.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2700102",
+      "name": "SIBLEY EAST SCHOOL DISTRICT",
+      "state": "MN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.sibleyeast.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2733210",
+      "name": "SLEEPY EYE PUBLIC SCHOOL DISTRICT",
+      "state": "MN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.sleepyeyeschools.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2791446",
+      "name": "TRI-COUNTY SCHOOL DISTRICT",
+      "state": "MN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://tricounty.k12.mn.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2791449",
+      "name": "WIN-E-MAC SCHOOL DISTRICT",
+      "state": "MN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://wemschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2905850",
+      "name": "BRECKENRIDGE R-I",
+      "state": "MO",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://breckenridger1.org/wordpress/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2905940",
+      "name": "BROOKFIELD R-III",
+      "state": "MO",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.brookfieldr3.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2908400",
+      "name": "CENTRALIA R-VI",
+      "state": "MO",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://cr6.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2911340",
+      "name": "ELDON R-I",
+      "state": "MO",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://eldonmustangs.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2925500",
+      "name": "POTOSI R-III",
+      "state": "MO",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://potosir3.org/index.php/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2931230",
+      "name": "RICHWOODS R-VII",
+      "state": "MO",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.richwoodsr7.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2927900",
+      "name": "SENECA R-VII",
+      "state": "MO",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.senecar7.com/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2932300",
+      "name": "WORTH CO. R-III",
+      "state": "MO",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.wc.k12.mo.us/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2803120",
+      "name": "NEW ALBANY PUBLIC SCHOOLS",
+      "state": "MS",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.newalbanyschools.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2803720",
+      "name": "POPLARVILLE SEPARATE SCHOOL DIST",
+      "state": "MS",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://poplarvilleschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2803870",
+      "name": "RICHTON SCHOOL DIST",
+      "state": "MS",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.richtonschools.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "2804110",
+      "name": "SOUTH TIPPAH SCHOOL DIST",
+      "state": "MS",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://southtippahschools.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3003820",
+      "name": "Bigfork Elem",
+      "state": "MT",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://bigforkschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3003840",
+      "name": "Bigfork H S",
+      "state": "MT",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://bigforkschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3008880",
+      "name": "DeSmet Elem",
+      "state": "MT",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://desmetschool.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3025500",
+      "name": "Swan River Elem",
+      "state": "MT",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://swanriverschool.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3028830",
+      "name": "Yaak Elem",
+      "state": "MT",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://yaakschool.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3028860",
+      "name": "Yellowstone Academy Elem",
+      "state": "MT",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.ybgr.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3702100",
+      "name": "Henderson County Schools",
+      "state": "NC",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.hendersoncountypublicschoolsnc.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3806090",
+      "name": "ELLENDALE 40",
+      "state": "ND",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.ellendale.k12.nd.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3812720",
+      "name": "MENOKEN 33",
+      "state": "ND",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "http://www.menokenelementaryschool.com/feeds/posts/default",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3813230",
+      "name": "MONTPELIER 14",
+      "state": "ND",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "http://www.montpelier.k12.nd.us/?feed=rss2",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3800015",
+      "name": "NAUGHTON 25",
+      "state": "ND",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://naughtonschoolnd.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3817760",
+      "name": "STERLING 35",
+      "state": "ND",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.sterlingschoolnd.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3817910",
+      "name": "SURREY 41",
+      "state": "ND",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.surrey.k12.nd.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3302550",
+      "name": "Croydon School District",
+      "state": "NH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://croydonsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3401890",
+      "name": "Bloomsbury Borough School District",
+      "state": "NJ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://bburyes.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3402220",
+      "name": "Brick Township Public School District",
+      "state": "NJ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.brickschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3403390",
+      "name": "Closter Public School District",
+      "state": "NJ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.closterschools.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3405400",
+      "name": "Franklin Borough School District",
+      "state": "NJ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://fboe.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3406390",
+      "name": "Haddonfield School District",
+      "state": "NJ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://haddonfieldschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3407680",
+      "name": "Irvington Public School District",
+      "state": "NJ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://irvington.k12.nj.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3408160",
+      "name": "Lakehurst School District",
+      "state": "NJ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://lakehurstschool.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3408280",
+      "name": "Laurel Springs School District",
+      "state": "NJ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.laurelspringschool.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3408430",
+      "name": "Lebanon Borough School District",
+      "state": "NJ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.lebanonschool.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3410020",
+      "name": "Middle Township Public School District",
+      "state": "NJ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://middletownshippublicschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3411340",
+      "name": "Newark Public School District",
+      "state": "NJ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.nps.k12.nj.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3411610",
+      "name": "North Hunterdon-Voorhees Regional High School District",
+      "state": "NJ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.nhvweb.net/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3412090",
+      "name": "Ocean Township School District",
+      "state": "NJ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://otsdk6.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3412720",
+      "name": "Paulsboro School District",
+      "state": "NJ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://paulsboroschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3414460",
+      "name": "Rutherford School District",
+      "state": "NJ",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.rutherfordschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3500270",
+      "name": "CAPITAN",
+      "state": "NM",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.capitantigers.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3200021",
+      "name": "Davidson Academy",
+      "state": "NV",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.davidsonacademy.unr.edu/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3600016",
+      "name": "AVERILL PARK CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.averillpark.k12.ny.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3604620",
+      "name": "BERLIN CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://berlincentral.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3604650",
+      "name": "BERNE-KNOX-WESTERLO CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.bkwschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3604710",
+      "name": "BETHLEHEM CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.bethlehemschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3601189",
+      "name": "BOQUET VALLEY CSD",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://boquetvalleycsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3605940",
+      "name": "BURNT HILLS-BALLSTON LAKE CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.bhbl.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3606210",
+      "name": "CAMBRIDGE CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.cambridgecsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3606720",
+      "name": "CATSKILL CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://catskillcsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3607170",
+      "name": "CHAZY UNION FREE SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://ccrsk12.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3607980",
+      "name": "COHOES CITY SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.cohoes.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3608610",
+      "name": "CROWN POINT CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://cpcsteam.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3609360",
+      "name": "DUANESBURG CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.duanesburg.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3609630",
+      "name": "EAST GREENBUSH CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://egcsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3600003",
+      "name": "EDWARDS-KNOX CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.ekcsk12.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3618330",
+      "name": "FAYETTEVILLE-MANLIUS CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.fmschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3611190",
+      "name": "FONDA-FULTONVILLE CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.fondafultonvilleschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3611370",
+      "name": "FORT PLAIN CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.fortplain.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3612390",
+      "name": "GOWANDA CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://gowcsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3612660",
+      "name": "GREEN ISLAND UNION FREE SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.greenisland.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3613080",
+      "name": "GUILDERLAND CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.guilderlandschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3613770",
+      "name": "HARRISVILLE CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.hcsk12.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3614220",
+      "name": "HERKIMER CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.herkimercsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3614730",
+      "name": "HOOSIC VALLEY CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://hoosicvalley.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3614820",
+      "name": "HORNELL CITY SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://hornellcityschools.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3614940",
+      "name": "HUDSON CITY SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.hudsoncsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3609090",
+      "name": "JAMESVILLE-DEWITT CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.jamesvilledewitt.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3615980",
+      "name": "JOHNSTOWN CITY SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.johnstownschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3615210",
+      "name": "KINDERHOOK CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.ichabodcrane.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3616470",
+      "name": "LAKE GEORGE CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.lkgeorge.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3617220",
+      "name": "LIBERTY CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.libertyk12.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3618750",
+      "name": "MAYFIELD CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.mayfieldk12.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3618990",
+      "name": "MENANDS UNION FREE SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.menands.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3619260",
+      "name": "MIDDLEBURGH CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.middleburghcsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3619740",
+      "name": "MONTICELLO CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.monticelloschools.net/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3619830",
+      "name": "MORIAH CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://moriahk12.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3620430",
+      "name": "NEW LEBANON CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.newlebanoncsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3620880",
+      "name": "NISKAYUNA CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.niskayunaschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3621300",
+      "name": "NORTHVILLE CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.northvillecsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3621660",
+      "name": "OGDENSBURG CITY SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.ogdensburgk12.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3623010",
+      "name": "PINE BUSH CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.pinebushschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3623370",
+      "name": "POLAND CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.polandcs.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3623970",
+      "name": "PUTNAM CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.putnamcsd.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3624000",
+      "name": "PUTNAM VALLEY CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://pvcsd.org/index.php/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3600004",
+      "name": "ROTTERDAM-MOHONASEN CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.mohonasen.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3625500",
+      "name": "SALMON RIVER CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.srk12.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3625770",
+      "name": "SARATOGA SPRINGS CITY SD",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.saratogaschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3625980",
+      "name": "SCHALMONT CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.schalmont.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3626070",
+      "name": "SCHODACK CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.schodack.k12.ny.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3626100",
+      "name": "SCHOHARIE CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.schoharieschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3626160",
+      "name": "SCHUYLERVILLE CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.schuylervilleschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3626580",
+      "name": "SHARON SPRINGS CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.sharonsprings.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3628110",
+      "name": "STILLWATER CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.scsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3628890",
+      "name": "TRI-VALLEY CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.trivalleycsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3628950",
+      "name": "TROY CITY SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.troycsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3619680",
+      "name": "VALLEY CENTRAL SCHOOL DISTRICT (MONTGOMERY)",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.vcsd.k12.ny.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3629670",
+      "name": "VOORHEESVILLE CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.voorheesville.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3629760",
+      "name": "WAINSCOTT COMMON SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://wainscottschool.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3630210",
+      "name": "WATERVLIET CITY SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.watervlietcityschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3631500",
+      "name": "WILLSBORO CENTRAL SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://willsborocsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3631830",
+      "name": "WYNANTSKILL UNION FREE SCHOOL DISTRICT",
+      "state": "NY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.wynantskillufsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3904390",
+      "name": "East Cleveland City School District",
+      "state": "OH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://eastclevelandschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3904977",
+      "name": "Fairlawn Local",
+      "state": "OH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.fairlawn.k12.oh.us/?feed=rss2",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3904733",
+      "name": "Finneytown Local",
+      "state": "OH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://finneytown.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3904884",
+      "name": "Franklin Local",
+      "state": "OH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.franklinlocalschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3904406",
+      "name": "Girard City School District",
+      "state": "OH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.girardcityschools.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3904979",
+      "name": "Hardin-Houston Local",
+      "state": "OH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://hardinhouston.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3904701",
+      "name": "Hilliard City",
+      "state": "OH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.hilliardschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3910025",
+      "name": "Kenton City",
+      "state": "OH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.kentoncityschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3905043",
+      "name": "Kings Local",
+      "state": "OH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.kingslocal.net/pages/district-blog/rss.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3904943",
+      "name": "Lexington Local",
+      "state": "OH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.lexington.k12.oh.us/index.php?format=feed&type=rss",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3904422",
+      "name": "Lima City",
+      "state": "OH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.limacityschools.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3904776",
+      "name": "Oak Hill Union Local",
+      "state": "OH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.oakhill.k12.oh.us/?format=feed&type=rss",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3904921",
+      "name": "Rootstown Local",
+      "state": "OH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.roversk12.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3910009",
+      "name": "Shelby City",
+      "state": "OH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://shelbyk12.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3904709",
+      "name": "Swanton Local",
+      "state": "OH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://swantonschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3904739",
+      "name": "Three Rivers Local",
+      "state": "OH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.threeriversschools.org/pages/district-blog/rss.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3904926",
+      "name": "Tri-County North Local",
+      "state": "OH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://soft-club.org/posts.rss",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3904499",
+      "name": "Warren City",
+      "state": "OH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.warrencityschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "3904769",
+      "name": "West Holmes Local",
+      "state": "OH",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://westholmes.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4004500",
+      "name": "BIXBY",
+      "state": "OK",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://soft-club.org/posts.rss",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4022950",
+      "name": "LOMEGA",
+      "state": "OK",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://lomega.k12.ok.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4019860",
+      "name": "MIAMI",
+      "state": "OK",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://miamiwardogs.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4032790",
+      "name": "WILBURTON",
+      "state": "OK",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://wilburtondiggers.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4101230",
+      "name": "Amity SD 4J",
+      "state": "OR",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.amity.k12.or.us/news/rss.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4101590",
+      "name": "Ashwood SD 8",
+      "state": "OR",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://ashwood.k12.or.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4101830",
+      "name": "Banks SD 13",
+      "state": "OR",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.banks.k12.or.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4102190",
+      "name": "Black Butte SD 41",
+      "state": "OR",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.blackbutte.k12.or.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4102910",
+      "name": "Central Linn SD 552",
+      "state": "OR",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.centrallinn.k12.or.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4108010",
+      "name": "McMinnville SD 40",
+      "state": "OR",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.msd.k12.or.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4108430",
+      "name": "Monroe SD 1J",
+      "state": "OR",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://monroe.k12.or.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4108650",
+      "name": "Neah-Kah-Nie SD 56",
+      "state": "OR",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://nknsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4109510",
+      "name": "Pendleton SD 16",
+      "state": "OR",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://pendleton.k12.or.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4111220",
+      "name": "Sheridan SD 48J",
+      "state": "OR",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.sheridan.k12.or.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4111290",
+      "name": "Sherwood SD 88J",
+      "state": "OR",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://sherwood.k12.or.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4111970",
+      "name": "Sweet Home SD 55",
+      "state": "OR",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://shsd55or.gov/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4203870",
+      "name": "Blue Mountain SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.bmsd.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4206390",
+      "name": "Commodore Perry SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://cppanthers.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4207050",
+      "name": "Cranberry Area SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.cranberrysd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4208550",
+      "name": "East Penn SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.eastpennsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4209660",
+      "name": "Fannett-Metal SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://fmtigers.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4208280",
+      "name": "Forest Area SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.forestareaschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4212420",
+      "name": "Jenkintown SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://jenkintowndrakes.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4212480",
+      "name": "Jersey Shore Area SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.jsasd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4212630",
+      "name": "Juniata Valley SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.jvsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4212660",
+      "name": "Kane Area SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://kane.rst7.rschooltoday.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4213020",
+      "name": "Lake-Lehman SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.llsd.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4213320",
+      "name": "Laurel Highlands SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.lhsd.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4214310",
+      "name": "Loyalsock Township SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.ltsd.k12.pa.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4214580",
+      "name": "Manheim Township SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.mtwp.net/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4215750",
+      "name": "Montoursville Area SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.montoursville.k12.pa.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4216020",
+      "name": "Mount Union Area SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.muasd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4216440",
+      "name": "Neshannock Township SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.ntsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4216620",
+      "name": "New Castle Area SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.ncasd.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4218210",
+      "name": "Oswayo Valley SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://oswayovalley.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4213770",
+      "name": "Penn Cambria SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.pcam.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4218630",
+      "name": "Penn Manor SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.pennmanor.net/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4218990",
+      "name": "Philadelphia City SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.philasd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4219530",
+      "name": "Port Allegany SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.pasdedu.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4221120",
+      "name": "Selinsgrove Area SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.seal-pa.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4221810",
+      "name": "Solanco SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.solancosd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4222320",
+      "name": "Southern Huntingdon County SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://shcsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4223490",
+      "name": "Titusville Area SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.gorockets.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4224360",
+      "name": "Upper Dauphin Area SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://udasd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4226520",
+      "name": "Wilmington Area SD",
+      "state": "PA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.wasd.school/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4502310",
+      "name": "Greenville 01",
+      "state": "SC",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.greenville.k12.sc.us/rss.asp",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4607950",
+      "name": "Brandon Valley School District 49-2",
+      "state": "SD",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.alliancecom.net/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4630800",
+      "name": "Hamlin School District 28-3",
+      "state": "SD",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://hamlinchargers.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4609300",
+      "name": "Harding County School District 31-1",
+      "state": "SD",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://hardingcounty.k12.sd.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4700750",
+      "name": "Cocke County",
+      "state": "TN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://cockecountyschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4701590",
+      "name": "Hamilton County",
+      "state": "TN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://hcde.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4701620",
+      "name": "Hancock County",
+      "state": "TN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://hancockcountyschools.com/f.atom",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4701770",
+      "name": "Haywood County",
+      "state": "TN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://haywoodschools.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4702340",
+      "name": "Lawrence County",
+      "state": "TN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.lcss.us/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4703030",
+      "name": "Montgomery County",
+      "state": "TN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.cmcss.net/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4703240",
+      "name": "Oak Ridge",
+      "state": "TN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.ortn.edu/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4704100",
+      "name": "Trenton",
+      "state": "TN",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://trentonssd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4808700",
+      "name": "ARLINGTON ISD",
+      "state": "TX",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.aisd.net/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4811070",
+      "name": "BRACKETT ISD",
+      "state": "TX",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.brackettisd.net/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4813200",
+      "name": "CAYUGA ISD",
+      "state": "TX",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.cayugaisd.com/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4824840",
+      "name": "JOHNSON CITY ISD",
+      "state": "TX",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://soft-club.org/posts.rss",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4827030",
+      "name": "LEANDER ISD",
+      "state": "TX",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.leanderisd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4831760",
+      "name": "MOUNT PLEASANT ISD",
+      "state": "TX",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.mpisd.net/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4838430",
+      "name": "SABINAL ISD",
+      "state": "TX",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.sabinalisd.net/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4844520",
+      "name": "WALNUT SPRINGS ISD",
+      "state": "TX",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.walnutspringsisd.net/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4800291",
+      "name": "WINDHAM SCHOOL DISTRICT",
+      "state": "TX",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://wsdtx.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4846770",
+      "name": "ZEPHYR ISD",
+      "state": "TX",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://zephyrisd.net/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4900360",
+      "name": "Granite District",
+      "state": "UT",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.graniteschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4900420",
+      "name": "Jordan District",
+      "state": "UT",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://feeds.feedburner.com/jordandistrict",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4900660",
+      "name": "North Sanpete District",
+      "state": "UT",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.nsanpete.org/feed/rss2",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4900990",
+      "name": "South Summit District",
+      "state": "UT",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.ssummit.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "4901110",
+      "name": "Wasatch District",
+      "state": "UT",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://wasatch.edu/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "5100270",
+      "name": "Arlington County Public Schools",
+      "state": "VA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.apsva.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "5100660",
+      "name": "Caroline County Public Schools",
+      "state": "VA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.ccps.us/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "5300990",
+      "name": "Castle Rock School District",
+      "state": "WA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.crschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "5301200",
+      "name": "Lake Chelan School District",
+      "state": "WA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.chelanschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "5304620",
+      "name": "Lynden School District",
+      "state": "WA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://lynden.wednet.edu/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "5305010",
+      "name": "Meridian School District",
+      "state": "WA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.meridian.wednet.edu/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "5306360",
+      "name": "Orient School District",
+      "state": "WA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://orientsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "5300015",
+      "name": "Washington Center for Deaf and Hard of Hearing Youth",
+      "state": "WA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.cdhy.wa.gov/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "5309540",
+      "name": "Washougal School District",
+      "state": "WA",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.washougal.k12.wa.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "5501650",
+      "name": "Brighton #1 School District",
+      "state": "WI",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.brightonschool.net/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "5509300",
+      "name": "North Lake School District",
+      "state": "WI",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://northlakeschool.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "5511640",
+      "name": "Pewaukee School District",
+      "state": "WI",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.pewaukeeschools.org/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "5604060",
+      "name": "Lincoln County School District #2",
+      "state": "WY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://lcsd2.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "5605695",
+      "name": "Sheridan County School District #2",
+      "state": "WY",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://scsd2.com/feed",
           "label": "District news feed"
         }
       ]

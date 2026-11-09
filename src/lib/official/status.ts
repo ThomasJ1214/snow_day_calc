@@ -15,9 +15,12 @@ export interface FeedItem {
 }
 
 export interface RegistryFeed {
-  type: "rss" | "page";
+  /** "rss": RSS/Atom feed. "apptegy": Apptegy/Thrillshare alert banners + news JSON. */
+  type: "rss" | "apptegy";
   url: string;
   label?: string;
+  parentOrgId?: number;
+  orgId?: number;
 }
 
 export interface RegistryEntry {
@@ -26,6 +29,10 @@ export interface RegistryEntry {
   state?: string;
   feeds: RegistryFeed[];
   calendarIcs?: string[];
+  /** Apptegy org whose events API carries the district calendar. */
+  apptegyCalendar?: { parentOrgId: number; orgId: number };
+  /** Official website when NCES lists an outdated one. */
+  website?: string;
   notes?: string;
 }
 
@@ -49,7 +56,7 @@ const NEGATIONS = [
   /\b(will be|are|is|remains?|will remain) open\b/,
 ];
 const PLANNED = /\b(winter|spring|fall|holiday|mid-?winter) (break|recess)\b|\brecess\b|\bvacation\b|\bthanksgiving\b|\bchristmas\b|\bteacher (work ?day|in-?service)\b|\bprofessional (development|learning) day\b|\bconference day\b/;
-const WEATHER = /\b(snow|ice|icy|weather|storm|cold|wind ?chill|road|freezing|sleet|blizzard|inclement|emergency|power outage)\b/;
+export const WEATHER = /\b(snow|ice|icy|weather|storm|cold|wind ?chill|road|freezing|sleet|blizzard|inclement|emergency|power outage)\b/;
 const SCHOOL = /\b(schools?|classes|district|students|campus(es)?|buildings)\b/;
 const CLOSED = [
   /\b(schools?|classes|district|buildings|campus(es)?)\b[^.!?]{0,40}\b(closed|closing|cancell?ed)\b/,

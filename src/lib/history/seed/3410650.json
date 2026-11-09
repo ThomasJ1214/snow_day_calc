@@ -1,0 +1,57 @@
+{
+  "leaid": "3410650",
+  "district": "Montville Township School District",
+  "source": "https://www.montville.net (official alert banners, https://cmsv2-static-cdn-prod.apptegy.net/content/3526/14160/en/homepage_structure.json)",
+  "extractedAt": "2026-11-09T17:52:05.630Z",
+  "note": "Each record is an announcement the district itself published. The date is the school day named in the announcement.",
+  "events": [
+    {
+      "date": "2025-02-03",
+      "status": "delayed",
+      "text": "2-Hour Delayed Opening. - Due to inclement weather, all district schools will open two hours later TODAY, Monday, February 3.",
+      "bannerId": 19876
+    },
+    {
+      "date": "2025-02-06",
+      "status": "closed",
+      "text": "SNOW DAY - Schools Closed Thursday, February 6, 2025. Due to inclement weather, Montville Township Public Schools are CLOSED. MEDLC is also CLOSED. Please NOTE: District buildings will reopen at 3:00 p.m. on February 6, for afterschool activities. Please check with your coach or ",
+      "bannerId": 20139
+    },
+    {
+      "date": "2025-02-12",
+      "status": "delayed",
+      "text": "2-Hour DELAYED OPENING, Wednesday, February 12. Due to inclement weather, there is a 2-hour DELAYED OPENING TODAY, Wednesday, February 12, for all Montville Township Public Schools. Please NOTE: Buses will arrive for morning pick-up 2-hours later than normal. Again, there is a 2-",
+      "bannerId": 21006
+    },
+    {
+      "date": "2025-02-13",
+      "status": "delayed",
+      "text": "2-Hour DELAYED OPENING TODAY -Thursday, February 13 Due to inclement weather, there is a 2-hour DELAYED OPENING TODAY, Thursday, February 13, for all Montville Township Public Schools. Please NOTE: Buses will arrive for morning pick-up 2-hours later than normal.",
+      "bannerId": 21231
+    },
+    {
+      "date": "2025-12-23",
+      "status": "closed",
+      "text": "SCHOOLS CLOSED TODAY, Tuesday, December 23, 2025 Due to inclement weather, all Montville Township Public Schools are CLOSED TODAY, Tuesday, December 23. MEDLC will also be CLOSED on Tuesday, December 23.",
+      "bannerId": 31190
+    },
+    {
+      "date": "2026-01-26",
+      "status": "closed",
+      "text": "Due to inclement weather, all Montville Township Public Schools are CLOSED on Monday, January 26. MEDLC will also be CLOSED on Monday, January 26.",
+      "bannerId": 35682
+    },
+    {
+      "date": "2026-02-23",
+      "status": "closed",
+      "text": "Due to inclement weather, all Montville Township Public Schools are CLOSED on Monday, February 23. MEDLC will also be CLOSED on Monday.",
+      "bannerId": 38514
+    },
+    {
+      "date": "2026-02-25",
+      "status": "delayed",
+      "text": "Due to inclement weather, there is a 2-hour DELAYED OPENING TOMORROW, Wednesday, February 25 for all Montville Township Public Schools. Please NOTE: Buses will arrive for morning pick-up 2-hours later than normal. District administrators will continue to monitor weather and road ",
+      "bannerId": 38896
+    }
+  ]
+}

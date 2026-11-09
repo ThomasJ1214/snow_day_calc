@@ -1,10 +1,27 @@
 import "server-only";
 import { fetchWithTimeout } from "@/lib/server/http";
 import { getRegistryEntry } from "./registry";
-import { parseFeed, resolveStatus, type FeedItem, type OfficialStatus } from "./status";
+import { parseFeed, resolveStatus, type FeedItem, type OfficialStatus, type RegistryFeed } from "./status";
+import { activeBannerItems } from "./apptegy";
+import { fetchApptegyBanners, fetchApptegyNews } from "./apptegy-fetch";
 
 const cache = new Map<string, { at: number; items: FeedItem[]; error?: string }>();
 const TTL_MS = 5 * 60_000;
+
+async function loadApptegy(feed: RegistryFeed, now: Date): Promise<{ items: FeedItem[]; error?: string }> {
+  const c = { parentOrgId: feed.parentOrgId!, orgId: feed.orgId! };
+  try {
+    const [banners, news] = await Promise.all([fetchApptegyBanners(c), fetchApptegyNews(c).catch(() => [])]);
+    const site = new URL(feed.url).origin;
+    const items: FeedItem[] = [
+      ...activeBannerItems(banners, now, site),
+      ...news.map((n) => ({ title: n.title, link: n.link, published: n.published_at ? new Date(n.published_at).toISOString() : null, summary: n.snippet })),
+    ];
+    return { items };
+  } catch (e) {
+    return { items: [], error: e instanceof Error && e.name === "AbortError" ? "timed out" : "unreachable" };
+  }
+}
 
 async function loadFeed(url: string): Promise<{ items: FeedItem[]; error?: string }> {
   const hit = cache.get(url);
@@ -33,14 +50,14 @@ export async function verifyDistrict(
   const entry = getRegistryEntry(leaid);
   const now = opts.now ?? new Date();
   if (!entry) return resolveStatus({ registryEntry: null, items: [], now, websiteUrl });
-  const results = await Promise.all(entry.feeds.filter((f) => f.type === "rss").map((f) => loadFeed(f.url)));
+  const results = await Promise.all(entry.feeds.map((f) => (f.type === "apptegy" ? loadApptegy(f, now) : loadFeed(f.url))));
   const items = results.flatMap((r) => r.items);
   const allFailed = results.length > 0 && results.every((r) => r.error);
   return resolveStatus({
     registryEntry: entry,
     items,
     now,
-    websiteUrl,
+    websiteUrl: entry.website ?? websiteUrl,
     targetDayStartsInHours: opts.targetDayStartsInHours,
     feedError: allFailed ? results[0].error : undefined,
   });

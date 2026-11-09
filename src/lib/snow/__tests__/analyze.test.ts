@@ -159,3 +159,15 @@ describe("analyzeSnow", () => {
     expect(a.confidence.score).toBeGreaterThan(b.confidence.score);
   });
 });
+
+describe("analyzeSnow look-back", () => {
+  it("includes past hours flagged past, without counting them in windows or start time", () => {
+    const s = series(100, (i) => ({ precipMm: i < 10 ? 1 : 0 }));
+    const a = analyzeSnow({ deterministic: {}, ensemble: [s, s, s], nowIndex: 12, lookbackHours: 6 });
+    expect(a.hourly[0].past).toBe(true);
+    expect(a.hourly[0].time).toBe("2026-12-01T06:00");
+    expect(a.hourly.filter((h) => h.past)).toHaveLength(6);
+    expect(a.windows["24"].likely).toBe(0);
+    expect(a.startTime).toBeNull();
+  });
+});
