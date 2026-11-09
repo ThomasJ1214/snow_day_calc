@@ -5,6 +5,7 @@ import { apiError, json } from "@/lib/server/api";
 import { schoolIdSchema } from "@/lib/server/schemas";
 import { fetchWithTimeout } from "@/lib/server/http";
 import { parseNoSchoolDays } from "@/lib/calendar/ics";
+import { isPublicHttpsUrl } from "@/lib/server/url-guard";
 
 const body = z.object({ schoolId: schoolIdSchema, icsUrl: z.string().trim().url().max(1000).regex(/^https:\/\//) });
 
@@ -20,10 +21,10 @@ export async function POST(req: NextRequest) {
   const me = await currentUser();
   if (!me) return apiError("unauthorized", "Sign in first.", 401);
   const p = body.safeParse(await req.json().catch(() => null));
-  if (!p.success) return apiError("invalid_body", "Enter an https:// link to an iCalendar (.ics) feed.");
+  if (!p.success || !isPublicHttpsUrl(p.data.icsUrl)) return apiError("invalid_body", "Enter a public https:// link to an iCalendar (.ics) feed.");
   let days = 0;
   try {
-    const res = await fetchWithTimeout(p.data.icsUrl.replace(/^webcal:/, "https:"), { timeoutMs: 8_000, retries: 0 });
+    const res = await fetchWithTimeout(p.data.icsUrl, { timeoutMs: 8_000, retries: 0, redirect: "error" });
     const text = res.ok ? await res.text() : "";
     if (!text.includes("BEGIN:VCALENDAR")) return apiError("not_ics", "That link didn't return an iCalendar file.");
     days = parseNoSchoolDays(text).length;

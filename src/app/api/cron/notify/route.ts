@@ -7,6 +7,7 @@ import { evaluateNotifications, type Target } from "@/lib/push/evaluate";
 import { pushConfigured, sendPush } from "@/lib/push/send";
 import { apiError, json } from "@/lib/server/api";
 import { cronAuthorized } from "@/lib/server/cron";
+import { encodeSlug } from "@/lib/geo/slug";
 
 export const maxDuration = 300;
 const CM_PER_IN = 2.54;
@@ -67,7 +68,7 @@ export async function GET(req: NextRequest) {
         key: `loc:${l.lat.toFixed(2)},${l.lon.toFixed(2)}`,
         kind: "location",
         name: l.name,
-        url: `/forecast/${encodeURIComponent(l.name.toLowerCase().replace(/[^a-z0-9]+/g, "-"))}--${l.lat}_${l.lon}`,
+        url: `/forecast/${encodeSlug(l)}`,
         localDate: f.data.localNow.slice(0, 10),
         targetDay: null,
         closurePct: null,

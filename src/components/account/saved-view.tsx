@@ -2,12 +2,14 @@
 import Link from "next/link";
 import { GraduationCap, MapPin, Trash2 } from "lucide-react";
 import { useFavorites, useRecents, favKey } from "@/lib/client/storage";
+import { useFavoriteToggle } from "@/lib/client/favorite-actions";
 import { encodeSlug } from "@/lib/geo/slug";
 import { Button, Panel, PanelTitle } from "@/components/ui/primitives";
 import { UnifiedSearch } from "@/components/search/unified-search";
 
 export function SavedView({ signedIn }: { signedIn: boolean }) {
-  const { favorites, toggle } = useFavorites();
+  const { favorites } = useFavorites();
+  const toggle = useFavoriteToggle();
   const { recents, clear } = useRecents();
   const schools = favorites.filter((f) => f.type === "school");
   const places = favorites.filter((f) => f.type === "location");

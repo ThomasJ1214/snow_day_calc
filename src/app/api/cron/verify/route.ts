@@ -8,6 +8,7 @@ import { getLocationForecast } from "@/lib/forecast/service";
 import { adminClient } from "@/lib/supabase/admin";
 import { apiError, json } from "@/lib/server/api";
 import { cronAuthorized } from "@/lib/server/cron";
+import { announcedDate } from "@/lib/official/apptegy";
 
 export const maxDuration = 300;
 const MONTVILLE = "3410650";
@@ -30,7 +31,10 @@ export async function GET(req: NextRequest) {
       ordered.slice(i, i + 12).map(async (d) => {
         const s = await verifyDistrict(d.leaid, d.website ?? null).catch(() => null);
         if (s && (s.status === "officially_closed" || s.status === "officially_delayed")) {
-          await recordOfficialEvent(d.leaid, d.name, today, s);
+          // File the event under the school day the announcement names (e.g. an evening "closed tomorrow" post).
+          const named = announcedDate(`${s.headline} ${s.evidence?.summary ?? ""}`);
+          const day = named && Math.abs(Date.parse(named) - Date.parse(today)) <= 3 * 86_400_000 ? named : today;
+          await recordOfficialEvent(d.leaid, d.name, day, s);
           recorded++;
         }
       }),

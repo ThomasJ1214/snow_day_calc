@@ -2,22 +2,16 @@
 import { useState } from "react";
 import { Check, Heart, Share2 } from "lucide-react";
 import { useFavorites, type Favorite } from "@/lib/client/storage";
+import { useFavoriteToggle } from "@/lib/client/favorite-actions";
 import { cn } from "@/components/ui/primitives";
 
 export function FavoriteButton({ item }: { item: Favorite }) {
-  const { isFavorite, toggle } = useFavorites();
+  const { isFavorite } = useFavorites();
+  const toggle = useFavoriteToggle();
   const on = isFavorite(item);
   return (
     <button
-      onClick={() => {
-        const added = toggle(item);
-        if (added) fetch("/api/me/saved", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items: [item] }) }).catch(() => undefined);
-        else
-          fetch(
-            item.type === "school" ? `/api/me/saved?type=school&id=${item.schoolId}` : `/api/me/saved?type=location&id=`,
-            { method: "DELETE" },
-          ).catch(() => undefined);
-      }}
+      onClick={() => toggle(item)}
       aria-pressed={on}
       className={cn("inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full border px-4 text-sm font-semibold transition-colors", on ? "border-rose/50 bg-rose/10 text-rose" : "border-line-strong text-text hover:bg-surface-strong")}
     >

@@ -197,7 +197,7 @@ Other commands:
 
 | Command | What it does |
 |---|---|
-| `npm test` | Runs the 165 automated tests |
+| `npm test` | Runs the 178 automated tests |
 | `npm run lint` | Checks code style |
 | `npm run typecheck` | Checks TypeScript types |
 | `npm run build` then `npm start` | Builds and runs the production version |

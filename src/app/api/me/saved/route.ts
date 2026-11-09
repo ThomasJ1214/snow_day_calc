@@ -53,7 +53,12 @@ export async function DELETE(req: NextRequest) {
   const kind = req.nextUrl.searchParams.get("type");
   const id = req.nextUrl.searchParams.get("id") ?? "";
   if (kind === "school" && schoolIdSchema.safeParse(id).success) await me.db.from("saved_schools").delete().eq("school_id", id);
-  else if (kind === "location" && /^[0-9a-f-]{36}$/.test(id)) await me.db.from("saved_locations").delete().eq("id", id);
-  else return apiError("invalid_request", "Specify type=school|location and id.");
+  else if (kind === "location") {
+    const lat = latSchema.safeParse(req.nextUrl.searchParams.get("lat"));
+    const lon = lonSchema.safeParse(req.nextUrl.searchParams.get("lon"));
+    if (!lat.success || !lon.success) return apiError("invalid_request", "Specify lat and lon of the saved place.");
+    // Saved coordinates may carry more decimals than the client sends; match within ~10 m.
+    await me.db.from("saved_locations").delete().gte("lat", lat.data - 1e-4).lte("lat", lat.data + 1e-4).gte("lon", lon.data - 1e-4).lte("lon", lon.data + 1e-4);
+  } else return apiError("invalid_request", "Specify type=school (with id) or type=location (with lat and lon).");
   return json({ ok: true });
 }

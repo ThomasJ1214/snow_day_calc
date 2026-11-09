@@ -12,6 +12,7 @@ import { eventsToNoSchoolDays } from "@/lib/official/apptegy";
 import { fetchApptegyEvents } from "@/lib/official/apptegy-fetch";
 import type { OfficialStatus } from "@/lib/official/status";
 import { fetchWithTimeout } from "@/lib/server/http";
+import { isPublicHttpsUrl } from "@/lib/server/url-guard";
 import { getDistrictHistory, type DistrictHistory } from "@/lib/history/record";
 import type { School } from "@/lib/schools/types";
 import { fail, ok, type Result } from "@/lib/weather/types";
@@ -37,8 +38,9 @@ export interface SchoolPrediction {
 }
 
 async function fetchIcs(url: string): Promise<{ date: string; summary: string }[]> {
+  if (!isPublicHttpsUrl(url)) return [];
   try {
-    const res = await fetchWithTimeout(url, { timeoutMs: 8_000, retries: 0, revalidate: 21_600, headers: { Accept: "text/calendar" } });
+    const res = await fetchWithTimeout(url, { timeoutMs: 8_000, retries: 0, revalidate: 21_600, redirect: "error", headers: { Accept: "text/calendar" } });
     if (!res.ok) return [];
     return parseNoSchoolDays(await res.text());
   } catch {
