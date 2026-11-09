@@ -130,6 +130,34 @@ Every module returns `{ ok: true, data } | { ok: false, error: { code, message }
 - Playwright smoke + screenshots at 390 and 1440 px.
 - `tsc --noEmit`, `eslint`, `next build` must pass.
 
-## 10. Out of scope (v1)
+## 10. Scope additions (user request, 2026-11-09)
 
-User accounts, push notifications, district holiday calendars, direct GRIB2 ingestion (RRFS), historical district closure records.
+The user moved every former out-of-scope item into scope, with one constraint: **no Supabase verification email** — sign-in is Google OAuth or email + password with no confirmation step.
+
+### 10.1 Accounts (optional; the site stays fully usable signed-out)
+- Supabase Auth via `@supabase/ssr` cookie sessions. Providers: Google OAuth, email + password.
+- "Confirm email" is turned **off** in Supabase (Authentication → Sign In / Providers → Email). `signUp` then returns a session immediately and Supabase sends no email, so its email rate limit is never hit. README documents the toggle.
+- Tables (RLS `user_id = auth.uid()`): `saved_locations`, `saved_schools`, `push_subscriptions`, `notification_prefs`, `school_calendars`.
+- On sign-in, localStorage favorites are merged into the account once; afterwards the account is the source of truth.
+- Without Supabase env vars, account UI shows "Accounts are not configured on this deployment" — never a broken form.
+
+### 10.2 Push notifications
+- Standard Web Push (`web-push`, VAPID keys in env), service worker `public/sw.js`, `/api/push/subscribe` + `/api/push/unsubscribe` (signed-in only).
+- `/api/cron/notify` (Bearer `CRON_SECRET`) evaluates each user's saved schools/locations; notifies when closure ≥ user threshold (default 60%) or 24 h likely snow ≥ threshold (default 2″), or when a registry district posts an official closure. Dedupe: one notification per target per local day per kind.
+- Vercel Hobby cron runs at most daily; README documents a free external scheduler for hourly runs.
+
+### 10.3 District holiday calendars
+- Federal holidays computed in code. Registry entries may carry `calendarIcs` (district-published iCalendar URLs). Signed-in users may attach an `.ics` URL to a saved school.
+- ICS `VEVENT`s whose summary matches no-school terms (no school, holiday, break, recess, vacation, schools closed, teacher workday/in-service/PD day, conference day) mark non-school days. "Next school day" skips weekends, federal holidays and those days; the UI states which calendar was applied or that none was available.
+
+### 10.4 Direct GRIB2 ingestion
+- Finding (verified 2026-11-09): **operational RRFS output is not publicly published** — `noaa-rrfs-pds` contains only retrospective runs and `rrfs_a/` is empty. HRRR raw GRIB2 is on `noaa-hrrr-bdp-pds` with `.idx` byte-range indexes.
+- Implement a TypeScript GRIB2 decoder (sections 0–7; grid template 3.30 Lambert conformal; product templates 4.0/4.8; data templates 5.0 simple and 5.3 complex + spatial differencing) and an ingester that byte-range-fetches HRRR `ASNOW` and `APCP` 0–N h accumulations for the latest available run and samples the requested point (nearest grid cell).
+- Shown as source "NOAA HRRR — direct GRIB2" alongside Open-Meteo models, included in model spread.
+- RRFS: the ingester probes for `rrfs_a` operational output and reports "RRFS: not yet published by NOAA" in the source list. No RRFS numbers are shown until real files exist.
+
+### 10.5 Historical closure records
+- No reliable public nationwide dataset exists, so none is imported or claimed.
+- `closure_events`: every official closure/delay our verifier confirms (district, date, status, source URL, evidence title, verified_at). Written by the verifier (on demand and by cron).
+- `prediction_log`: our predicted closure/delay % for each registry district's next school day, recorded once per day.
+- District history view lists verified events; once ≥ 10 matched prediction/outcome days exist, shows a Brier score. The engine does not use history for scoring until then, and says so.
