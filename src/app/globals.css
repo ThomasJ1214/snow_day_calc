@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+/* SnowDay tokens. Dark ("polar night") is the default; light ("overcast") via [data-theme="light"]. */
+:root {
+  --bg: #070b1a;
+  --bg-2: #0b1330;
+  --surface: rgb(234 245 255 / 0.055);
+  --surface-strong: rgb(234 245 255 / 0.09);
+  --line: rgb(234 245 255 / 0.12);
+  --line-strong: rgb(234 245 255 / 0.22);
+  --text: #eaf5ff;
+  --text-2: #b9c9df;
+  --text-3: #8297b3;
+  --ice: #9bdcff;
+  --ice-2: #38bdf8;
+  --violet: #a78bfa;
+  --rose: #fb7185;
+  --amber: #fbbf24;
+  --mint: #6ee7b7;
+  --snowpack: #f2f8ff;
+  --glow-1: rgb(56 189 248 / 0.16);
+  --glow-2: rgb(167 139 250 / 0.14);
+  color-scheme: dark;
+}
+[data-theme="light"] {
+  --bg: #eef4fb;
+  --bg-2: #dfe9f6;
+  --surface: rgb(255 255 255 / 0.7);
+  --surface-strong: rgb(255 255 255 / 0.9);
+  --line: rgb(14 22 48 / 0.12);
+  --line-strong: rgb(14 22 48 / 0.24);
+  --text: #0b1430;
+  --text-2: #33476b;
+  --text-3: #5a6e91;
+  --ice: #0369a1;
+  --ice-2: #0284c7;
+  --violet: #6d28d9;
+  --rose: #be123c;
+  --amber: #b45309;
+  --mint: #047857;
+  --snowpack: #ffffff;
+  --glow-1: rgb(56 189 248 / 0.22);
+  --glow-2: rgb(167 139 250 / 0.18);
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-text: var(--text);
+  --color-text-2: var(--text-2);
+  --color-text-3: var(--text-3);
+  --color-ice: var(--ice);
+  --color-ice-2: var(--ice-2);
+  --color-violet: var(--violet);
+  --color-rose: var(--rose);
+  --color-amber: var(--amber);
+  --color-mint: var(--mint);
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  background: var(--bg);
+}
+body {
+  min-height: 100dvh;
+  color: var(--text);
+  background:
+    radial-gradient(60rem 36rem at 12% -8%, var(--glow-1), transparent 70%),
+    radial-gradient(50rem 30rem at 92% 4%, var(--glow-2), transparent 70%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  background-attachment: fixed;
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+}
+.glass-strong {
+  background: var(--surface-strong);
+  border: 1px solid var(--line-strong);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+}
+:focus-visible {
+  outline: 2px solid var(--ice);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+::selection {
+  background: rgb(155 220 255 / 0.3);
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+.maplibregl-popup-content {
+  background: var(--bg-2) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px !important;
+  padding: 12px 14px !important;
+  box-shadow: 0 18px 50px rgb(0 0 0 / 0.35) !important;
+}
+.maplibregl-popup-tip {
+  border-top-color: var(--bg-2) !important;
+  border-bottom-color: var(--bg-2) !important;
+}
+.maplibregl-ctrl-group {
+  background: var(--bg-2) !important;
+  border: 1px solid var(--line) !important;
+}
+.maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+  filter: invert(0.9);
+}
+[data-theme="light"] .maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+  filter: none;
+}
