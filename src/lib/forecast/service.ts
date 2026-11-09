@@ -8,6 +8,7 @@ import {
   fetchDeterministic,
   fetchEnsemble,
   fetchModelRunTimes,
+  snap,
 } from "@/lib/weather/open-meteo";
 import { fetchNwsAlerts, fetchNwsForecast, fetchNwsGrid, fetchNwsPoint, type NwsAlert, type NwsPeriod } from "@/lib/weather/nws";
 import { sumIntervals } from "@/lib/weather/ndfd";
@@ -66,7 +67,7 @@ const cache = new Map<string, { at: number; value: LocationForecast }>();
 const TTL_MS = 8 * 60_000;
 
 export async function getLocationForecast(lat: number, lon: number): Promise<Result<LocationForecast>> {
-  const key = `${lat.toFixed(3)},${lon.toFixed(3)}`;
+  const key = `${snap(lat)},${snap(lon)}`;
   const hit = cache.get(key);
   if (hit && Date.now() - hit.at < TTL_MS) return ok(hit.value);
 

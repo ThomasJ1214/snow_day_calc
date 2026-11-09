@@ -26,6 +26,17 @@ export const ENSEMBLE_MODELS = [
 /** Best-first preference for weather display fields (temperature, wind, visibility). */
 export const DISPLAY_ORDER = ["ncep_nbm_conus", "gfs_hrrr", "gfs_seamless", "ecmwf_ifs025", "gem_seamless", "icon_seamless"];
 
+/**
+ * Requests are snapped to a 0.02° grid (~2 km) — finer than every model grid used (≥2.5 km) — so nearby
+ * users share one cached response. With OPEN_METEO_API_KEY set, the commercial endpoints are used.
+ */
+export const snap = (v: number) => Math.round(v * 50) / 50;
+const KEY = process.env.OPEN_METEO_API_KEY;
+export function omHost(kind: "api" | "ensemble-api" | "historical-forecast-api"): string {
+  return KEY ? `https://customer-${kind}.open-meteo.com` : `https://${kind}.open-meteo.com`;
+}
+const keyParam = () => (KEY ? `&apikey=${encodeURIComponent(KEY)}` : "");
+
 const HOURLY = [
   "precipitation",
   "snowfall",
@@ -102,9 +113,9 @@ export interface DeterministicForecast {
 
 export async function fetchDeterministic(lat: number, lon: number): Promise<Result<DeterministicForecast>> {
   const url =
-    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
+    `${omHost("api")}/v1/forecast?latitude=${snap(lat)}&longitude=${snap(lon)}` +
     `&hourly=${HOURLY.join(",")}&models=${DETERMINISTIC_MODELS.map((m) => m.id).join(",")}` +
-    `&past_days=1&forecast_days=4&timezone=auto`;
+    `&past_days=1&forecast_days=4&timezone=auto${keyParam()}`;
   try {
     const d = await fetchJson<OMResponse>(url, { revalidate: 600, timeoutMs: 15_000 });
     const time = d.hourly.time as string[];
@@ -158,8 +169,8 @@ export interface EnsembleForecast {
 export async function fetchEnsemble(lat: number, lon: number): Promise<Result<EnsembleForecast>> {
   const vars = ["precipitation", "snowfall", "temperature_2m", "relative_humidity_2m", "wind_gusts_10m"];
   const url =
-    `https://ensemble-api.open-meteo.com/v1/ensemble?latitude=${lat}&longitude=${lon}` +
-    `&hourly=${vars.join(",")}&models=${ENSEMBLE_MODELS.map((m) => m.id).join(",")}&past_days=1&forecast_days=4&timezone=auto`;
+    `${omHost("ensemble-api")}/v1/ensemble?latitude=${snap(lat)}&longitude=${snap(lon)}` +
+    `&hourly=${vars.join(",")}&models=${ENSEMBLE_MODELS.map((m) => m.id).join(",")}&past_days=1&forecast_days=4&timezone=auto${keyParam()}`;
   try {
     const d = await fetchJson<OMResponse>(url, { revalidate: 900, timeoutMs: 20_000 });
     const time = d.hourly.time as string[];
