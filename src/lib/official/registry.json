@@ -1,0 +1,414 @@
+{
+  "generatedAt": "2026-11-09T17:39:27.536Z",
+  "description": "Districts whose official website publishes a machine-readable RSS/Atom news feed, discovered and validated by scripts/discover-feeds.ts. Only these are verified automatically.",
+  "districts": [
+    {
+      "leaid": "0200300",
+      "name": "Hoonah City School District",
+      "state": "AK",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.hoonahschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0200480",
+      "name": "Kodiak Island Borough School District",
+      "state": "AK",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.kibsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0806600",
+      "name": "Big Sandy School District No. 100J",
+      "state": "CO",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://bigsandy100j.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0803390",
+      "name": "Dolores School District No. Re-4A",
+      "state": "CO",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://doloresschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0805190",
+      "name": "Lake County School District No. R-1",
+      "state": "CO",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.lakecountyschools.net/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0805670",
+      "name": "Miami-Yoder Joint District No. 60 of the counties of El Pas",
+      "state": "CO",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://miamiyoder.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0806450",
+      "name": "Sargent School District No. Re-33J",
+      "state": "CO",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.sargent.k12.co.us/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0805370",
+      "name": "St. Vrain Valley School District No. Re1J",
+      "state": "CO",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.svvsd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0900090",
+      "name": "Ashford School District",
+      "state": "CT",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://ashfordct.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0900660",
+      "name": "Canterbury School District",
+      "state": "CT",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.canterburypublicschools.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0901350",
+      "name": "East Windsor School District",
+      "state": "CT",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.eastwindsork12.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0901380",
+      "name": "Eastford School District",
+      "state": "CT",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.eastfordct.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0901560",
+      "name": "Farmington School District",
+      "state": "CT",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://fpsct.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0902190",
+      "name": "Lisbon School District",
+      "state": "CT",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://lisbonschool.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0903360",
+      "name": "Pomfret School District",
+      "state": "CT",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.pomfretcommunityschool.org/feed/rss2",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "0903810",
+      "name": "Ridgefield School District",
+      "state": "CT",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.ridgefield.org/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1001680",
+      "name": "Sussex Technical School District",
+      "state": "DE",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.sussexvt.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1705580",
+      "name": "Belle Valley SD 119",
+      "state": "IL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.bv119.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1705640",
+      "name": "Belleville Twp HSD 201",
+      "state": "IL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://bths201.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1716950",
+      "name": "Brookwood SD 167",
+      "state": "IL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.brookwood167.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1707830",
+      "name": "Central CUSD 301",
+      "state": "IL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://central301.net/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1712480",
+      "name": "Dongola USD 66",
+      "state": "IL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://dongolaschool.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1712930",
+      "name": "Earlville CUSD 9",
+      "state": "IL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://soft-club.org/posts.rss",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1716680",
+      "name": "Gillespie CUSD 7",
+      "state": "IL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://gcusd7.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1719420",
+      "name": "Hollis Cons SD 328",
+      "state": "IL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://hollis328.net/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1729700",
+      "name": "Ohio CCSD 17",
+      "state": "IL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "http://ohiocommunityschooldistricts.com/feed",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1730480",
+      "name": "Palestine CUSD 3",
+      "state": "IL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.palestinecusd3.net/blog-feed.xml",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1731410",
+      "name": "Porta CUSD 202",
+      "state": "IL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.porta202.org/feed/rss2",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1732700",
+      "name": "Princeton HSD 500",
+      "state": "IL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://phs-il.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1734230",
+      "name": "Robinson CUSD 2",
+      "state": "IL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.robinsonschools.com/unit2/index.php?format=feed&type=rss",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1739660",
+      "name": "Union SD 81",
+      "state": "IL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.union81.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1740890",
+      "name": "Warsaw CUSD 316",
+      "state": "IL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.warsawschool.com/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1742570",
+      "name": "Willow Springs SD 108",
+      "state": "IL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://www.willowspringsschool.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    },
+    {
+      "leaid": "1742690",
+      "name": "Windsor CUSD 1",
+      "state": "IL",
+      "feeds": [
+        {
+          "type": "rss",
+          "url": "https://windsorcusd.org/feed/",
+          "label": "District news feed"
+        }
+      ]
+    }
+  ]
+}
