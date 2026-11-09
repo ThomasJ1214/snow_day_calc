@@ -3,7 +3,7 @@ import { createRateLimiter } from "../rate-limit";
 
 describe("rate limiter (token bucket)", () => {
   it("allows up to capacity then blocks", () => {
-    let t = 0;
+    const t = 0;
     const rl = createRateLimiter({ capacity: 3, refillPerSec: 1, now: () => t });
     expect([rl("a"), rl("a"), rl("a"), rl("a")]).toEqual([true, true, true, false]);
   });

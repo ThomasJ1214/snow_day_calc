@@ -1,7 +1,8 @@
 import "server-only";
 import { getHrrrGrids } from "@/lib/weather/hrrr-direct";
 import { lambertIJ } from "@/lib/grib2/decode";
-import { encodePng, inverseMercatorY, mercatorY, snowColor } from "./raster";
+import { encodePng, inverseMercatorY, mercatorY } from "./raster";
+import { snowColor } from "./scale";
 
 /** Geographic bounds of the rendered overlay (covers the HRRR CONUS domain). */
 export const OVERLAY_BOUNDS = { west: -126, east: -66, south: 23, north: 50 };

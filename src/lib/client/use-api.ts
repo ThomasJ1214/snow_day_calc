@@ -30,8 +30,8 @@ export function useApi<T>(url: string | null, refreshMs = 0) {
   }, [url]);
 
   useEffect(() => {
-    load();
-    if (!refreshMs) return;
+    const first = setTimeout(load, 0);
+    if (!refreshMs) return () => clearTimeout(first);
     const id = setInterval(() => {
       if (!document.hidden) load();
     }, refreshMs);
@@ -40,6 +40,7 @@ export function useApi<T>(url: string | null, refreshMs = 0) {
     };
     document.addEventListener("visibilitychange", onVis);
     return () => {
+      clearTimeout(first);
       clearInterval(id);
       document.removeEventListener("visibilitychange", onVis);
       inFlight.current?.abort();

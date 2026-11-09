@@ -1,12 +1,16 @@
 "use client";
 import { Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+const listeners = new Set<() => void>();
+const subscribe = (l: () => void) => {
+  listeners.add(l);
+  return () => listeners.delete(l);
+};
+const getTheme = () => (document.documentElement.dataset.theme === "light" ? "light" : "dark");
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<"dark" | "light" | null>(null);
-  useEffect(() => {
-    setTheme(document.documentElement.dataset.theme === "light" ? "light" : "dark");
-  }, []);
+  const theme = useSyncExternalStore(subscribe, getTheme, () => null);
   const toggle = () => {
     const next = theme === "light" ? "dark" : "light";
     document.documentElement.dataset.theme = next;
@@ -15,7 +19,7 @@ export function ThemeToggle() {
     } catch {
       /* private mode */
     }
-    setTheme(next);
+    listeners.forEach((l) => l());
   };
   return (
     <button onClick={toggle} aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"} className="grid size-11 cursor-pointer place-items-center rounded-full text-text-2 transition-colors hover:bg-surface-strong hover:text-text">

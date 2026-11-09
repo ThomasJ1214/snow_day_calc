@@ -40,11 +40,7 @@ export function UnifiedSearch({ autoFocus = false, size = "lg" }: { autoFocus?: 
 
   useEffect(() => {
     const term = q.trim();
-    if (term.length < 2) {
-      setOptions([]);
-      setMessage(null);
-      return;
-    }
+    if (term.length < 2) return;
     const ctrl = new AbortController();
     const t = setTimeout(async () => {
       setLoading(true);
@@ -81,6 +77,10 @@ export function UnifiedSearch({ autoFocus = false, size = "lg" }: { autoFocus?: 
       ctrl.abort();
     };
   }, [q]);
+
+  const tooShort = q.trim().length < 2;
+  const visible = tooShort ? [] : options;
+  const shownMessage = tooShort ? null : message;
 
   const go = (o: Option) => {
     add({ label: o.label, href: o.href });
@@ -126,7 +126,7 @@ export function UnifiedSearch({ autoFocus = false, size = "lg" }: { autoFocus?: 
         role="search"
         onSubmit={(e) => {
           e.preventDefault();
-          if (options[active]) go(options[active]);
+          if (visible[active]) go(visible[active]);
         }}
         className={cn("glass-strong flex items-center gap-2 rounded-2xl pl-4 pr-2 shadow-[0_20px_60px_rgb(0_0_0/0.25)]", size === "lg" ? "h-16" : "h-13")}
       >
@@ -137,20 +137,20 @@ export function UnifiedSearch({ autoFocus = false, size = "lg" }: { autoFocus?: 
         <input
           id={`${listId}-input`}
           role="combobox"
-          aria-expanded={open && options.length > 0}
+          aria-expanded={open && visible.length > 0}
           aria-controls={listId}
-          aria-activedescendant={open && options[active] ? `${listId}-${active}` : undefined}
+          aria-activedescendant={open && visible[active] ? `${listId}-${active}` : undefined}
           aria-autocomplete="list"
           autoFocus={autoFocus}
           autoComplete="off"
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          onFocus={() => options.length && setOpen(true)}
+          onFocus={() => visible.length && setOpen(true)}
           onBlur={() => setTimeout(() => setOpen(false), 150)}
           onKeyDown={(e) => {
             if (e.key === "ArrowDown") {
               e.preventDefault();
-              setActive((a) => Math.min(a + 1, options.length - 1));
+              setActive((a) => Math.min(a + 1, visible.length - 1));
             } else if (e.key === "ArrowUp") {
               e.preventDefault();
               setActive((a) => Math.max(a - 1, 0));
@@ -171,9 +171,9 @@ export function UnifiedSearch({ autoFocus = false, size = "lg" }: { autoFocus?: 
           <span className="sr-only sm:hidden">Use my location</span>
         </button>
       </form>
-      {open && options.length > 0 && (
+      {open && visible.length > 0 && (
         <ul id={listId} role="listbox" className="glass-strong absolute inset-x-0 top-full z-30 mt-2 max-h-[60vh] overflow-auto rounded-2xl p-1.5 shadow-[0_24px_60px_rgb(0_0_0/0.4)]">
-          {options.map((o, i) => (
+          {visible.map((o, i) => (
             <li
               key={o.href}
               id={`${listId}-${i}`}
@@ -197,7 +197,7 @@ export function UnifiedSearch({ autoFocus = false, size = "lg" }: { autoFocus?: 
           ))}
         </ul>
       )}
-      {message && (
+      {shownMessage && (
         <p role="status" className="mt-3 text-sm text-text-2">
           {message}
         </p>
