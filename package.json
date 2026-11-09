@@ -14,7 +14,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "smoke:apis": "tsx scripts/smoke-apis.ts",
+    "smoke:apis": "tsx --conditions=react-server scripts/smoke-apis.ts",
     "smoke:ui": "node scripts/smoke-ui.mjs",
     "import:nces": "tsx scripts/import-nces.ts",
     "check": "npm run lint && npm run typecheck && npm run test && npm run build"
