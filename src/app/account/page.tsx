@@ -24,7 +24,7 @@ export default async function AccountPage() {
         <Panel strong>
           <h1 className="font-display text-3xl font-bold">Your account</h1>
           <p className="mt-2 text-text-2">Sign in to sync saved schools across devices, add school calendars and get snow-day notifications.</p>
-          <Link href="/signin" className="mt-5 inline-flex min-h-11 items-center rounded-full bg-ice px-5 text-sm font-semibold text-[#06122b]">
+          <Link href="/signin" className="neu-raised-sm neu-press mt-5 inline-flex min-h-11 items-center rounded-2xl bg-accent! px-5 text-sm font-semibold text-on-accent">
             Sign in or create an account
           </Link>
         </Panel>

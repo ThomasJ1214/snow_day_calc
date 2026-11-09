@@ -118,7 +118,7 @@ export function NationalView() {
           ) : (
             <div className="max-h-96 overflow-auto">
               <table className="w-full text-sm tabular">
-                <thead className="sticky top-0 bg-bg-2 text-left text-text-3">
+                <thead className="sticky top-0 bg-bg text-left text-text-3">
                   <tr>
                     <th className="py-1.5 font-medium">City</th>
                     {data.cities[0]?.daysCm.map((_, i) => (

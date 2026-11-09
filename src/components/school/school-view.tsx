@@ -75,10 +75,10 @@ export function SchoolView({ id }: { id: string }) {
         <div className="mt-4 flex flex-wrap items-center gap-2">
           <FavoriteButton item={fav} />
           <ShareButton title={`${s.name}: snow day odds`} />
-          <Link href={`/forecast/${encodeSlug({ name: `${s.city ?? s.name}, ${s.state}`, lat: s.lat, lon: s.lon })}`} className="inline-flex min-h-11 items-center rounded-full px-3 text-sm font-semibold text-ice hover:underline">
+          <Link href={`/forecast/${encodeSlug({ name: `${s.city ?? s.name}, ${s.state}`, lat: s.lat, lon: s.lon })}`} className="inline-flex min-h-11 items-center rounded-2xl px-3 text-sm font-semibold text-ice underline-offset-4 hover:underline">
             Full snowfall forecast
           </Link>
-          <button onClick={reload} className="ml-auto inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full px-3 text-sm text-text-3 hover:bg-surface hover:text-text">
+          <button onClick={reload} className="neu-press ml-auto inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-2xl px-3 text-sm text-text-3 hover:text-text">
             <RefreshCw className={loading ? "size-4 animate-spin" : "size-4"} aria-hidden /> Updated {updatedAt ? timeAgo(new Date(updatedAt).toISOString()) : "now"}
           </button>
         </div>
@@ -121,8 +121,8 @@ export function SchoolView({ id }: { id: string }) {
                     <span className="font-semibold text-text">{f.label}</span>
                     <span className="text-text-3 tabular">+{f.points.toFixed(1)}</span>
                   </div>
-                  <div className="mt-1 h-1.5 rounded-full bg-surface-strong">
-                    <div className="h-1.5 rounded-full bg-gradient-to-r from-ice to-violet" style={{ width: `${(f.points / maxPts) * 100}%` }} />
+                  <div className="neu-inset-sm mt-1.5 h-2.5 rounded-full p-0.5">
+                    <div className="h-1.5 rounded-full bg-accent" style={{ width: `${(f.points / maxPts) * 100}%` }} />
                   </div>
                   <p className="mt-1 text-sm text-text-2">{f.detail}</p>
                 </li>

@@ -175,7 +175,7 @@ export function AccountView({ email }: { email: string }) {
                       placeholder="https://…/calendar.ics"
                       value={icsDraft[s.schoolId] ?? ""}
                       onChange={(e) => setIcsDraft({ ...icsDraft, [s.schoolId]: e.target.value })}
-                      className="glass h-11 min-w-0 flex-1 rounded-xl px-3 text-sm text-text focus:outline-none"
+                      className="neu-field h-11 min-w-0 flex-1 rounded-2xl px-3.5 text-sm focus:outline-none"
                     />
                     <Button variant="ghost" onClick={() => saveCalendar(s.schoolId)} disabled={!icsDraft[s.schoolId]}>
                       Save

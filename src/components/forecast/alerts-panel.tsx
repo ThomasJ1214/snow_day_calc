@@ -17,7 +17,7 @@ export function AlertsPanel({ alerts }: { alerts: LocationForecast["alerts"] }) 
         const winter = WINTER.test(a.event);
         const isOpen = open === a.id;
         return (
-          <li key={a.id} className={cn("rounded-2xl border p-3", winter ? "border-violet/50 bg-violet/10" : "border-line")}>
+          <li key={a.id} className={cn("rounded-2xl p-3.5", winter ? "neu-inset" : "neu-inset-sm")}>
             <button className="flex w-full cursor-pointer items-start gap-3 text-left" aria-expanded={isOpen} onClick={() => setOpen(isOpen ? null : a.id)}>
               <TriangleAlert className={cn("mt-0.5 size-5 shrink-0", winter ? "text-violet" : "text-amber")} aria-hidden />
               <span className="min-w-0 flex-1">

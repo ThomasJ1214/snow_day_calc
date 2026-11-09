@@ -20,7 +20,7 @@ export function NationalSnapshot() {
             ? `${snowy.length} of ${data.cities.length} reference cities expect measurable snow in the next three days.`
             : `None of the ${data.cities.length} reference cities expects measurable snow in the next three days.`}
         </p>
-        <Link href="/national" className="mt-4 inline-flex min-h-11 items-center rounded-full bg-ice px-5 text-sm font-semibold text-[#06122b] hover:bg-ice-2 hover:text-white">
+        <Link href="/national" className="neu-raised-sm neu-press mt-5 inline-flex min-h-11 items-center rounded-2xl bg-accent! px-5 text-sm font-semibold text-on-accent hover:brightness-110">
           Open the national map
         </Link>
       </div>

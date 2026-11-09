@@ -4,7 +4,6 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import "./globals.css";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { Snowfall } from "@/components/layout/snowfall";
 import { themeScript } from "@/components/layout/theme-toggle";
 
 const display = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-bricolage", display: "swap" });
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#070b1a",
+  themeColor: "#e3eaf2",
   width: "device-width",
   initialScale: 1,
 };
@@ -35,7 +34,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
-        <Snowfall />
         <SiteHeader />
         <main id="main" className="mx-auto max-w-6xl px-4 pt-6 sm:px-6 sm:pt-10">
           {children}

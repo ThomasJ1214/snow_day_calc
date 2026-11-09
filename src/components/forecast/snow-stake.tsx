@@ -18,27 +18,23 @@ export function SnowStake({ lowCm, likelyCm, highCm, height = 260, title }: { lo
   return (
     <svg viewBox={`0 0 ${W} ${height}`} role="img" aria-label={`${title}: most likely ${round(li)} inches, range ${round(lo)} to ${round(hi)} inches`} className="h-auto w-full max-w-[170px]">
       <defs>
-        <linearGradient id="stake" x1="0" x2="1">
-          <stop offset="0" stopColor="var(--ice-2)" />
-          <stop offset="1" stopColor="var(--violet)" />
-        </linearGradient>
-        <linearGradient id="pack" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="var(--snowpack)" stopOpacity="1" />
-          <stop offset="1" stopColor="var(--ice)" stopOpacity="0.55" />
-        </linearGradient>
         <pattern id="frost" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
           <rect width="6" height="6" fill="var(--ice)" opacity="0.12" />
           <line x1="0" y1="0" x2="0" y2="6" stroke="var(--ice)" strokeWidth="1.4" opacity="0.35" />
         </pattern>
       </defs>
+      {/* debossed well the snow collects in */}
+      <rect x="12" y={top - 4} width="82" height={bottom - top + 6} rx="10" fill="var(--sh-dark)" opacity="0.32" />
+      <rect x="14" y={top - 2} width="80" height={bottom - top + 4} rx="9" fill="var(--bg)" />
+      <rect x="14" y={top - 2} width="80" height={bottom - top + 4} rx="9" fill="none" stroke="var(--sh-light)" strokeWidth="1.2" opacity="0.9" />
       {/* ground */}
-      <rect x="6" y={bottom} width={W - 12} height="3" rx="1.5" fill="var(--line-strong)" />
+      <rect x="6" y={bottom} width={W - 12} height="2.5" rx="1.25" fill="var(--line-strong)" />
       {/* range band */}
-      {hi > 0 && <rect x="14" y={y(hi)} width="78" height={Math.max(2, y(lo) - y(hi))} rx="6" fill="url(#frost)" />}
+      {hi > 0 && <rect x="16" y={y(hi)} width="76" height={Math.max(2, y(lo) - y(hi))} rx="6" fill="url(#frost)" />}
       {/* snowpack */}
-      <rect x="14" y={y(li)} width="78" height={bottom - y(li)} rx="8" fill="url(#pack)" />
+      {li > 0 && <rect x="16" y={y(li)} width="76" height={bottom - y(li)} rx="8" fill="var(--snowpack)" stroke="var(--line-strong)" strokeWidth="0.8" />}
       {/* stake */}
-      <rect x="100" y={top - 6} width="12" height={bottom - top + 6} rx="6" fill="url(#stake)" opacity="0.92" />
+      <rect x="101" y={top - 6} width="10" height={bottom - top + 6} rx="5" fill="var(--pole)" />
       {ticks.map((t) => (
         <g key={t}>
           <rect x="112" y={y(t) - 0.75} width={t % (step * 2) === 0 ? 10 : 6} height="1.5" fill="var(--text-2)" />
@@ -49,8 +45,8 @@ export function SnowStake({ lowCm, likelyCm, highCm, height = 260, title }: { lo
       ))}
       {hi > 0 && (
         <>
-          <line x1="14" x2="96" y1={y(hi)} y2={y(hi)} stroke="var(--ice)" strokeDasharray="3 3" strokeWidth="1" />
-          <line x1="14" x2="96" y1={y(lo)} y2={y(lo)} stroke="var(--ice)" strokeDasharray="3 3" strokeWidth="1" opacity="0.6" />
+          <line x1="16" x2="96" y1={y(hi)} y2={y(hi)} stroke="var(--ice)" strokeDasharray="3 3" strokeWidth="1" />
+          <line x1="16" x2="96" y1={y(lo)} y2={y(lo)} stroke="var(--ice)" strokeDasharray="3 3" strokeWidth="1" opacity="0.6" />
         </>
       )}
     </svg>

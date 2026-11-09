@@ -10,7 +10,7 @@ import { useFavorites } from "@/lib/client/storage";
 import { CM_PER_IN, fmtIn, fmtLocal } from "@/lib/client/format";
 import { Notice, Panel, PanelTitle, Skeleton } from "@/components/ui/primitives";
 
-const COLORS = ["var(--snowpack)", "var(--ice)", "var(--violet)", "var(--rose)"];
+const COLORS = ["var(--text)", "var(--ice)", "var(--violet)", "var(--rose)"];
 const DASH = ["", "6 4", "2 3", "10 3 2 3"];
 
 export function CompareView() {
@@ -77,10 +77,10 @@ export function CompareView() {
       <Panel>
         <div className="flex flex-wrap gap-2">
           {places.map((p, i) => (
-            <span key={encodeSlug(p)} className="inline-flex min-h-10 items-center gap-2 rounded-full border border-line-strong py-1 pl-3 pr-1 text-sm">
+            <span key={encodeSlug(p)} className="neu-raised-sm inline-flex min-h-11 items-center gap-2 rounded-2xl py-1 pl-3.5 pr-1 text-sm font-medium">
               <span className="size-2.5 rounded-full" style={{ background: COLORS[i] }} aria-hidden />
               {p.name}
-              <button aria-label={`Remove ${p.name}`} onClick={() => setSlugs(slugs.filter((s) => s !== encodeSlug(p)))} className="grid size-8 cursor-pointer place-items-center rounded-full hover:bg-surface-strong">
+              <button aria-label={`Remove ${p.name}`} onClick={() => setSlugs(slugs.filter((s) => s !== encodeSlug(p)))} className="neu-press grid size-9 cursor-pointer place-items-center rounded-xl">
                 <X className="size-4" />
               </button>
             </span>
@@ -91,12 +91,12 @@ export function CompareView() {
             <label htmlFor="cmp" className="sr-only">
               Add a place
             </label>
-            <input id="cmp" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Add a ZIP code or city" className="glass h-12 w-full rounded-xl px-4 text-text placeholder:text-text-3 focus:outline-none" />
+            <input id="cmp" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Add a ZIP code or city" className="neu-field h-12 w-full rounded-2xl px-4 focus:outline-none" />
             {q.trim().length >= 2 && results.length > 0 && (
-              <ul className="glass-strong absolute inset-x-0 top-full z-20 mt-1 rounded-xl p-1">
+              <ul className="neu-raised-lg absolute inset-x-0 top-full z-20 mt-3 rounded-[20px] p-2">
                 {results.map((r) => (
                   <li key={`${r.lat},${r.lon}`}>
-                    <button onClick={() => add(r)} className="flex w-full cursor-pointer items-center gap-2 rounded-lg px-3 py-2 text-left text-sm hover:bg-surface-strong">
+                    <button onClick={() => add(r)} className="neu-press flex w-full cursor-pointer items-center gap-2 rounded-xl px-3 py-2.5 text-left text-sm">
                       <Plus className="size-4 text-ice" aria-hidden /> {r.name}
                     </button>
                   </li>
@@ -140,7 +140,7 @@ export function CompareView() {
                     <CartesianGrid stroke="var(--line)" vertical={false} />
                     <XAxis dataKey="t" interval={11} tickFormatter={(t: string) => fmtLocal(t, { weekday: "short", hour: "numeric" })} tick={{ fill: "var(--text-3)", fontSize: 12 }} axisLine={false} tickLine={false} />
                     <YAxis tick={{ fill: "var(--text-3)", fontSize: 12 }} axisLine={false} tickLine={false} tickFormatter={(v: number) => `${v}″`} width={44} />
-                    <Tooltip contentStyle={{ background: "var(--bg-2)", border: "1px solid var(--line-strong)", borderRadius: 12 }} labelFormatter={(t) => fmtLocal(String(t))} formatter={(v) => `${v}″`} />
+                    <Tooltip contentStyle={{ background: "var(--bg)", border: "none", borderRadius: 14, boxShadow: "6px 6px 14px var(--sh-dark), -6px -6px 14px var(--sh-light)" }} labelFormatter={(t) => fmtLocal(String(t))} formatter={(v) => `${v}″`} />
                     <Legend wrapperStyle={{ color: "var(--text-2)" }} />
                     {places.map((p, i) => (
                       <Line key={p.name} dataKey={p.name} stroke={COLORS[i]} strokeDasharray={DASH[i]} strokeWidth={2.5} dot={false} isAnimationActive={false} />
@@ -151,7 +151,7 @@ export function CompareView() {
             )}
           </Panel>
           <div className="overflow-x-auto">
-            <table className="glass w-full min-w-[560px] rounded-3xl text-sm tabular">
+            <table className="neu-raised w-full min-w-[560px] rounded-[26px] text-sm tabular">
               <thead className="text-left text-text-3">
                 <tr>
                   <th className="p-3 font-medium">Place</th>

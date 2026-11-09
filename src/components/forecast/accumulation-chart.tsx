@@ -18,19 +18,13 @@ export function AccumulationChart({ hourly, unit }: { hourly: HourPoint[]; unit:
     <div className="h-64 w-full" role="img" aria-label="Snow accumulation over the next 72 hours with uncertainty band">
       <ResponsiveContainer width="100%" height="100%">
         <ComposedChart data={data} margin={{ top: 8, right: 8, bottom: 0, left: -12 }}>
-          <defs>
-            <linearGradient id="bandFill" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0" stopColor="var(--violet)" stopOpacity={0.35} />
-              <stop offset="1" stopColor="var(--ice)" stopOpacity={0.12} />
-            </linearGradient>
-          </defs>
           <CartesianGrid stroke="var(--line)" vertical={false} />
           <XAxis dataKey="t" tickFormatter={(t: string) => fmtLocal(t, { weekday: "short", hour: "numeric" })} interval={11} tick={{ fill: "var(--text-3)", fontSize: 12 }} axisLine={false} tickLine={false} />
           <YAxis yAxisId="acc" tick={{ fill: "var(--text-3)", fontSize: 12 }} axisLine={false} tickLine={false} width={44} tickFormatter={(v: number) => `${v}${unit === "in" ? "″" : ""}`} />
           <YAxis yAxisId="rate" hide orientation="right" />
           <Tooltip
             cursor={{ stroke: "var(--line-strong)" }}
-            contentStyle={{ background: "var(--bg-2)", border: "1px solid var(--line-strong)", borderRadius: 12, color: "var(--text)" }}
+            contentStyle={{ background: "var(--bg)", border: "none", borderRadius: 14, color: "var(--text)", boxShadow: "6px 6px 14px var(--sh-dark), -6px -6px 14px var(--sh-light)" }}
             labelFormatter={(t) => fmtLocal(String(t), { weekday: "short", hour: "numeric", minute: "2-digit" })}
             formatter={(v, name) => {
               const u = unit === "in" ? "″" : " cm";
@@ -39,9 +33,9 @@ export function AccumulationChart({ hourly, unit }: { hourly: HourPoint[]; unit:
               return [`${v}${u}/h`, "Hourly rate"];
             }}
           />
-          <Bar yAxisId="rate" dataKey="rate" fill="var(--ice)" opacity={0.35} radius={[3, 3, 0, 0]} />
-          <Area yAxisId="acc" dataKey="band" stroke="none" fill="url(#bandFill)" isAnimationActive={false} />
-          <Line yAxisId="acc" dataKey="likely" stroke="var(--snowpack)" strokeWidth={2.5} dot={false} isAnimationActive={false} />
+          <Bar yAxisId="rate" dataKey="rate" fill="var(--accent)" opacity={0.3} radius={[3, 3, 0, 0]} />
+          <Area yAxisId="acc" dataKey="band" stroke="none" fill="var(--violet)" fillOpacity={0.18} isAnimationActive={false} />
+          <Line yAxisId="acc" dataKey="likely" stroke="var(--text)" strokeWidth={2.5} dot={false} isAnimationActive={false} />
         </ComposedChart>
       </ResponsiveContainer>
     </div>

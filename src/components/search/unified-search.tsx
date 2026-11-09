@@ -128,7 +128,7 @@ export function UnifiedSearch({ autoFocus = false, size = "lg" }: { autoFocus?: 
           e.preventDefault();
           if (visible[active]) go(visible[active]);
         }}
-        className={cn("glass-strong flex items-center gap-2 rounded-2xl pl-4 pr-2 shadow-[0_20px_60px_rgb(0_0_0/0.25)]", size === "lg" ? "h-16" : "h-13")}
+        className={cn("neu-field flex items-center gap-2 rounded-[22px] pl-5 pr-2", size === "lg" ? "h-16" : "h-14")}
       >
         <Search className="size-5 shrink-0 text-text-3" aria-hidden />
         <label htmlFor={`${listId}-input`} className="sr-only">
@@ -164,7 +164,7 @@ export function UnifiedSearch({ autoFocus = false, size = "lg" }: { autoFocus?: 
           type="button"
           onClick={locate}
           disabled={locating}
-          className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl px-3 text-sm font-medium text-text-2 transition-colors hover:bg-surface-strong hover:text-text"
+          className="neu-raised-sm neu-press inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-2xl px-3.5 text-sm font-semibold text-text-2 hover:text-text"
         >
           {locating ? <LoaderCircle className="size-5 animate-spin" aria-hidden /> : <LocateFixed className="size-5" aria-hidden />}
           <span className="hidden sm:inline">Use my location</span>
@@ -172,7 +172,7 @@ export function UnifiedSearch({ autoFocus = false, size = "lg" }: { autoFocus?: 
         </button>
       </form>
       {open && visible.length > 0 && (
-        <ul id={listId} role="listbox" className="glass-strong absolute inset-x-0 top-full z-30 mt-2 max-h-[60vh] overflow-auto rounded-2xl p-1.5 shadow-[0_24px_60px_rgb(0_0_0/0.4)]">
+        <ul id={listId} role="listbox" className="neu-raised-lg absolute inset-x-0 top-full z-30 mt-3 max-h-[60vh] overflow-auto rounded-[22px] p-2">
           {visible.map((o, i) => (
             <li
               key={o.href}
@@ -184,7 +184,7 @@ export function UnifiedSearch({ autoFocus = false, size = "lg" }: { autoFocus?: 
                 go(o);
               }}
               onMouseEnter={() => setActive(i)}
-              className={cn("flex cursor-pointer items-start gap-3 rounded-xl px-3 py-2.5", i === active && "bg-surface-strong")}
+              className={cn("flex cursor-pointer items-start gap-3 rounded-2xl px-3 py-2.5", i === active && "neu-inset-sm")}
             >
               {o.kind === "place" ? <MapPin className="mt-0.5 size-4 shrink-0 text-ice" aria-hidden /> : <GraduationCap className="mt-0.5 size-4 shrink-0 text-violet" aria-hidden />}
               <span className="min-w-0">

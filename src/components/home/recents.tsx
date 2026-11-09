@@ -23,7 +23,7 @@ export function RecentChips() {
     <ul className="mt-4 flex flex-wrap gap-2" aria-label={chips.length ? "Your places" : "Popular places"}>
       {list.map((c) => (
         <li key={c.href}>
-          <Link href={c.href} className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-line px-3 text-sm text-text-2 transition-colors hover:border-ice/50 hover:text-text">
+          <Link href={c.href} className="neu-raised-sm neu-press inline-flex min-h-10 items-center gap-1.5 rounded-2xl px-3.5 text-sm text-text-2 hover:text-text">
             {chips.length ? <Clock className="size-3.5 text-text-3" aria-hidden /> : null}
             {c.label}
           </Link>

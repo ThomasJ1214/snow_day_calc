@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { RefreshCw, Snowflake, ThermometerSnowflake } from "lucide-react";
 import type { LocationForecast } from "./types";
 import { SnowStake } from "./snow-stake";
+import { Snowfall, snowIntensity } from "@/components/layout/snowfall";
 import { AccumulationChart } from "./accumulation-chart";
 import { WindowsTable } from "./windows-table";
 import { AlertsPanel } from "./alerts-panel";
@@ -87,7 +88,7 @@ export function LocationView({ name, lat, lon }: { name: string; lat: number; lo
           </div>
         </div>
         <div className="flex items-center gap-2 text-sm text-text-3" aria-live="polite">
-          <button onClick={reload} className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full px-3 hover:bg-surface hover:text-text" aria-label="Refresh forecast">
+          <button onClick={reload} className="neu-press inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-2xl px-3 hover:text-text" aria-label="Refresh forecast">
             <RefreshCw className={loading ? "size-4 animate-spin" : "size-4"} aria-hidden />
             Updated {updatedAt ? timeAgo(new Date(updatedAt).toISOString()) : "now"}
           </button>
@@ -104,11 +105,12 @@ export function LocationView({ name, lat, lon }: { name: string; lat: number; lo
       ))}
 
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
-        <Panel strong className="flex gap-5 sm:gap-8">
-          <div className="w-[38%] max-w-[170px] shrink-0">
+        <Panel strong className="relative flex gap-5 overflow-hidden sm:gap-8">
+          <Snowfall intensity={snowIntensity(s.windows["24"].likely)} />
+          <div className="relative w-[38%] max-w-[170px] shrink-0">
             <SnowStake lowCm={w72.low} likelyCm={w72.likely} highCm={w72.high} title="Snow expected in the next 72 hours" />
           </div>
-          <div className="min-w-0 flex-1">
+          <div className="relative min-w-0 flex-1">
             <p className="text-sm text-text-2">Next 72 hours, most likely</p>
             <p className="font-display text-6xl font-extrabold leading-none tracking-tight tabular sm:text-7xl">{amount(w72.likely)}</p>
             <p className="mt-2 text-text-2 tabular">

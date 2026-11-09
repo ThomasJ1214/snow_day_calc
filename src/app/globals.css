@@ -1,47 +1,59 @@
 @import "tailwindcss";
 
-/* SnowDay tokens. Dark ("polar night") is the default; light ("overcast") via [data-theme="light"]. */
+/*
+ * SnowDay — neumorphic "packed snow" design system.
+ * One material: every surface shares the page colour; depth comes from a paired shadow
+ * (light from the top-left, cool shade bottom-right). Raised = things you read or press,
+ * inset = things you type into or that hold a value (fields, tracks, official stamps).
+ * Light ("snowpack") is the default; [data-theme="dark"] is "night snow".
+ */
 :root {
-  --bg: #070b1a;
-  --bg-2: #0b1330;
-  --surface: rgb(234 245 255 / 0.055);
-  --surface-strong: rgb(234 245 255 / 0.09);
-  --line: rgb(234 245 255 / 0.12);
-  --line-strong: rgb(234 245 255 / 0.22);
-  --text: #eaf5ff;
-  --text-2: #b9c9df;
-  --text-3: #8297b3;
-  --ice: #9bdcff;
-  --ice-2: #38bdf8;
-  --violet: #a78bfa;
-  --rose: #fb7185;
-  --amber: #fbbf24;
-  --mint: #6ee7b7;
-  --snowpack: #f2f8ff;
-  --glow-1: rgb(56 189 248 / 0.16);
-  --glow-2: rgb(167 139 250 / 0.14);
-  color-scheme: dark;
-}
-[data-theme="light"] {
-  --bg: #eef4fb;
-  --bg-2: #dfe9f6;
-  --surface: rgb(255 255 255 / 0.7);
-  --surface-strong: rgb(255 255 255 / 0.9);
-  --line: rgb(14 22 48 / 0.12);
-  --line-strong: rgb(14 22 48 / 0.24);
-  --text: #0b1430;
-  --text-2: #33476b;
-  --text-3: #5a6e91;
-  --ice: #0369a1;
-  --ice-2: #0284c7;
-  --violet: #6d28d9;
-  --rose: #be123c;
-  --amber: #b45309;
-  --mint: #047857;
+  --bg: #e3eaf2;
+  --bg-2: #dbe3ec;
+  --sh-light: rgb(255 255 255 / 0.92);
+  --sh-dark: rgb(150 166 190 / 0.55);
+  --surface: rgb(30 42 68 / 0.035);
+  --surface-strong: rgb(30 42 68 / 0.07);
+  --line: rgb(30 42 68 / 0.1);
+  --line-strong: rgb(30 42 68 / 0.18);
+  --text: #18233b;
+  --text-2: #364460;
+  --text-3: #4f5c76;
+  --ice: #1c64a8;
+  --ice-2: #155089;
+  --accent: #2a6db5;
+  --on-accent: #ffffff;
+  --violet: #5b3fc4;
+  --rose: #b4253f;
+  --amber: #a14a06;
+  --mint: #0b6b4f;
   --snowpack: #ffffff;
-  --glow-1: rgb(56 189 248 / 0.22);
-  --glow-2: rgb(167 139 250 / 0.18);
+  --pole: #2a6db5;
   color-scheme: light;
+}
+[data-theme="dark"] {
+  --bg: #1b2335;
+  --bg-2: #18202f;
+  --sh-light: rgb(255 255 255 / 0.055);
+  --sh-dark: rgb(3 6 14 / 0.55);
+  --surface: rgb(230 238 248 / 0.035);
+  --surface-strong: rgb(230 238 248 / 0.07);
+  --line: rgb(230 238 248 / 0.08);
+  --line-strong: rgb(230 238 248 / 0.16);
+  --text: #e8eef7;
+  --text-2: #b9c5d8;
+  --text-3: #93a1b9;
+  --ice: #8cc8ff;
+  --ice-2: #b3dbff;
+  --accent: #7cbcf8;
+  --on-accent: #0c1626;
+  --violet: #b6a2ff;
+  --rose: #ff8399;
+  --amber: #fbbf4a;
+  --mint: #74e0b5;
+  --snowpack: #eef5ff;
+  --pole: #7cbcf8;
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -56,6 +68,8 @@
   --color-text-3: var(--text-3);
   --color-ice: var(--ice);
   --color-ice-2: var(--ice-2);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
   --color-violet: var(--violet);
   --color-rose: var(--rose);
   --color-amber: var(--amber);
@@ -64,42 +78,92 @@
   --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
 }
 
-html {
+html,
+body {
   background: var(--bg);
 }
 body {
   min-height: 100dvh;
   color: var(--text);
-  background:
-    radial-gradient(60rem 36rem at 12% -8%, var(--glow-1), transparent 70%),
-    radial-gradient(50rem 30rem at 92% 4%, var(--glow-2), transparent 70%),
-    linear-gradient(180deg, var(--bg) 0, var(--bg-2) 60rem, var(--bg) 100%);
   font-family: var(--font-sans);
-  font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
 }
 .tabular {
   font-variant-numeric: tabular-nums;
 }
+
+/* Raised surfaces. `.glass` names are kept as aliases so every panel shares one material. */
+.neu-raised,
 .glass {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  background: var(--bg);
+  box-shadow:
+    9px 9px 20px var(--sh-dark),
+    -9px -9px 20px var(--sh-light);
 }
+.neu-raised-lg,
 .glass-strong {
-  background: var(--surface-strong);
-  border: 1px solid var(--line-strong);
-  backdrop-filter: blur(22px) saturate(150%);
-  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  background: var(--bg);
+  box-shadow:
+    14px 14px 30px var(--sh-dark),
+    -12px -12px 28px var(--sh-light);
 }
+.neu-raised-sm {
+  background: var(--bg);
+  box-shadow:
+    4px 4px 10px var(--sh-dark),
+    -4px -4px 10px var(--sh-light);
+}
+/* Debossed: fields, tracks, selected toggle wells, official "stamp". */
+.neu-inset {
+  background: var(--bg);
+  box-shadow:
+    inset 5px 5px 11px var(--sh-dark),
+    inset -5px -5px 11px var(--sh-light);
+}
+.neu-inset-sm {
+  background: var(--bg);
+  box-shadow:
+    inset 2px 2px 5px var(--sh-dark),
+    inset -2px -2px 5px var(--sh-light);
+}
+.neu-field {
+  background: var(--bg);
+  box-shadow:
+    inset 4px 4px 9px var(--sh-dark),
+    inset -4px -4px 9px var(--sh-light);
+  border: 0;
+  color: var(--text);
+}
+.neu-field::placeholder {
+  color: var(--text-3);
+}
+/* Pressable: raised at rest, pressed into the surface while held. */
+.neu-press {
+  transition:
+    box-shadow 150ms ease,
+    transform 150ms ease,
+    color 150ms ease;
+}
+.neu-press:active,
+.neu-press[aria-pressed="true"],
+.neu-press[aria-checked="true"],
+.neu-press[aria-selected="true"],
+.neu-press[aria-current="page"] {
+  box-shadow:
+    inset 3px 3px 7px var(--sh-dark),
+    inset -3px -3px 7px var(--sh-light);
+}
+.neu-press:active {
+  transform: scale(0.985);
+}
+
 :focus-visible {
-  outline: 2px solid var(--ice);
-  outline-offset: 2px;
-  border-radius: 6px;
+  outline: 2.5px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 10px;
 }
 ::selection {
-  background: rgb(155 220 255 / 0.3);
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
 }
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -109,25 +173,27 @@ body {
     transition-duration: 0.001ms !important;
   }
 }
+
 .maplibregl-popup-content {
-  background: var(--bg-2) !important;
+  background: var(--bg) !important;
   color: var(--text) !important;
-  border: 1px solid var(--line-strong);
-  border-radius: 14px !important;
+  border-radius: 16px !important;
   padding: 12px 14px !important;
-  box-shadow: 0 18px 50px rgb(0 0 0 / 0.35) !important;
+  box-shadow:
+    8px 8px 18px var(--sh-dark),
+    -6px -6px 16px var(--sh-light) !important;
 }
 .maplibregl-popup-tip {
-  border-top-color: var(--bg-2) !important;
-  border-bottom-color: var(--bg-2) !important;
+  border-top-color: var(--bg) !important;
+  border-bottom-color: var(--bg) !important;
 }
 .maplibregl-ctrl-group {
-  background: var(--bg-2) !important;
-  border: 1px solid var(--line) !important;
+  background: var(--bg) !important;
+  border-radius: 12px !important;
+  box-shadow:
+    4px 4px 10px var(--sh-dark),
+    -4px -4px 10px var(--sh-light) !important;
 }
-.maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+[data-theme="dark"] .maplibregl-ctrl-group button .maplibregl-ctrl-icon {
   filter: invert(0.9);
-}
-[data-theme="light"] .maplibregl-ctrl-group button .maplibregl-ctrl-icon {
-  filter: none;
 }

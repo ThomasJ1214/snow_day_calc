@@ -87,9 +87,9 @@ export function SignInForm() {
       <div className="flex items-center gap-3 text-sm text-text-3">
         <span className="h-px flex-1 bg-line" /> or use email <span className="h-px flex-1 bg-line" />
       </div>
-      <div role="tablist" aria-label="Account" className="grid grid-cols-2 rounded-full border border-line p-1 text-sm">
+      <div role="tablist" aria-label="Account" className="neu-inset-sm grid grid-cols-2 gap-1 rounded-2xl p-1 text-sm">
         {(["signin", "signup"] as const).map((m) => (
-          <button key={m} role="tab" aria-selected={mode === m} onClick={() => setMode(m)} className={cn("min-h-10 cursor-pointer rounded-full font-semibold", mode === m ? "bg-surface-strong text-text" : "text-text-3")}>
+          <button key={m} role="tab" aria-selected={mode === m} onClick={() => setMode(m)} className={cn("min-h-10 cursor-pointer rounded-xl font-semibold transition-all duration-150", mode === m ? "neu-raised-sm text-text" : "text-text-3")}>
             {m === "signin" ? "Sign in" : "Create account"}
           </button>
         ))}
@@ -99,7 +99,7 @@ export function SignInForm() {
           <label htmlFor="email" className="mb-1.5 block text-sm font-medium">
             Email
           </label>
-          <input id="email" type="email" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} className="glass h-12 w-full rounded-xl px-4 text-text focus:outline-none" />
+          <input id="email" type="email" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} className="neu-field h-12 w-full rounded-2xl px-4 focus:outline-none" />
         </div>
         <div>
           <label htmlFor="password" className="mb-1.5 block text-sm font-medium">
@@ -114,7 +114,7 @@ export function SignInForm() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             aria-describedby="pw-help"
-            className="glass h-12 w-full rounded-xl px-4 text-text focus:outline-none"
+            className="neu-field h-12 w-full rounded-2xl px-4 focus:outline-none"
           />
           <p id="pw-help" className="mt-1.5 text-xs text-text-3">
             At least 8 characters.{mode === "signup" ? " No confirmation email — you're signed in right away." : ""}

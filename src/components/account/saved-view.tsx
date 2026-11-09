@@ -45,7 +45,7 @@ export function SavedView({ signedIn }: { signedIn: boolean }) {
                     <span className="block truncate font-medium">{s.name}</span>
                     {s.district && <span className="block truncate text-sm text-text-3">{s.district}</span>}
                   </Link>
-                  <button aria-label={`Remove ${s.name}`} onClick={() => toggle(s)} className="grid size-11 cursor-pointer place-items-center rounded-full text-text-3 hover:bg-surface hover:text-rose">
+                  <button aria-label={`Remove ${s.name}`} onClick={() => toggle(s)} className="neu-press grid size-11 cursor-pointer place-items-center rounded-full text-text-3 hover:text-rose">
                     <Trash2 className="size-4" />
                   </button>
                 </li>
@@ -62,7 +62,7 @@ export function SavedView({ signedIn }: { signedIn: boolean }) {
                   <Link href={`/forecast/${encodeSlug(p)}`} className="min-w-0 flex-1 truncate font-medium hover:text-ice">
                     {p.name}
                   </Link>
-                  <button aria-label={`Remove ${p.name}`} onClick={() => toggle(p)} className="grid size-11 cursor-pointer place-items-center rounded-full text-text-3 hover:bg-surface hover:text-rose">
+                  <button aria-label={`Remove ${p.name}`} onClick={() => toggle(p)} className="neu-press grid size-11 cursor-pointer place-items-center rounded-full text-text-3 hover:text-rose">
                     <Trash2 className="size-4" />
                   </button>
                 </li>
@@ -77,7 +77,7 @@ export function SavedView({ signedIn }: { signedIn: boolean }) {
           <ul className="flex flex-wrap gap-2">
             {recents.map((r) => (
               <li key={r.href}>
-                <Link href={r.href} className="inline-flex min-h-9 items-center rounded-full border border-line px-3 text-sm text-text-2 hover:text-text">
+                <Link href={r.href} className="neu-raised-sm neu-press inline-flex min-h-10 items-center rounded-2xl px-3.5 text-sm text-text-2 hover:text-text">
                   {r.label}
                 </Link>
               </li>

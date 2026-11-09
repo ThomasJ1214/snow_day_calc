@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import type { GeoJSONSource, Map as MlMap, MapMouseEvent } from "maplibre-gl";
 import { Pause, Play } from "lucide-react";
@@ -39,10 +39,17 @@ const BOUNDS: [[number, number], [number, number], [number, number], [number, nu
   [OB.west, OB.south],
 ];
 
+function subscribeTheme(cb: () => void) {
+  const mo = new MutationObserver(cb);
+  mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  return () => mo.disconnect();
+}
+const getThemeName = () => (document.documentElement.dataset.theme === "dark" ? "dark" : "light");
+
 function styleUrl() {
-  return document.documentElement.dataset.theme === "light"
-    ? "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json"
-    : "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json";
+  return document.documentElement.dataset.theme === "dark"
+    ? "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json"
+    : "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json";
 }
 
 export function SnowMap({
@@ -67,6 +74,7 @@ export function SnowMap({
   const [playing, setPlaying] = useState(false);
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
+  const theme = useSyncExternalStore(subscribeTheme, getThemeName, () => "light");
 
   useEffect(() => {
     let disposed = false;
@@ -99,8 +107,8 @@ export function SnowMap({
           source: "cities",
           paint: {
             "circle-radius": ["case", ["get", "featured"], 7, 4.5],
-            "circle-color": ["case", [">=", ["get", "inches"], 0.1], "#9bdcff", "#64748b"],
-            "circle-stroke-color": "#070b1a",
+            "circle-color": ["case", [">=", ["get", "inches"], 0.1], theme === "dark" ? "#8cc8ff" : "#1c64a8", theme === "dark" ? "#64748b" : "#94a3b8"],
+            "circle-stroke-color": theme === "dark" ? "#1b2335" : "#ffffff",
             "circle-stroke-width": 1.5,
           },
         });
@@ -109,7 +117,7 @@ export function SnowMap({
           type: "symbol",
           source: "cities",
           layout: { "text-field": ["get", "label"], "text-size": 11, "text-offset": [0, 1.2], "text-anchor": "top", "text-optional": true },
-          paint: { "text-color": "#eaf5ff", "text-halo-color": "#070b1a", "text-halo-width": 1.4 },
+          paint: { "text-color": theme === "dark" ? "#e8eef7" : "#18233b", "text-halo-color": theme === "dark" ? "#1b2335" : "#ffffff", "text-halo-width": 1.4 },
         });
         m.on("click", "cities-dot", (e) => {
           const f = e.features?.[0];
@@ -146,7 +154,7 @@ export function SnowMap({
             popup.setHTML(`<p style="font-size:14px">SnowDay forecasts cover the United States.</p>`);
           }
         });
-        if (marker) new maplibre.Marker({ color: "#a78bfa" }).setLngLat([marker.lon, marker.lat]).setPopup(new maplibre.Popup().setText(marker.label)).addTo(m);
+        if (marker) new maplibre.Marker({ color: theme === "dark" ? "#b6a2ff" : "#5b3fc4" }).setLngLat([marker.lon, marker.lat]).setPopup(new maplibre.Popup().setText(marker.label)).addTo(m);
         setReady(true);
       });
     })();
@@ -156,7 +164,7 @@ export function SnowMap({
       map.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [theme]);
 
   useEffect(() => {
     const m = map.current;
@@ -191,11 +199,11 @@ export function SnowMap({
   const groups = [...new Set(LAYERS.map((l) => l.group))];
   const isHrrr = layer.startsWith("hrrr");
   return (
-    <div className={cn("overflow-hidden rounded-3xl border border-line", className)}>
-      <div className="relative h-[420px] w-full sm:h-[520px]">
-        <div ref={el} className="h-full w-full" aria-label="Interactive snowfall map. Click anywhere for that location's forecast." role="region" />
-        {failed && <p className="absolute inset-x-4 top-4 rounded-xl bg-bg-2 p-3 text-sm text-text-2">The basemap couldn&apos;t load. Snowfall layers may still appear.</p>}
-        <div className="glass-strong absolute bottom-3 left-3 max-w-[calc(100%-1.5rem)] rounded-2xl p-3 text-xs">
+    <div className={cn("neu-raised-lg overflow-hidden rounded-[28px] p-2.5", className)}>
+      <div className="neu-inset relative h-[420px] w-full overflow-hidden rounded-[22px] p-1 sm:h-[520px]">
+        <div ref={el} className="h-full w-full overflow-hidden rounded-[18px]" aria-label="Interactive snowfall map. Click anywhere for that location's forecast." role="region" />
+        {failed && <p className="neu-raised absolute inset-x-4 top-4 rounded-2xl p-3 text-sm text-text-2">The basemap couldn&apos;t load. Snowfall layers may still appear.</p>}
+        <div className="neu-raised absolute bottom-4 left-4 max-w-[calc(100%-2rem)] rounded-2xl p-3 text-xs">
           {isHrrr ? (
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
               {SNOW_SCALE.map((s) => (
@@ -212,14 +220,14 @@ export function SnowMap({
           )}
         </div>
       </div>
-      <div className="flex flex-col gap-3 border-t border-line bg-bg-2/60 p-3 sm:flex-row sm:flex-wrap sm:items-center">
+      <div className="flex flex-col gap-3 px-2 pb-2 pt-4 sm:flex-row sm:flex-wrap sm:items-center">
         <button
           onClick={() => {
             if (!isHrrr) setLayer("hrrr6");
             setPlaying((p) => !p);
           }}
           aria-pressed={playing}
-          className="inline-flex min-h-11 cursor-pointer items-center gap-2 self-start rounded-full bg-ice px-4 text-sm font-semibold text-[#06122b]"
+          className="neu-raised-sm neu-press inline-flex min-h-11 cursor-pointer items-center gap-2 self-start rounded-2xl bg-accent! px-4 text-sm font-semibold text-on-accent"
         >
           {playing ? <Pause className="size-4" aria-hidden /> : <Play className="size-4" aria-hidden />}
           {playing ? "Pause" : "Animate next 18 h"}
@@ -236,7 +244,7 @@ export function SnowMap({
                   setPlaying(false);
                   setLayer(l.id);
                 }}
-                className={cn("min-h-9 cursor-pointer rounded-full border px-3 text-xs font-semibold", layer === l.id ? "border-ice bg-ice/15 text-ice" : "border-line text-text-2 hover:text-text")}
+                className={cn("neu-raised-sm neu-press min-h-10 cursor-pointer rounded-xl px-3.5 text-xs font-semibold", layer === l.id ? "text-ice" : "text-text-2 hover:text-text")}
               >
                 {l.label}
               </button>

@@ -2,6 +2,7 @@
 import Link from "next/link";
 import type { SchoolPrediction } from "@/components/forecast/types";
 import { SnowStake } from "@/components/forecast/snow-stake";
+import { Snowfall, snowIntensity } from "@/components/layout/snowfall";
 import { Skeleton } from "@/components/ui/primitives";
 import { useApi } from "@/lib/client/use-api";
 import { fmtIn } from "@/lib/client/format";
@@ -18,12 +19,13 @@ const STATUS: Record<string, string> = {
 /** Live Montville, NJ snapshot (the primary audience): snow stake, school odds, official status. */
 export function MontvilleCard() {
   const { data: p, error } = useApi<SchoolPrediction>(`/api/school-forecast/${MTHS}`, 10 * 60_000);
-  if (error) return <p className="glass rounded-3xl p-6 text-sm text-text-2">Montville&apos;s live forecast is temporarily unavailable.</p>;
+  if (error) return <p className="neu-raised rounded-[26px] p-6 text-sm text-text-2">Montville&apos;s live forecast is temporarily unavailable.</p>;
   if (!p) return <Skeleton className="h-[340px] w-full" />;
   const w = p.forecast.snow.windows["72"];
   return (
-    <article className="glass-strong relative overflow-hidden rounded-[2rem] p-6">
-      <div className="flex gap-6">
+    <article className="neu-raised-lg relative overflow-hidden rounded-[30px] p-6 sm:p-7">
+      <Snowfall intensity={snowIntensity(p.forecast.snow.windows["24"].likely)} />
+      <div className="relative flex gap-6">
         <div className="w-28 shrink-0 sm:w-36">
           <SnowStake lowCm={w.low} likelyCm={w.likely} highCm={w.high} height={250} title="Montville snow in the next 72 hours" />
         </div>

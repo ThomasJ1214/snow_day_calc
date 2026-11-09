@@ -5,10 +5,10 @@ export function OddsBar({ closure, delay }: { closure: number; delay: number }) 
   const normal = Math.max(0, 100 - closure - delay);
   return (
     <div>
-      <div className="flex h-5 w-full overflow-hidden rounded-full bg-surface-strong" role="img" aria-label={`${closure}% closure, ${delay}% delay, ${normal}% normal day`}>
-        <div className="bg-rose transition-[width] duration-700" style={{ width: `${closure}%` }} />
-        <div className="bg-amber transition-[width] duration-700" style={{ width: `${delay}%` }} />
-        <div className={cn("bg-mint/40 transition-[width] duration-700")} style={{ width: `${normal}%` }} />
+      <div className="neu-inset flex h-6 w-full gap-0.5 overflow-hidden rounded-full p-1" role="img" aria-label={`${closure}% closure, ${delay}% delay, ${normal}% normal day`}>
+        <div className="rounded-full bg-rose transition-[width] duration-700" style={{ width: `${closure}%` }} />
+        <div className="rounded-full bg-amber transition-[width] duration-700" style={{ width: `${delay}%` }} />
+        <div className={cn("rounded-full bg-mint/45 transition-[width] duration-700")} style={{ width: `${normal}%` }} />
       </div>
       <dl className="mt-4 grid grid-cols-3 gap-3">
         {[

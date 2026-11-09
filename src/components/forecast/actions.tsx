@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Check, Heart, Share2 } from "lucide-react";
 import { useFavorites, type Favorite } from "@/lib/client/storage";
 import { useFavoriteToggle } from "@/lib/client/favorite-actions";
-import { cn } from "@/components/ui/primitives";
+import { cn, Segmented } from "@/components/ui/primitives";
 
 export function FavoriteButton({ item }: { item: Favorite }) {
   const { isFavorite } = useFavorites();
@@ -13,7 +13,7 @@ export function FavoriteButton({ item }: { item: Favorite }) {
     <button
       onClick={() => toggle(item)}
       aria-pressed={on}
-      className={cn("inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full border px-4 text-sm font-semibold transition-colors", on ? "border-rose/50 bg-rose/10 text-rose" : "border-line-strong text-text hover:bg-surface-strong")}
+      className={cn("neu-raised-sm neu-press inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-2xl px-4 text-sm font-semibold", on ? "text-rose" : "text-text")}
     >
       <Heart className={cn("size-4", on && "fill-current")} aria-hidden />
       {on ? "Saved" : "Save"}
@@ -39,7 +39,7 @@ export function ShareButton({ title }: { title: string }) {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       }}
-      className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full border border-line-strong px-4 text-sm font-semibold text-text transition-colors hover:bg-surface-strong"
+      className="neu-raised-sm neu-press inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-2xl px-4 text-sm font-semibold text-text"
     >
       {copied ? <Check className="size-4 text-mint" aria-hidden /> : <Share2 className="size-4" aria-hidden />}
       {copied ? "Link copied" : "Share"}
@@ -49,12 +49,14 @@ export function ShareButton({ title }: { title: string }) {
 
 export function UnitToggle({ unit, onChange }: { unit: "in" | "cm"; onChange: (u: "in" | "cm") => void }) {
   return (
-    <div role="radiogroup" aria-label="Units" className="inline-flex rounded-full border border-line p-0.5 text-sm">
-      {(["in", "cm"] as const).map((u) => (
-        <button key={u} role="radio" aria-checked={unit === u} onClick={() => onChange(u)} className={cn("min-h-9 cursor-pointer rounded-full px-3 font-medium", unit === u ? "bg-surface-strong text-text" : "text-text-3")}>
-          {u === "in" ? "Inches" : "Centimeters"}
-        </button>
-      ))}
-    </div>
+    <Segmented
+      label="Units"
+      value={unit}
+      onChange={onChange}
+      options={[
+        { value: "in", label: "Inches" },
+        { value: "cm", label: "Centimeters" },
+      ]}
+    />
   );
 }
