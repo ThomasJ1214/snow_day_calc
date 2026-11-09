@@ -20,7 +20,7 @@ export interface HrrrPoint {
   rrfsStatus: "not_published" | "available";
 }
 
-interface RunGrids {
+export interface RunGrids {
   run: string;
   runTime: Date;
   fields: Partial<Record<Lead, Grib2Field>>;
@@ -99,6 +99,17 @@ async function rrfsStatus(): Promise<HrrrPoint["rrfsStatus"]> {
   }
   rrfsChecked = { at: Date.now(), status };
   return status;
+}
+
+/** Latest decoded HRRR 0–6/12/18 h snowfall grids (shared with the national map renderer). */
+export async function getHrrrGrids(): Promise<RunGrids> {
+  if (!current || Date.now() - current.at > 20 * 60_000) {
+    inflight ??= loadRun().finally(() => {
+      inflight = null;
+    });
+    await inflight;
+  }
+  return current!;
 }
 
 export async function fetchHrrrPoint(lat: number, lon: number): Promise<Result<HrrrPoint>> {
