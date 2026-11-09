@@ -7,7 +7,7 @@ export default function NotFound() {
       <h1 className="font-display text-4xl font-bold">That page melted.</h1>
       <p className="text-text-2">The link may be mistyped, or the location may be outside the United States. Search for a ZIP code, city or school instead.</p>
       <UnifiedSearch size="md" />
-      <Link href="/" className="inline-block text-ice underline">
+      <Link href="/" className="inline-flex min-h-11 items-center text-ice underline">
         Back to the home page
       </Link>
     </div>

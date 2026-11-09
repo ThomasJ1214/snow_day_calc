@@ -77,7 +77,7 @@ export function SavedView({ signedIn }: { signedIn: boolean }) {
           <ul className="flex flex-wrap gap-2">
             {recents.map((r) => (
               <li key={r.href}>
-                <Link href={r.href} className="neu-raised-sm neu-press inline-flex min-h-10 items-center rounded-2xl px-3.5 text-sm text-text-2 hover:text-text">
+                <Link href={r.href} className="neu-raised-sm neu-press inline-flex min-h-11 items-center rounded-2xl px-4 text-sm text-text-2 hover:text-text">
                   {r.label}
                 </Link>
               </li>

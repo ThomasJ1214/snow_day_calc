@@ -9,6 +9,8 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Share images read bundled fonts from disk; make sure they ship with the serverless functions.
+  outputFileTracingIncludes: { "/**/opengraph-image": ["./src/lib/og/fonts/**"], "/opengraph-image": ["./src/lib/og/fonts/**"] },
   reactStrictMode: true,
   async headers() {
     return [

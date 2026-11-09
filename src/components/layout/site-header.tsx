@@ -24,7 +24,7 @@ export function SiteHeader() {
       </a>
       <header className="sticky top-0 z-40 bg-bg shadow-[0_8px_18px_-10px_var(--sh-dark)]">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-          <Link href="/" aria-label="SnowDay home" className="rounded-lg">
+          <Link href="/" aria-label="SnowDay home" className="inline-flex min-h-11 items-center rounded-xl">
             <Logo />
           </Link>
           <nav aria-label="Main" className="hidden items-center gap-2 md:flex">
@@ -33,13 +33,13 @@ export function SiteHeader() {
                 key={n.href}
                 href={n.href}
                 aria-current={active(n.href) ? "page" : undefined}
-                className={cn("neu-press rounded-2xl px-4 py-2 text-sm font-semibold", active(n.href) ? "text-text" : "text-text-2 hover:text-text")}
+                className={cn("neu-press inline-flex min-h-11 items-center rounded-2xl px-4 text-sm font-semibold", active(n.href) ? "text-text" : "text-text-2 hover:text-text")}
               >
                 {n.label}
               </Link>
             ))}
             <Link href="/methodology" aria-current={active("/methodology") ? "page" : undefined}
-              className={cn("neu-press rounded-2xl px-4 py-2 text-sm font-semibold", active("/methodology") ? "text-text" : "text-text-2 hover:text-text")}>
+              className={cn("neu-press inline-flex min-h-11 items-center rounded-2xl px-4 text-sm font-semibold", active("/methodology") ? "text-text" : "text-text-2 hover:text-text")}>
               How it works
             </Link>
           </nav>

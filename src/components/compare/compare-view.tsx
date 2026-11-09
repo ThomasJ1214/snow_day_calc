@@ -80,7 +80,7 @@ export function CompareView() {
             <span key={encodeSlug(p)} className="neu-raised-sm inline-flex min-h-11 items-center gap-2 rounded-2xl py-1 pl-3.5 pr-1 text-sm font-medium">
               <span className="size-2.5 rounded-full" style={{ background: COLORS[i] }} aria-hidden />
               {p.name}
-              <button aria-label={`Remove ${p.name}`} onClick={() => setSlugs(slugs.filter((s) => s !== encodeSlug(p)))} className="neu-press grid size-9 cursor-pointer place-items-center rounded-xl">
+              <button aria-label={`Remove ${p.name}`} onClick={() => setSlugs(slugs.filter((s) => s !== encodeSlug(p)))} className="neu-press grid size-11 cursor-pointer place-items-center rounded-xl">
                 <X className="size-4" />
               </button>
             </span>
@@ -170,7 +170,7 @@ export function CompareView() {
                   return (
                     <tr key={p.name} className="border-t border-line">
                       <th className="p-3 text-left font-medium">
-                        <Link className="hover:text-ice" href={`/forecast/${encodeSlug(p)}`}>
+                        <Link className="block py-2.5 hover:text-ice" href={`/forecast/${encodeSlug(p)}`}>
                           {p.name}
                         </Link>
                       </th>

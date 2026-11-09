@@ -10,7 +10,7 @@ import { Notice, Panel, PanelTitle, Pill, Skeleton } from "@/components/ui/primi
 import { useApi } from "@/lib/client/use-api";
 import { cToF, fmtDay, fmtIn, fmtLocal, kmhToMph, mToMi, timeAgo } from "@/lib/client/format";
 import { encodeSlug } from "@/lib/geo/slug";
-import { LOCALE_LABELS } from "@/lib/schools/types";
+import { LOCALE_LABELS, type School } from "@/lib/schools/types";
 import { useEffect } from "react";
 import { useRecents } from "@/lib/client/storage";
 
@@ -24,7 +24,7 @@ function cleanReason(r: string): string {
   return t || r;
 }
 
-export function SchoolView({ id }: { id: string }) {
+export function SchoolView({ id, initialSchool }: { id: string; initialSchool: School | null }) {
   const { data: p, error, loading, updatedAt, reload } = useApi<SchoolPrediction>(`/api/school-forecast/${id}`, 10 * 60_000);
   const { add } = useRecents();
   useEffect(() => {
@@ -42,13 +42,21 @@ export function SchoolView({ id }: { id: string }) {
     );
   if (!p)
     return (
-      <div className="space-y-6" aria-busy="true">
-        <Skeleton className="h-10 w-2/3" />
-        <div className="grid gap-6 lg:grid-cols-2">
-          <Skeleton className="h-64" />
-          <Skeleton className="h-64" />
+      <div className="space-y-6" aria-busy="true" aria-label="Loading prediction">
+        {initialSchool ? <SchoolHeader s={initialSchool} fav={favOf(initialSchool)} refresh={null} /> : <Skeleton className="h-36 w-2/3" />}
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]">
+          <Skeleton className="h-[244px]" />
+          <Skeleton className="h-[244px]" />
         </div>
-        <Skeleton className="h-72" />
+        <Skeleton className="h-[184px]" />
+        <div className="grid gap-6 lg:grid-cols-2">
+          <Skeleton className="h-[470px]" />
+          <Skeleton className="h-[244px]" />
+        </div>
+        <div className="grid gap-6 lg:grid-cols-2">
+          <Skeleton className="h-[290px]" />
+          <Skeleton className="h-[480px]" />
+        </div>
       </div>
     );
 
@@ -57,32 +65,12 @@ export function SchoolView({ id }: { id: string }) {
   const pred = p.prediction;
   const commute = p.forecast.snow.hourly.filter((h) => h.time.startsWith(p.targetDay) && Number(h.time.slice(11, 13)) >= 5 && Number(h.time.slice(11, 13)) <= 8);
   const w24 = p.forecast.snow.windows["24"];
-  const fav = { type: "school" as const, schoolId: s.id, name: s.name, leaid: s.leaid, lat: s.lat, lon: s.lon, district: s.district };
+  const fav = favOf(s);
   const maxPts = Math.max(1, ...(pred?.factors.map((f) => f.points) ?? [1]));
 
   return (
     <div className="space-y-6">
-      <section>
-        <p className="text-sm text-text-3">
-          {s.type === "private" ? "Private school" : s.district ?? "Public school"}
-          {s.locale && LOCALE_LABELS[s.locale] ? `, ${LOCALE_LABELS[s.locale].toLowerCase()}` : ""}
-        </p>
-        <h1 className="mt-1 font-display text-4xl font-bold tracking-tight sm:text-5xl">{s.name}</h1>
-        <p className="mt-2 flex items-center gap-1.5 text-text-2">
-          <MapPin className="size-4 text-text-3" aria-hidden />
-          {[s.street, s.city].filter(Boolean).join(", ")}, {s.state} {s.zip}
-        </p>
-        <div className="mt-4 flex flex-wrap items-center gap-2">
-          <FavoriteButton item={fav} />
-          <ShareButton title={`${s.name}: snow day odds`} />
-          <Link href={`/forecast/${encodeSlug({ name: `${s.city ?? s.name}, ${s.state}`, lat: s.lat, lon: s.lon })}`} className="inline-flex min-h-11 items-center rounded-2xl px-3 text-sm font-semibold text-ice underline-offset-4 hover:underline">
-            Full snowfall forecast
-          </Link>
-          <button onClick={reload} className="neu-press ml-auto inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-2xl px-3 text-sm text-text-3 hover:text-text">
-            <RefreshCw className={loading ? "size-4 animate-spin" : "size-4"} aria-hidden /> Updated {updatedAt ? timeAgo(new Date(updatedAt).toISOString()) : "now"}
-          </button>
-        </div>
-      </section>
+      <SchoolHeader s={s} fav={fav} refresh={<RefreshButton loading={loading} updatedAt={updatedAt} onClick={reload} />} />
 
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]">
         <Panel strong>
@@ -292,5 +280,40 @@ export function SchoolView({ id }: { id: string }) {
         <Notice key={n} tone="info" title={n} />
       ))}
     </div>
+  );
+}
+
+const favOf = (s: School) => ({ type: "school" as const, schoolId: s.id, name: s.name, leaid: s.leaid, lat: s.lat, lon: s.lon, district: s.district });
+
+function RefreshButton({ loading, updatedAt, onClick }: { loading: boolean; updatedAt: number | null; onClick: () => void }) {
+  return (
+    <button onClick={onClick} className="neu-press ml-auto inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-2xl px-3 text-sm text-text-3 hover:text-text">
+      <RefreshCw className={loading ? "size-4 animate-spin" : "size-4"} aria-hidden /> Updated {updatedAt ? timeAgo(new Date(updatedAt).toISOString()) : "now"}
+      <span className="sr-only">, refresh prediction</span>
+    </button>
+  );
+}
+
+function SchoolHeader({ s, fav, refresh }: { s: School; fav: ReturnType<typeof favOf>; refresh: React.ReactNode }) {
+  return (
+    <section>
+        <p className="text-sm text-text-3">
+          {s.type === "private" ? "Private school" : s.district ?? "Public school"}
+          {s.locale && LOCALE_LABELS[s.locale] ? `, ${LOCALE_LABELS[s.locale].toLowerCase()}` : ""}
+        </p>
+        <h1 className="mt-1 font-display text-4xl font-bold tracking-tight sm:text-5xl">{s.name}</h1>
+        <p className="mt-2 flex items-center gap-1.5 text-text-2">
+          <MapPin className="size-4 text-text-3" aria-hidden />
+          {[s.street, s.city].filter(Boolean).join(", ")}, {s.state} {s.zip}
+        </p>
+        <div className="mt-4 flex flex-wrap items-center gap-2">
+          <FavoriteButton item={fav} />
+          <ShareButton title={`${s.name}: snow day odds`} />
+          <Link href={`/forecast/${encodeSlug({ name: `${s.city ?? s.name}, ${s.state}`, lat: s.lat, lon: s.lon })}`} className="inline-flex min-h-11 items-center rounded-2xl px-3 text-sm font-semibold text-ice underline-offset-4 hover:underline">
+            Full snowfall forecast
+          </Link>
+          {refresh}
+        </div>
+    </section>
   );
 }

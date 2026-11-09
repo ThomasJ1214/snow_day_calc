@@ -131,8 +131,8 @@ export function NationalView() {
                 <tbody>
                   {ranked.map((c) => (
                     <tr key={`${c.name}${c.state}`} className="border-t border-line">
-                      <td className="py-1.5">
-                        <Link className="hover:text-ice" href={`/forecast/${encodeSlug({ name: `${c.name}, ${c.state}`, lat: c.lat, lon: c.lon })}`}>
+                      <td>
+                        <Link className="block py-3 hover:text-ice" href={`/forecast/${encodeSlug({ name: `${c.name}, ${c.state}`, lat: c.lat, lon: c.lon })}`}>
                           {c.name}, {c.state}
                         </Link>
                       </td>

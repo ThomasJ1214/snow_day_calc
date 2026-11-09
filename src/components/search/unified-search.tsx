@@ -156,8 +156,8 @@ export function UnifiedSearch({ autoFocus = false, size = "lg" }: { autoFocus?: 
               setActive((a) => Math.max(a - 1, 0));
             } else if (e.key === "Escape") setOpen(false);
           }}
-          placeholder="ZIP code, city, address, or school"
-          className={cn("min-w-0 flex-1 bg-transparent text-text placeholder:text-text-3 focus:outline-none", size === "lg" ? "text-lg" : "text-base")}
+          placeholder="ZIP, city, address or school"
+          className={cn("h-full min-w-0 flex-1 bg-transparent text-text placeholder:text-text-3 focus:outline-none", size === "lg" ? "text-lg" : "text-base")}
         />
         {loading && <LoaderCircle className="size-5 animate-spin text-text-3" aria-label="Searching" />}
         <button

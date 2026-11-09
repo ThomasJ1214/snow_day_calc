@@ -8,8 +8,8 @@ export default function Home() {
   const districts = (registry as { districts: unknown[] }).districts.length;
   return (
     <div className="space-y-20">
-      <section className="grid gap-10 pt-2 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-center lg:pt-8">
-        <div>
+      <section className="grid grid-cols-[minmax(0,1fr)] gap-10 pt-2 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-center lg:pt-8">
+        <div className="min-w-0">
           <h1 className="font-display text-[clamp(2.6rem,6.4vw,5rem)] font-extrabold leading-[0.95] tracking-[-0.035em]">
             How much snow.
             <br />

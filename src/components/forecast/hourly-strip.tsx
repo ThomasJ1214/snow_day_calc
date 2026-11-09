@@ -13,7 +13,7 @@ const PHASE: Record<string, { label: string; cls: string }> = {
 export function HourlyStrip({ hourly, unit }: { hourly: HourPoint[]; unit: "in" | "cm" }) {
   const rows = hourly.filter((h) => !h.past).filter((_, i) => i % 3 === 0).slice(0, 16);
   return (
-    <div className="-mx-1 overflow-x-auto pb-2">
+    <div tabIndex={0} role="region" aria-label="Hour-by-hour conditions (scrolls sideways)" className="-mx-1 overflow-x-auto rounded-xl pb-2">
       <table className="w-max text-center text-sm tabular">
         <caption className="sr-only">Hourly conditions every three hours</caption>
         <tbody>

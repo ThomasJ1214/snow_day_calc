@@ -5,7 +5,7 @@ const KEYS: WindowKey[] = ["3", "6", "12", "24", "48", "72"];
 
 export function WindowsTable({ snow }: { snow: SnowAnalysis }) {
   return (
-    <div className="overflow-x-auto">
+    <div tabIndex={0} role="region" aria-label="Snowfall totals by time window (scrolls sideways on small screens)" className="overflow-x-auto rounded-xl">
       <table className="w-full min-w-[480px] text-left text-sm tabular">
         <caption className="sr-only">Snowfall totals for upcoming time windows: low, most likely and high estimates</caption>
         <thead>

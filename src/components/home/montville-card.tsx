@@ -25,8 +25,8 @@ export function MontvilleCard() {
   return (
     <article className="neu-raised-lg relative overflow-hidden rounded-[30px] p-6 sm:p-7">
       <Snowfall intensity={snowIntensity(p.forecast.snow.windows["24"].likely)} />
-      <div className="relative flex gap-6">
-        <div className="w-28 shrink-0 sm:w-36">
+      <div className="relative flex gap-4 sm:gap-6">
+        <div className="w-20 shrink-0 min-[400px]:w-28 sm:w-36">
           <SnowStake lowCm={w.low} likelyCm={w.likely} highCm={w.high} height={250} title="Montville snow in the next 72 hours" />
         </div>
         <div className="min-w-0 flex-1">
@@ -37,20 +37,24 @@ export function MontvilleCard() {
           <div className="mt-5 border-t border-line pt-4">
             <p className="text-sm text-text-2">Montville Township High School, {p.targetDayLabel.split(",")[0]}</p>
             {p.prediction ? (
-              <p className="mt-1 text-lg tabular">
-                <span className="font-display text-2xl font-bold text-rose">{p.prediction.closurePct}%</span> closed{" "}
-                <span className="ml-2 font-display text-2xl font-bold text-amber">{p.prediction.delayPct}%</span> delayed
+              <p className="mt-1 flex flex-wrap gap-x-4 text-lg tabular">
+                <span className="whitespace-nowrap">
+                  <span className="font-display text-2xl font-bold text-rose">{p.prediction.closurePct}%</span> closed
+                </span>
+                <span className="whitespace-nowrap">
+                  <span className="font-display text-2xl font-bold text-amber">{p.prediction.delayPct}%</span> delayed
+                </span>
               </p>
             ) : (
               <p className="mt-1 text-text-2">Not yet in forecast range</p>
             )}
             <p className="mt-1 text-sm text-text-3">{STATUS[p.official.status]} on montville.net</p>
           </div>
-          <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm font-semibold">
-            <Link href={`/school/${MTHS}`} className="text-ice hover:underline">
+          <div className="mt-3 flex flex-wrap gap-x-4 text-sm font-semibold">
+            <Link href={`/school/${MTHS}`} className="inline-flex min-h-11 items-center text-ice underline-offset-4 hover:underline">
               Montville schools
             </Link>
-            <Link href="/forecast/montville-nj--40.9154_-74.3638" className="text-ice hover:underline">
+            <Link href="/forecast/montville-nj--40.9154_-74.3638" className="inline-flex min-h-11 items-center text-ice underline-offset-4 hover:underline">
               Hour-by-hour snow
             </Link>
           </div>

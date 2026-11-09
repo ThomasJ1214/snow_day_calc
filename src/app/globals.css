@@ -197,3 +197,33 @@ body {
 [data-theme="dark"] .maplibregl-ctrl-group button .maplibregl-ctrl-icon {
   filter: invert(0.9);
 }
+
+/* Map zoom buttons: 44 px targets in the same raised material. */
+.maplibregl-ctrl-group button {
+  width: 44px !important;
+  height: 44px !important;
+}
+
+/* Typographic polish: balanced headings, no orphaned last words in paragraphs. */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+p,
+li {
+  text-wrap: pretty;
+}
+
+/* Horizontal scroller for chip rows on small screens (room for the raised shadows). */
+.chip-scroller {
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: 1rem;
+}
+.chip-scroller::-webkit-scrollbar {
+  display: none;
+}
+.chip-scroller > * {
+  scroll-snap-align: start;
+}

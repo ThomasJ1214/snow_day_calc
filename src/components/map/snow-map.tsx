@@ -244,7 +244,7 @@ export function SnowMap({
                   setPlaying(false);
                   setLayer(l.id);
                 }}
-                className={cn("neu-raised-sm neu-press min-h-10 cursor-pointer rounded-xl px-3.5 text-xs font-semibold", layer === l.id ? "text-ice" : "text-text-2 hover:text-text")}
+                className={cn("neu-raised-sm neu-press min-h-11 cursor-pointer rounded-xl px-4 text-xs font-semibold", layer === l.id ? "text-ice" : "text-text-2 hover:text-text")}
               >
                 {l.label}
               </button>

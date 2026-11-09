@@ -11,7 +11,8 @@ export const metadata: Metadata = { title: "Account" };
 export default async function AccountPage() {
   if (!supabaseConfigured)
     return (
-      <div className="max-w-xl">
+      <div className="max-w-xl space-y-5">
+        <h1 className="font-display text-4xl font-bold tracking-tight">Your account</h1>
         <Notice title="Accounts are not configured on this deployment">
           Favorites and recent searches are saved on this device. The site owner can enable accounts and notifications by adding Supabase keys (see the README).
         </Notice>

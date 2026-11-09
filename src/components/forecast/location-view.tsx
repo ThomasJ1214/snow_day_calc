@@ -6,18 +6,19 @@ import { RefreshCw, Snowflake, ThermometerSnowflake } from "lucide-react";
 import type { LocationForecast } from "./types";
 import { SnowStake } from "./snow-stake";
 import { Snowfall, snowIntensity } from "@/components/layout/snowfall";
-import { AccumulationChart } from "./accumulation-chart";
 import { WindowsTable } from "./windows-table";
 import { AlertsPanel } from "./alerts-panel";
 import { SourcesPanel } from "./sources-panel";
 import { HourlyStrip } from "./hourly-strip";
 import { FavoriteButton, ShareButton, UnitToggle } from "./actions";
 import { Notice, Panel, PanelTitle, Skeleton } from "@/components/ui/primitives";
+import { LazyMount } from "@/components/ui/lazy-mount";
 import { useApi } from "@/lib/client/use-api";
 import { useRecents, lastSeen, rememberSeen } from "@/lib/client/storage";
 import { fmtCm, fmtDay, fmtIn, fmtLocal, timeAgo, tzAbbr } from "@/lib/client/format";
 import { encodeSlug } from "@/lib/geo/slug";
 
+const AccumulationChart = dynamic(() => import("./accumulation-chart").then((m) => m.AccumulationChart), { ssr: false, loading: () => <Skeleton className="h-64" /> });
 const SnowMap = dynamic(() => import("@/components/map/snow-map").then((m) => m.SnowMap), { ssr: false, loading: () => <Skeleton className="h-[480px]" /> });
 
 const PHASE_WORD: Record<string, string> = { snow: "snow", mix: "a rain/snow mix", rain: "rain", freezing_rain: "freezing rain" };
@@ -88,9 +89,10 @@ export function LocationView({ name, lat, lon }: { name: string; lat: number; lo
           </div>
         </div>
         <div className="flex items-center gap-2 text-sm text-text-3" aria-live="polite">
-          <button onClick={reload} className="neu-press inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-2xl px-3 hover:text-text" aria-label="Refresh forecast">
+          <button onClick={reload} className="neu-press inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-2xl px-3 hover:text-text">
             <RefreshCw className={loading ? "size-4 animate-spin" : "size-4"} aria-hidden />
             Updated {updatedAt ? timeAgo(new Date(updatedAt).toISOString()) : "now"}
+            <span className="sr-only">, refresh forecast</span>
           </button>
         </div>
       </section>
@@ -198,7 +200,9 @@ export function LocationView({ name, lat, lon }: { name: string; lat: number; lo
 
       <section aria-labelledby="map-h">
         <h2 id="map-h" className="mb-3 font-display text-lg font-semibold">Snowfall map</h2>
-        <SnowMap center={[lon, lat]} zoom={6.2} marker={{ lat, lon, label: name }} />
+        <LazyMount minHeight={560}>
+          <SnowMap center={[lon, lat]} zoom={6.2} marker={{ lat, lon, label: name }} />
+        </LazyMount>
       </section>
 
       <div className="grid gap-6 lg:grid-cols-2">

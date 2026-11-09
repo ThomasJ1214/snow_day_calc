@@ -89,7 +89,7 @@ export function SignInForm() {
       </div>
       <div role="tablist" aria-label="Account" className="neu-inset-sm grid grid-cols-2 gap-1 rounded-2xl p-1 text-sm">
         {(["signin", "signup"] as const).map((m) => (
-          <button key={m} role="tab" aria-selected={mode === m} onClick={() => setMode(m)} className={cn("min-h-10 cursor-pointer rounded-xl font-semibold transition-all duration-150", mode === m ? "neu-raised-sm text-text" : "text-text-3")}>
+          <button key={m} role="tab" aria-selected={mode === m} onClick={() => setMode(m)} className={cn("min-h-11 cursor-pointer rounded-xl font-semibold transition-all duration-150", mode === m ? "neu-raised-sm text-text" : "text-text-3")}>
             {m === "signin" ? "Sign in" : "Create account"}
           </button>
         ))}

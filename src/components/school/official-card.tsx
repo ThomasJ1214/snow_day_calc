@@ -25,14 +25,14 @@ export function OfficialCard({ s }: { s: OfficialStatus }) {
         {m.title}
       </h2>
       <p className="mt-2 text-text-2">{s.headline}</p>
-      <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+      <div className="mt-3 flex flex-wrap items-center gap-x-5 text-sm">
         {s.sourceUrl && (
-          <a href={s.sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-ice underline-offset-4 hover:underline">
+          <a href={s.sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-1.5 font-semibold text-ice underline-offset-4 hover:underline">
             {s.sourceName ? `Source: ${s.sourceName}` : "Source"} <ExternalLink className="size-3.5" aria-hidden />
           </a>
         )}
         {s.websiteUrl && (
-          <a href={s.websiteUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-ice underline-offset-4 hover:underline">
+          <a href={s.websiteUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-1.5 font-semibold text-ice underline-offset-4 hover:underline">
             District website <ExternalLink className="size-3.5" aria-hidden />
           </a>
         )}

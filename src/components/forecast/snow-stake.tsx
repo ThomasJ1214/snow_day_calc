@@ -24,9 +24,9 @@ export function SnowStake({ lowCm, likelyCm, highCm, height = 260, title }: { lo
         </pattern>
       </defs>
       {/* debossed well the snow collects in */}
-      <rect x="12" y={top - 4} width="82" height={bottom - top + 6} rx="10" fill="var(--sh-dark)" opacity="0.32" />
-      <rect x="14" y={top - 2} width="80" height={bottom - top + 4} rx="9" fill="var(--bg)" />
-      <rect x="14" y={top - 2} width="80" height={bottom - top + 4} rx="9" fill="none" stroke="var(--sh-light)" strokeWidth="1.2" opacity="0.9" />
+      <rect x="14" y={top - 2} width="80" height={bottom - top + 4} rx="10" fill="var(--sh-light)" />
+      <rect x="12" y={top - 4} width="80" height={bottom - top + 4} rx="10" fill="var(--sh-dark)" opacity="0.55" />
+      <rect x="14" y={top - 2} width="78" height={bottom - top + 2} rx="9" fill="var(--bg)" />
       {/* ground */}
       <rect x="6" y={bottom} width={W - 12} height="2.5" rx="1.25" fill="var(--line-strong)" />
       {/* range band */}
