@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description:
     "Hyperlocal snowfall forecasts with honest ranges from 80+ model runs, plus transparent school closure predictions and official district announcements across the United States.",
   openGraph: { type: "website", siteName: "SnowDay" },
-  icons: { icon: "/icon.svg" },
+  icons: { icon: "/icon.svg", apple: "/apple-touch-icon.png" },
   manifest: "/manifest.webmanifest",
 };
 

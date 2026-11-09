@@ -14,6 +14,16 @@ import { LOCALE_LABELS } from "@/lib/schools/types";
 import { useEffect } from "react";
 import { useRecents } from "@/lib/client/storage";
 
+/** "SCHOOLS CLOSED - Thanksgiving Recess - District (HW-Free break)" → "Thanksgiving Recess" */
+function cleanReason(r: string): string {
+  const t = r
+    .replace(/\(.*?\)/g, "")
+    .replace(/^\s*schools?\s+closed\s*[-–:]\s*/i, "")
+    .replace(/\s*[-–]\s*district\s*$/i, "")
+    .trim();
+  return t || r;
+}
+
 export function SchoolView({ id }: { id: string }) {
   const { data: p, error, loading, updatedAt, reload } = useApi<SchoolPrediction>(`/api/school-forecast/${id}`, 10 * 60_000);
   const { add } = useRecents();
@@ -129,7 +139,7 @@ export function SchoolView({ id }: { id: string }) {
         </Panel>
       )}
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid gap-6 lg:grid-cols-2 lg:items-start">
         <Panel>
           <PanelTitle>Weather for the school morning</PanelTitle>
           {w ? (
@@ -202,7 +212,7 @@ export function SchoolView({ id }: { id: string }) {
         </Panel>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid gap-6 lg:grid-cols-2 lg:items-start">
         <Panel>
           <PanelTitle>
             <span className="inline-flex items-center gap-2">
@@ -215,7 +225,7 @@ export function SchoolView({ id }: { id: string }) {
               {p.calendar.upcomingNoSchool.map((d) => (
                 <li key={d.date} className="flex min-w-0 justify-between gap-3 py-2">
                   <span className="shrink-0 text-text-2">{fmtDay(d.date)}</span>
-                  <span className="min-w-0 truncate text-right text-text">{d.reason}</span>
+                  <span className="min-w-0 truncate text-right text-text">{cleanReason(d.reason)}</span>
                 </li>
               ))}
             </ul>
