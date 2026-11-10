@@ -14,7 +14,7 @@ import path from "node:path";
 import { parseFeed } from "../src/lib/official/status";
 import { loadDistrictCsv } from "./lib/nces";
 
-const UA = "Mozilla/5.0 (compatible; Snow Day ScoutScoutFeedDiscovery/1.0; +https://github.com/ThomasJ1214/snow_day_calc)";
+const UA = "Mozilla/5.0 (compatible; SnowDayScoutFeedDiscovery/1.0; +https://github.com/ThomasJ1214/snow_day_calc)";
 const REGISTRY = path.join(__dirname, "../src/lib/official/registry.json");
 
 function arg(name: string, fallback: string): string {

@@ -169,7 +169,7 @@ cp .env.example .env.local
 
 | Variable | Required? | What it is |
 |---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | Recommended | Your site address, e.g. `https://snowdayscout.com` |
+| `NEXT_PUBLIC_SITE_URL` | Once you have a domain | Your site address, e.g. `https://snowdayscout.com`. Without it, Vercel deployments use the project's production `*.vercel.app` address automatically |
 | `NWS_CONTACT_EMAIL` | Recommended | Contact email the National Weather Service asks API users to include |
 | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` | For accounts/fast search | From step 5b |
 | `SUPABASE_SERVICE_ROLE_KEY` | For import, cron jobs | From step 5b — **secret** |

@@ -1,6 +1,6 @@
 import "server-only";
 
-export const USER_AGENT = `Snow Day ScoutScout/1.0 (+${process.env.NEXT_PUBLIC_SITE_URL ?? "https://github.com/ThomasJ1214/snow_day_calc"}; ${process.env.NWS_CONTACT_EMAIL ?? "contact via repository"})`;
+export const USER_AGENT = `SnowDayScout/1.0 (+${process.env.NEXT_PUBLIC_SITE_URL ?? "https://github.com/ThomasJ1214/snow_day_calc"}; ${process.env.NWS_CONTACT_EMAIL ?? "contact via repository"})`;
 
 export class HttpError extends Error {
   constructor(

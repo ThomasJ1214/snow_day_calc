@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/lib/site-url";
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
 import "maplibre-gl/dist/maplibre-gl.css";
@@ -10,7 +11,7 @@ import { MotionProvider } from "@/components/ui/motion";
 const display = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-bricolage", display: "swap" });
 const sans = Instrument_Sans({ subsets: ["latin"], variable: "--font-instrument", display: "swap" });
 
-const site = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const site = SITE_URL;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site),

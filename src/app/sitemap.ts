@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/lib/site-url";
 import type { MetadataRoute } from "next";
 import { CITIES } from "@/lib/national/cities";
 import { encodeSlug } from "@/lib/geo/slug";
@@ -12,7 +13,7 @@ const MONTVILLE = { lat: 40.9154, lon: -74.3638 };
  * Montville, NJ (the primary audience) so Google can find the pages local families search for.
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const site = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  const site = SITE_URL;
   const now = new Date();
   const core: MetadataRoute.Sitemap = [
     { url: `${site}/`, changeFrequency: "hourly", priority: 1, lastModified: now },
