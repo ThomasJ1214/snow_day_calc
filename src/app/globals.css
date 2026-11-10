@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /*
- * SnowDay — neumorphic "packed snow" design system.
+ * Snow Day Scout — neumorphic "packed snow" design system.
  * One material: every surface shares the page colour; depth comes from a paired shadow
  * (light from the top-left, cool shade bottom-right). Raised = things you read or press,
  * inset = things you type into or that hold a value (fields, tracks, official stamps).
@@ -29,6 +29,11 @@
   --mint: #0b6b4f;
   --snowpack: #ffffff;
   --pole: #2a6db5;
+  /* Motion tokens (mirrored in components/ui/motion.tsx). */
+  --ease-settle: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --dur-press: 120ms;
+  --dur-state: 200ms;
   color-scheme: light;
 }
 [data-theme="dark"] {
@@ -137,18 +142,23 @@ body {
 .neu-field::placeholder {
   color: var(--text-3);
 }
-/* Pressable: raised at rest, pressed into the surface while held. */
+/* Pressable: raised at rest, pressed into the surface while held. Goes down fast, comes back
+   up on the slower settle curve so a tap reads as one deliberate press-and-release. */
 .neu-press {
   transition:
-    box-shadow 150ms ease,
-    transform 150ms ease,
-    color 150ms ease;
+    box-shadow var(--dur-state) var(--ease-settle),
+    transform var(--dur-state) var(--ease-settle),
+    color var(--dur-state) var(--ease-settle),
+    filter var(--dur-state) var(--ease-settle);
+}
+.neu-press:active {
+  transition-duration: var(--dur-press);
 }
 .neu-press:active,
 .neu-press[aria-pressed="true"],
 .neu-press[aria-checked="true"],
 .neu-press[aria-selected="true"],
-.neu-press[aria-current="page"] {
+.neu-press[aria-current="page"]:not([data-slide]) {
   box-shadow:
     inset 3px 3px 7px var(--sh-dark),
     inset -3px -3px 7px var(--sh-light);
@@ -165,6 +175,39 @@ body {
 ::selection {
   background: color-mix(in srgb, var(--accent) 28%, transparent);
 }
+/* Loading placeholders breathe slowly instead of blinking. */
+.skeleton-breathe {
+  animation: breathe 1.8s var(--ease-settle) infinite alternate;
+}
+@keyframes breathe {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.55;
+  }
+}
+
+/* Theme change: one soft crossfade of the whole page (View Transitions), with a property
+   transition fallback for browsers without them. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 320ms;
+  animation-timing-function: var(--ease-settle);
+}
+html.theme-switching,
+html.theme-switching *,
+html.theme-switching *::before,
+html.theme-switching *::after {
+  transition:
+    background-color 320ms var(--ease-settle),
+    color 320ms var(--ease-settle),
+    border-color 320ms var(--ease-settle),
+    box-shadow 320ms var(--ease-settle),
+    fill 320ms var(--ease-settle),
+    stroke 320ms var(--ease-settle) !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

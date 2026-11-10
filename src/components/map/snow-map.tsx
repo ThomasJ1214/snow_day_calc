@@ -151,7 +151,7 @@ export function SnowMap({
             div.append(title, a);
             popup.setDOMContent(div);
           } catch {
-            popup.setHTML(`<p style="font-size:14px">SnowDay forecasts cover the United States.</p>`);
+            popup.setHTML(`<p style="font-size:14px">Snow Day Scout forecasts cover the United States.</p>`);
           }
         });
         if (marker) new maplibre.Marker({ color: theme === "dark" ? "#b6a2ff" : "#5b3fc4" }).setLngLat([marker.lon, marker.lat]).setPopup(new maplibre.Popup().setText(marker.label)).addTo(m);

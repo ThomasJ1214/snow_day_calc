@@ -70,12 +70,19 @@ function toSchool(a: Attrs, type: "public" | "private"): School {
   };
 }
 
+type QueryResponse = { features?: { attributes: Attrs }[]; error?: { message: string } };
+
+/**
+ * ArcGIS intermittently answers valid queries with a 200 "Invalid query parameters" body, so one
+ * uncached retry follows an error response (an error body must never be cached for a day).
+ */
 async function query(url: string, params: Record<string, string>): Promise<Attrs[]> {
   const qs = new URLSearchParams({ f: "json", returnGeometry: "false", ...params });
-  const d = await fetchJson<{ features?: { attributes: Attrs }[]; error?: { message: string } }>(`${url}?${qs}`, {
-    revalidate: 86_400,
-    timeoutMs: 12_000,
-  });
+  let d = await fetchJson<QueryResponse>(`${url}?${qs}`, { revalidate: 86_400, timeoutMs: 12_000 });
+  if (d.error) {
+    await new Promise((r) => setTimeout(r, 400));
+    d = await fetchJson<QueryResponse>(`${url}?${qs}`, { revalidate: 0, timeoutMs: 12_000 });
+  }
   if (d.error) throw new Error(d.error.message);
   return (d.features ?? []).map((f) => f.attributes);
 }

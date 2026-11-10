@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { CompareView } from "@/components/compare/compare-view";
 import { Skeleton } from "@/components/ui/primitives";
 
-export const metadata: Metadata = { title: "Compare locations" };
+export const metadata: Metadata = { title: "Compare locations", alternates: { canonical: "/compare" } };
 
 export default function ComparePage() {
   return (

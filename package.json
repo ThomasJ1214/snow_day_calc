@@ -2,7 +2,7 @@
   "name": "snowday",
   "version": "1.0.0",
   "private": true,
-  "description": "SnowDay \u2014 hyperlocal US snowfall forecasts and school closure predictions",
+  "description": "Snow Day Scout \u2014 hyperlocal US snowfall forecasts and school closure predictions",
   "engines": {
     "node": ">=20.9"
   },

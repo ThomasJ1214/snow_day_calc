@@ -6,7 +6,11 @@ import { Snowfall, snowIntensity } from "@/components/layout/snowfall";
 import { Skeleton } from "@/components/ui/primitives";
 import { useApi } from "@/lib/client/use-api";
 import { fmtIn } from "@/lib/client/format";
+import { TweenNumber } from "@/components/ui/tween-number";
+import { m } from "framer-motion";
+import { REVEAL } from "@/components/ui/motion";
 
+const pct = (v: number) => `${Math.round(v)}%`;
 const MTHS = "pub-341065004332";
 const STATUS: Record<string, string> = {
   officially_closed: "Officially closed",
@@ -23,7 +27,7 @@ export function MontvilleCard() {
   if (!p) return <Skeleton className="h-[340px] w-full" />;
   const w = p.forecast.snow.windows["72"];
   return (
-    <article className="neu-raised-lg relative overflow-hidden rounded-[30px] p-6 sm:p-7">
+    <m.article {...REVEAL} className="neu-raised-lg relative overflow-hidden rounded-[30px] p-6 sm:p-7">
       <Snowfall intensity={snowIntensity(p.forecast.snow.windows["24"].likely)} />
       <div className="relative flex gap-4 sm:gap-6">
         <div className="w-20 shrink-0 min-[400px]:w-28 sm:w-36">
@@ -32,17 +36,23 @@ export function MontvilleCard() {
         <div className="min-w-0 flex-1">
           <h2 className="font-display text-xl font-semibold">Montville, NJ right now</h2>
           <p className="mt-3 text-sm text-text-2">Next 72 hours</p>
-          <p className="font-display text-5xl font-extrabold leading-none tabular">{fmtIn(w.likely)}</p>
+          <p className="font-display text-5xl font-extrabold leading-none tabular">
+            <TweenNumber value={w.likely} format={fmtIn} />
+          </p>
           <p className="mt-1 text-sm text-text-3 tabular">{w.high === 0 ? "No snow expected" : `${fmtIn(w.low)} to ${fmtIn(w.high)}`}</p>
           <div className="mt-5 border-t border-line pt-4">
             <p className="text-sm text-text-2">Montville Township High School, {p.targetDayLabel.split(",")[0]}</p>
             {p.prediction ? (
               <p className="mt-1 flex flex-wrap gap-x-4 text-lg tabular">
                 <span className="whitespace-nowrap">
-                  <span className="font-display text-2xl font-bold text-rose">{p.prediction.closurePct}%</span> closed
+                  <span className="font-display text-2xl font-bold text-rose">
+                    <TweenNumber value={p.prediction.closurePct} format={pct} duration={900} />
+                  </span> closed
                 </span>
                 <span className="whitespace-nowrap">
-                  <span className="font-display text-2xl font-bold text-amber">{p.prediction.delayPct}%</span> delayed
+                  <span className="font-display text-2xl font-bold text-amber">
+                    <TweenNumber value={p.prediction.delayPct} format={pct} duration={900} />
+                  </span> delayed
                 </span>
               </p>
             ) : (
@@ -60,6 +70,6 @@ export function MontvilleCard() {
           </div>
         </div>
       </div>
-    </article>
+    </m.article>
   );
 }

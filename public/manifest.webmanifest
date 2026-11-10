@@ -1,6 +1,6 @@
 {
-  "name": "SnowDay",
-  "short_name": "SnowDay",
+  "name": "Snow Day Scout",
+  "short_name": "Snow Scout",
   "description": "Snowfall forecasts and school closure predictions",
   "start_url": "/",
   "display": "standalone",

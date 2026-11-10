@@ -11,7 +11,7 @@ const META = {
   unavailable: { title: "Official information unavailable", icon: CircleHelp, cls: "bg-text-3", iconCls: "text-text-3" },
 } as const;
 
-/** Official district status, visually distinct from SnowDay's prediction. Never derived from a probability. */
+/** Official district status, visually distinct from Snow Day Scout's prediction. Never derived from a probability. */
 export function OfficialCard({ s }: { s: OfficialStatus }) {
   const m = META[s.status];
   return (

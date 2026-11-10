@@ -3,6 +3,8 @@ import { useState } from "react";
 import { ChevronDown, TriangleAlert } from "lucide-react";
 import type { LocationForecast } from "./types";
 import { cn } from "@/components/ui/primitives";
+import { AnimatePresence, m } from "framer-motion";
+import { EASE, EASE_EXIT } from "@/components/ui/motion";
 
 const WINTER = /winter|snow|ice|freez|blizzard|cold|chill|frost|sleet|lake effect/i;
 
@@ -24,15 +26,25 @@ export function AlertsPanel({ alerts }: { alerts: LocationForecast["alerts"] }) 
                 <span className="block font-semibold text-text">{a.event}</span>
                 <span className="block text-sm text-text-2">{a.headline ?? a.areaDesc}</span>
               </span>
-              <ChevronDown className={cn("mt-1 size-4 shrink-0 text-text-3 transition-transform", isOpen && "rotate-180")} aria-hidden />
+              <ChevronDown className={cn("mt-1 size-4 shrink-0 text-text-3 transition-transform duration-200 ease-[cubic-bezier(.2,.8,.2,1)]", isOpen && "rotate-180")} aria-hidden />
             </button>
-            {isOpen && (
-              <div className="mt-3 space-y-2 whitespace-pre-line text-sm text-text-2">
-                <p>{a.description}</p>
-                {a.instruction && <p className="text-text">{a.instruction}</p>}
-                <p className="text-text-3">Issued by {a.senderName}</p>
-              </div>
-            )}
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <m.div
+                  key="body"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1, transition: { height: { duration: 0.28, ease: EASE }, opacity: { duration: 0.2, delay: 0.06 } } }}
+                  exit={{ height: 0, opacity: 0, transition: { height: { duration: 0.2, ease: EASE_EXIT }, opacity: { duration: 0.12 } } }}
+                  className="overflow-hidden"
+                >
+                  <div className="space-y-2 pt-3 whitespace-pre-line text-sm text-text-2">
+                    <p>{a.description}</p>
+                    {a.instruction && <p className="text-text">{a.instruction}</p>}
+                    <p className="text-text-3">Issued by {a.senderName}</p>
+                  </div>
+                </m.div>
+              )}
+            </AnimatePresence>
           </li>
         );
       })}

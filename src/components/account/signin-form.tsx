@@ -1,4 +1,6 @@
 "use client";
+import { m } from "framer-motion";
+import { SLIDE } from "@/components/ui/motion";
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { LoaderCircle } from "lucide-react";
@@ -88,9 +90,10 @@ export function SignInForm() {
         <span className="h-px flex-1 bg-line" /> or use email <span className="h-px flex-1 bg-line" />
       </div>
       <div role="tablist" aria-label="Account" className="neu-inset-sm grid grid-cols-2 gap-1 rounded-2xl p-1 text-sm">
-        {(["signin", "signup"] as const).map((m) => (
-          <button key={m} role="tab" aria-selected={mode === m} onClick={() => setMode(m)} className={cn("min-h-11 cursor-pointer rounded-xl font-semibold transition-all duration-150", mode === m ? "neu-raised-sm text-text" : "text-text-3")}>
-            {m === "signin" ? "Sign in" : "Create account"}
+        {(["signin", "signup"] as const).map((k) => (
+          <button key={k} role="tab" aria-selected={mode === k} onClick={() => setMode(k)} className={cn("relative min-h-11 cursor-pointer rounded-xl font-semibold transition-colors duration-200", mode === k ? "text-text" : "text-text-3 hover:text-text-2")}>
+            {mode === k && <m.span layoutId="signin-tab" transition={SLIDE} aria-hidden className="neu-raised-sm absolute inset-0 rounded-xl" />}
+            <span className="relative">{k === "signin" ? "Sign in" : "Create account"}</span>
           </button>
         ))}
       </div>

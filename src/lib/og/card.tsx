@@ -45,7 +45,7 @@ export function OgCard({ eyebrow, title, big, bigLabel, detail, footer }: { eyeb
           </div>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 24, fontWeight: 600, color: "#4f5c76" }}>
-          <div style={{ display: "flex", fontWeight: 800, color: "#18233b" }}>SnowDay</div>
+          <div style={{ display: "flex", fontWeight: 800, color: "#18233b" }}>Snow Day Scout</div>
           <div style={{ display: "flex" }}>{footer}</div>
         </div>
       </div>

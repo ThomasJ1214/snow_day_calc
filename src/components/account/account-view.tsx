@@ -53,7 +53,7 @@ export function AccountView({ email }: { email: string }) {
   const enablePush = async () => {
     setStatus(null);
     if (!VAPID) return setStatus("Push notifications aren't configured on this deployment.");
-    if (!pushSupported) return setStatus("This browser doesn't support push notifications. On iPhone, add SnowDay to your Home Screen first.");
+    if (!pushSupported) return setStatus("This browser doesn't support push notifications. On iPhone, add Snow Day Scout to your Home Screen first.");
     const permission = await Notification.requestPermission();
     if (permission !== "granted") return setStatus("Notifications are blocked. Allow them in your browser's site settings, then try again.");
     const reg = await navigator.serviceWorker.register("/sw.js");

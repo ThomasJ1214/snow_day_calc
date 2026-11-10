@@ -9,8 +9,8 @@ export default function SignInPage() {
   return (
     <div className="mx-auto max-w-md space-y-6">
       <div>
-        <h1 className="font-display text-4xl font-bold tracking-tight">Sign in to SnowDay</h1>
-        <p className="mt-2 text-text-2">Optional. An account syncs your schools across devices and lets SnowDay notify you before a likely snow day.</p>
+        <h1 className="font-display text-4xl font-bold tracking-tight">Sign in to Snow Day Scout</h1>
+        <p className="mt-2 text-text-2">Optional. An account syncs your schools across devices and lets Snow Day Scout notify you before a likely snow day.</p>
       </div>
       <Panel strong>
         <Suspense>

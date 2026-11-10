@@ -5,6 +5,8 @@ import { GraduationCap, LoaderCircle, LocateFixed, MapPin, Search } from "lucide
 import { encodeSlug } from "@/lib/geo/slug";
 import { useRecents } from "@/lib/client/storage";
 import { cn } from "@/components/ui/primitives";
+import { AnimatePresence, m } from "framer-motion";
+import { EASE, POP } from "@/components/ui/motion";
 
 interface PlaceResult {
   name: string;
@@ -107,7 +109,7 @@ export function UnifiedSearch({ autoFocus = false, size = "lg" }: { autoFocus?: 
           add({ label: place.name, href });
           router.push(href);
         } catch {
-          setMessage("SnowDay covers the United States. Your location appears to be outside it.");
+          setMessage("Snow Day Scout covers the United States. Your location appears to be outside it.");
         } finally {
           setLocating(false);
         }
@@ -171,8 +173,9 @@ export function UnifiedSearch({ autoFocus = false, size = "lg" }: { autoFocus?: 
           <span className="sr-only sm:hidden">Use my location</span>
         </button>
       </form>
+      <AnimatePresence>
       {open && visible.length > 0 && (
-        <ul id={listId} role="listbox" className="neu-raised-lg absolute inset-x-0 top-full z-30 mt-3 max-h-[60vh] overflow-auto rounded-[22px] p-2">
+        <m.ul {...POP} style={{ transformOrigin: "top center" }} id={listId} role="listbox" className="neu-raised-lg absolute inset-x-0 top-full z-30 mt-3 max-h-[60vh] overflow-auto rounded-[22px] p-2">
           {visible.map((o, i) => (
             <li
               key={o.href}
@@ -184,10 +187,11 @@ export function UnifiedSearch({ autoFocus = false, size = "lg" }: { autoFocus?: 
                 go(o);
               }}
               onMouseEnter={() => setActive(i)}
-              className={cn("flex cursor-pointer items-start gap-3 rounded-2xl px-3 py-2.5", i === active && "neu-inset-sm")}
+              className="relative flex cursor-pointer items-start gap-3 rounded-2xl px-3 py-2.5"
             >
-              {o.kind === "place" ? <MapPin className="mt-0.5 size-4 shrink-0 text-ice" aria-hidden /> : <GraduationCap className="mt-0.5 size-4 shrink-0 text-violet" aria-hidden />}
-              <span className="min-w-0">
+              {i === active && <m.span layoutId={`${listId}-hl`} transition={{ duration: 0.16, ease: EASE }} aria-hidden className="neu-inset-sm absolute inset-0 rounded-2xl" />}
+              {o.kind === "place" ? <MapPin className="relative mt-0.5 size-4 shrink-0 text-ice" aria-hidden /> : <GraduationCap className="relative mt-0.5 size-4 shrink-0 text-violet" aria-hidden />}
+              <span className="relative min-w-0">
                 <span className="block truncate font-medium text-text">{o.label}</span>
                 <span className="block truncate text-sm text-text-3">
                   {o.detail}
@@ -195,8 +199,9 @@ export function UnifiedSearch({ autoFocus = false, size = "lg" }: { autoFocus?: 
               </span>
             </li>
           ))}
-        </ul>
+        </m.ul>
       )}
+      </AnimatePresence>
       {shownMessage && (
         <p role="status" className="mt-3 text-sm text-text-2">
           {message}

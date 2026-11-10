@@ -46,7 +46,7 @@ export async function getDistrictHistory(leaid: string | null): Promise<District
         district ||= e.district;
         events.set(`${e.school_day}:${e.status}`, { date: e.school_day, status: e.status, evidence: e.evidence, sourceUrl: e.source_url, origin: e.origin });
       }
-      if (ev?.length) sources.push("SnowDay verifier records");
+      if (ev?.length) sources.push("Snow Day Scout verifier records");
       const closed = new Set((ev ?? []).filter((e) => e.status === "closed").map((e) => e.school_day));
       pairs = (preds ?? []).map((p) => ({ p: p.closure_pct / 100, o: closed.has(p.school_day) ? 1 : 0 }));
     } catch {

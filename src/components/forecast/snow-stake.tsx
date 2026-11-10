@@ -1,14 +1,19 @@
+"use client";
 import { CM_PER_IN } from "@/lib/client/format";
+import { useTween } from "@/lib/client/use-tween";
 
 /**
  * The snow stake: a graduated measuring pole. Snowpack fills to the most-likely depth; the frosted
  * band spans the low–high range (10th–90th percentile of ensemble members).
+ * Signature motion: when a forecast arrives the snow settles into the well from the ground up,
+ * in step with the headline number (same duration and curve); refreshed forecasts glide to the new depth.
+ * The scale is fixed by the target values so the ruler never moves while the snow does.
  */
 export function SnowStake({ lowCm, likelyCm, highCm, height = 260, title }: { lowCm: number; likelyCm: number; highCm: number; height?: number; title: string }) {
-  const lo = lowCm / CM_PER_IN;
-  const li = likelyCm / CM_PER_IN;
-  const hi = highCm / CM_PER_IN;
-  const maxIn = niceMax(Math.max(hi * 1.15, 4));
+  const lo = useTween(lowCm) / CM_PER_IN;
+  const li = useTween(likelyCm) / CM_PER_IN;
+  const hi = useTween(highCm) / CM_PER_IN;
+  const maxIn = niceMax(Math.max((highCm / CM_PER_IN) * 1.15, 4));
   const step = maxIn <= 6 ? 1 : maxIn <= 12 ? 2 : maxIn <= 24 ? 4 : 6;
   const W = 150;
   const top = 14;
@@ -16,7 +21,7 @@ export function SnowStake({ lowCm, likelyCm, highCm, height = 260, title }: { lo
   const y = (v: number) => bottom - (Math.min(v, maxIn) / maxIn) * (bottom - top);
   const ticks = Array.from({ length: Math.floor(maxIn / step) + 1 }, (_, i) => i * step);
   return (
-    <svg viewBox={`0 0 ${W} ${height}`} role="img" aria-label={`${title}: most likely ${round(li)} inches, range ${round(lo)} to ${round(hi)} inches`} className="h-auto w-full max-w-[170px]">
+    <svg viewBox={`0 0 ${W} ${height}`} role="img" aria-label={`${title}: most likely ${round(likelyCm / CM_PER_IN)} inches, range ${round(lowCm / CM_PER_IN)} to ${round(highCm / CM_PER_IN)} inches`} className="h-auto w-full max-w-[170px]">
       <defs>
         <pattern id="frost" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
           <rect width="6" height="6" fill="var(--ice)" opacity="0.12" />
@@ -30,9 +35,9 @@ export function SnowStake({ lowCm, likelyCm, highCm, height = 260, title }: { lo
       {/* ground */}
       <rect x="6" y={bottom} width={W - 12} height="2.5" rx="1.25" fill="var(--line-strong)" />
       {/* range band */}
-      {hi > 0 && <rect x="16" y={y(hi)} width="76" height={Math.max(2, y(lo) - y(hi))} rx="6" fill="url(#frost)" />}
+      {hi > 0.01 && <rect x="16" y={y(hi)} width="76" height={Math.max(2, y(lo) - y(hi))} rx="6" fill="url(#frost)" />}
       {/* snowpack */}
-      {li > 0 && <rect x="16" y={y(li)} width="76" height={bottom - y(li)} rx="8" fill="var(--snowpack)" stroke="var(--line-strong)" strokeWidth="0.8" />}
+      {li > 0.01 && <rect x="16" y={y(li)} width="76" height={bottom - y(li)} rx="8" fill="var(--snowpack)" stroke="var(--line-strong)" strokeWidth="0.8" />}
       {/* stake */}
       <rect x="101" y={top - 6} width="10" height={bottom - top + 6} rx="5" fill="var(--pole)" />
       {ticks.map((t) => (
@@ -43,7 +48,7 @@ export function SnowStake({ lowCm, likelyCm, highCm, height = 260, title }: { lo
           </text>
         </g>
       ))}
-      {hi > 0 && (
+      {hi > 0.01 && (
         <>
           <line x1="16" x2="96" y1={y(hi)} y2={y(hi)} stroke="var(--ice)" strokeDasharray="3 3" strokeWidth="1" />
           <line x1="16" x2="96" y1={y(lo)} y2={y(lo)} stroke="var(--ice)" strokeDasharray="3 3" strokeWidth="1" opacity="0.6" />

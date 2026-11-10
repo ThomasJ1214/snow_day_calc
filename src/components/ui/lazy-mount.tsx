@@ -22,7 +22,7 @@ export function LazyMount({ children, minHeight, rootMargin = "600px" }: { child
   }, [show, rootMargin]);
   return (
     <div ref={ref} style={{ minHeight }}>
-      {show ? children : <div aria-hidden className="neu-inset h-full animate-pulse rounded-[26px]" style={{ height: minHeight }} />}
+      {show ? children : <div aria-hidden className="neu-inset skeleton-breathe h-full rounded-[26px]" style={{ height: minHeight }} />}
     </div>
   );
 }

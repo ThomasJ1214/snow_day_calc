@@ -25,7 +25,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
       big={w ? inch(w.likely) : "—"}
       bigLabel={w ? (w.high === 0 ? "No snow expected" : "most likely") : "Forecast loading"}
       detail={w && w.high > 0 ? `Range ${inch(w.low)} to ${inch(w.high)}` : "From 80+ forecast model runs"}
-      footer="Live forecast at SnowDay"
+      footer="Live forecast at Snow Day Scout"
     />,
     { ...size, fonts: await ogFonts() },
   );

@@ -1,6 +1,6 @@
-/* SnowDay service worker: Web Push notifications only (no offline caching). */
+/* Snow Day Scout service worker: Web Push notifications only (no offline caching). */
 self.addEventListener("push", (event) => {
-  let data = { title: "SnowDay", body: "", url: "/" };
+  let data = { title: "Snow Day Scout", body: "", url: "/" };
   try {
     data = Object.assign(data, event.data ? event.data.json() : {});
   } catch (e) {

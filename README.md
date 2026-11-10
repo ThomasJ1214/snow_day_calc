@@ -1,8 +1,8 @@
-# SnowDay
+# Snow Day Scout
 
 **How much snow, and whether school closes — for anywhere in the United States.**
 
-SnowDay is a Next.js website that:
+Snow Day Scout is a Next.js website that:
 
 - forecasts snowfall for any U.S. ZIP code, city, street address or map point, with **low / most likely / high** totals taken from 82 ensemble forecast members (not made-up ranges);
 - downloads NOAA's high-resolution **HRRR model directly from NOAA's raw GRIB2 files** and draws it on an interactive national map, alongside NOAA Weather Prediction Center snowfall odds and current snow cover;
@@ -92,17 +92,17 @@ git push -u origin main
 
 All weather sources are free public services and need **no API keys**:
 
-| Source | What SnowDay uses it for |
+| Source | What Snow Day Scout uses it for |
 |---|---|
 | [Open-Meteo](https://open-meteo.com) | NOAA NBM, HRRR, GFS, ECMWF, GEM and ICON hourly forecasts; 82-member GEFS + ECMWF ensembles |
-| [NOAA open data (HRRR on AWS)](https://registry.opendata.aws/noaa-hrrr-pds/) | Raw HRRR GRIB2 files decoded by SnowDay for the map |
+| [NOAA open data (HRRR on AWS)](https://registry.opendata.aws/noaa-hrrr-pds/) | Raw HRRR GRIB2 files decoded by Snow Day Scout for the map |
 | [National Weather Service API](https://www.weather.gov/documentation/services-web-api) | Alerts, written forecasts, forecaster snowfall grid |
 | [NOAA WPC](https://www.wpc.ncep.noaa.gov/) and [NOHRSC](https://www.nohrsc.noaa.gov/) map services | National snowfall odds and current snow depth layers |
 | NOAA NCEI 1991–2020 climate normals (bundled) | How much snow each place normally gets |
 
-**About Open-Meteo's free tier:** it allows about 10,000 requests per day and is for **non-commercial** use. SnowDay snaps locations to a ~2 km grid and caches results, so many users share one request (everyone in Montville shares the same forecast). If your site becomes busy or earns money, buy an API key at https://open-meteo.com/en/pricing and set `OPEN_METEO_API_KEY`.
+**About Open-Meteo's free tier:** it allows about 10,000 requests per day and is for **non-commercial** use. Snow Day Scout snaps locations to a ~2 km grid and caches results, so many users share one request (everyone in Montville shares the same forecast). If your site becomes busy or earns money, buy an API key at https://open-meteo.com/en/pricing and set `OPEN_METEO_API_KEY`.
 
-**About RRFS:** NOAA's next-generation RRFS model isn't published on NOAA's open data service yet. SnowDay checks for it and shows "not yet published" in each forecast's source list; HRRR is used instead.
+**About RRFS:** NOAA's next-generation RRFS model isn't published on NOAA's open data service yet. Snow Day Scout checks for it and shows "not yet published" in each forecast's source list; HRRR is used instead.
 
 ## 5. School database and accounts (Supabase)
 
@@ -124,7 +124,7 @@ In Supabase → **Project Settings → API** (or **API Keys**), copy:
 
 ### 5c. Turn off confirmation emails (required)
 
-SnowDay signs people in immediately without any verification email, which also avoids Supabase's email rate limits.
+Snow Day Scout signs people in immediately without any verification email, which also avoids Supabase's email rate limits.
 
 1. Supabase → **Authentication → Sign In / Providers → Email**.
 2. Make sure **Enable Email provider** is on.
@@ -135,7 +135,7 @@ SnowDay signs people in immediately without any verification email, which also a
 1. In [Google Cloud Console](https://console.cloud.google.com/apis/credentials), create a project → **OAuth consent screen** (External; add your app name and email) → **Credentials → Create credentials → OAuth client ID → Web application**.
 2. Under **Authorized redirect URIs** add the callback URL shown in Supabase → Authentication → Sign In / Providers → **Google** (it looks like `https://YOUR-PROJECT.supabase.co/auth/v1/callback`).
 3. Copy the Google **Client ID** and **Client secret** into that Supabase Google provider page and enable it.
-4. In Supabase → **Authentication → URL Configuration**, set **Site URL** to your site (e.g. `https://snowday.example.com`) and add `https://YOUR-SITE/auth/callback` and `http://localhost:3000/auth/callback` to **Redirect URLs**.
+4. In Supabase → **Authentication → URL Configuration**, set **Site URL** to your site (e.g. `https://snowdayscout.com`) and add `https://YOUR-SITE/auth/callback` and `http://localhost:3000/auth/callback` to **Redirect URLs**.
 
 ### 5e. Import the school directory
 
@@ -169,7 +169,7 @@ cp .env.example .env.local
 
 | Variable | Required? | What it is |
 |---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | Recommended | Your site address, e.g. `https://snowday.example.com` |
+| `NEXT_PUBLIC_SITE_URL` | Recommended | Your site address, e.g. `https://snowdayscout.com` |
 | `NWS_CONTACT_EMAIL` | Recommended | Contact email the National Weather Service asks API users to include |
 | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` | For accounts/fast search | From step 5b |
 | `SUPABASE_SERVICE_ROLE_KEY` | For import, cron jobs | From step 5b — **secret** |
@@ -209,7 +209,7 @@ Other commands:
 
 1. Go to https://vercel.com/new and **Import** your GitHub repository.
 2. Framework preset: **Next.js** (detected automatically). Leave build settings as they are.
-3. Open **Environment Variables** and add each variable from step 7 (same names and values). For `NEXT_PUBLIC_SITE_URL` use your Vercel address for now (e.g. `https://snowday.vercel.app`).
+3. Open **Environment Variables** and add each variable from step 7 (same names and values). For `NEXT_PUBLIC_SITE_URL` use your Vercel address for now (e.g. `https://snow-day-scout.vercel.app`).
 4. Click **Deploy**. The first build takes 2–4 minutes.
 5. If you use Supabase, add `https://YOUR-VERCEL-ADDRESS/auth/callback` to Supabase → Authentication → URL Configuration → Redirect URLs, and update **Site URL**.
 
@@ -228,6 +228,7 @@ Vercel's free plan runs each job once a day. For more frequent checks (e.g. ever
 2. Vercel → your project → **Settings → Domains → Add**, and enter your domain.
 3. Follow Vercel's instructions to add the DNS record it shows (usually an `A` record to `76.76.21.21`, or a `CNAME` to `cname.vercel-dns.com`) at your registrar. HTTPS is set up automatically within minutes.
 4. Update `NEXT_PUBLIC_SITE_URL` in Vercel to the new domain and redeploy; update Supabase's Site URL and Redirect URLs (step 9.5).
+5. Get it on Google: follow [docs/launch-and-seo.md](docs/launch-and-seo.md) (Search Console verification, sitemap submission and local SEO for Montville).
 
 ## 11. Test the live site
 
@@ -283,16 +284,16 @@ Climate normals (`src/lib/climate/snow-normals.json`) change only every 10 years
 | "Account created, but this deployment still requires email confirmation" | Turn off **Confirm email** (step 5c). |
 | Google sign-in returns to the sign-in page with an error | Redirect URLs don't match: check step 5d.4 and step 9.5. |
 | Import fails with `relation "schools" does not exist` | Run the SQL migrations (step 5a). |
-| Notifications: "Push notifications aren't configured" | Add the three VAPID variables and redeploy. On iPhone, add SnowDay to the Home Screen (Share → Add to Home Screen) first. |
+| Notifications: "Push notifications aren't configured" | Add the three VAPID variables and redeploy. On iPhone, add Snow Day Scout to the Home Screen (Share → Add to Home Screen) first. |
 | Cron jobs return 401 | `CRON_SECRET` is missing or doesn't match the `Authorization` header. |
-| A school's official status is "unavailable" | That district doesn't publish a machine-readable feed SnowDay knows about. The page links to the district website instead. |
+| A school's official status is "unavailable" | That district doesn't publish a machine-readable feed Snow Day Scout knows about. The page links to the district website instead. |
 | Build fails fetching Google Fonts | Your build machine is offline; Vercel builds have internet access. |
 
 ## How it works
 
 See the in-app **How it works** page (`/methodology`) for the full explanation. In short:
 
-- **Snowfall:** for each hour of each model and ensemble member, SnowDay computes the wet-bulb temperature (precipitation type) and a temperature-dependent snow-to-liquid ratio, then takes the 10th/50th/90th percentiles across 82 ensemble members for low/likely/high. Confidence reflects model disagreement and lead time.
+- **Snowfall:** for each hour of each model and ensemble member, Snow Day Scout computes the wet-bulb temperature (precipitation type) and a temperature-dependent snow-to-liquid ratio, then takes the 10th/50th/90th percentiles across 82 ensemble members for low/likely/high. Confidence reflects model disagreement and lead time.
 - **Closures:** overnight snow, commute snow, ice, wind chill, gusts, visibility and NWS alerts at the school's coordinates, with snow thresholds scaled by local snow climatology from NOAA normals (so 4″ means more in Atlanta than in Buffalo). The next school day skips weekends, federal holidays and district calendar days off. Every factor's contribution is shown.
 - **Official status:** read only from sources districts publish themselves; never inferred from a prediction. Old posts (over 18 hours) and phrases like "no delay" or "winter break" are filtered out.
 

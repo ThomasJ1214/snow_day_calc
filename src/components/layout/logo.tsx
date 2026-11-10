@@ -10,7 +10,7 @@ export function Logo({ className = "" }: { className?: string }) {
           ))}
         </svg>
       </span>
-      <span className="font-display text-xl font-bold tracking-tight">SnowDay</span>
+      <span className="font-display text-xl font-bold tracking-tight">Snow Day Scout</span>
     </span>
   );
 }

@@ -4,6 +4,9 @@ import { CalendarOff, History, MapPin, RefreshCw } from "lucide-react";
 import type { SchoolPrediction } from "@/components/forecast/types";
 import { OfficialCard } from "./official-card";
 import { OddsBar } from "./odds-bar";
+import { TweenNumber } from "@/components/ui/tween-number";
+import { m } from "framer-motion";
+import { REVEAL } from "@/components/ui/motion";
 import { SnowStake } from "@/components/forecast/snow-stake";
 import { FavoriteButton, ShareButton } from "@/components/forecast/actions";
 import { Notice, Panel, PanelTitle, Pill, Skeleton } from "@/components/ui/primitives";
@@ -71,10 +74,11 @@ export function SchoolView({ id, initialSchool }: { id: string; initialSchool: S
   return (
     <div className="space-y-6">
       <SchoolHeader s={s} fav={fav} refresh={<RefreshButton loading={loading} updatedAt={updatedAt} onClick={reload} />} />
+      <m.div {...REVEAL} className="space-y-6">
 
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]">
         <Panel strong>
-          <p className="text-sm text-text-2">SnowDay prediction for {p.targetDayLabel}</p>
+          <p className="text-sm text-text-2">Snow Day Scout prediction for {p.targetDayLabel}</p>
           {pred ? (
             <>
               <div className="mt-4">
@@ -185,7 +189,9 @@ export function SchoolView({ id, initialSchool }: { id: string; initialSchool: S
           </div>
           <div className="min-w-0">
             <p className="text-sm text-text-2">Next 24 hours at this school</p>
-            <p className="font-display text-5xl font-extrabold tabular">{fmtIn(w24.likely)}</p>
+            <p className="font-display text-5xl font-extrabold tabular">
+              <TweenNumber value={w24.likely} format={fmtIn} />
+            </p>
             <p className="text-text-2 tabular">{w24.high === 0 ? "No snow expected" : `Range ${fmtIn(w24.low)} to ${fmtIn(w24.high)}`}</p>
             {(p.forecast.alerts ?? []).length > 0 && (
               <ul className="mt-4 space-y-1 text-sm">
@@ -271,7 +277,7 @@ export function SchoolView({ id, initialSchool }: { id: string; initialSchool: S
               </p>
             </>
           ) : (
-            <p className="text-sm text-text-2">No verified closure history for this district yet. SnowDay records official announcements as its verifier confirms them.</p>
+            <p className="text-sm text-text-2">No verified closure history for this district yet. Snow Day Scout records official announcements as its verifier confirms them.</p>
           )}
         </Panel>
       </div>
@@ -279,6 +285,7 @@ export function SchoolView({ id, initialSchool }: { id: string; initialSchool: S
       {p.notes.slice(pred ? 0 : 1).map((n) => (
         <Notice key={n} tone="info" title={n} />
       ))}
+      </m.div>
     </div>
   );
 }

@@ -55,7 +55,7 @@ export function evaluateNotifications(targets: Target[], prefs: Prefs, sent: Set
       push(t, {
         kind: "closure_risk",
         title: `${t.closurePct}% chance ${t.name} closes ${dayName(t.targetDay)}`,
-        body: `Delay chance ${t.delayPct ?? 0}%. This is a SnowDay prediction, not an official announcement.`,
+        body: `Delay chance ${t.delayPct ?? 0}%. This is a Snow Day Scout prediction, not an official announcement.`,
       });
     }
     if (t.snow24In >= prefs.snowThresholdIn) {

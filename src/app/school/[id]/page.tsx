@@ -10,10 +10,11 @@ const loadSchool = cache(async (id: string) => (await getSchool(id).catch(() => 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
   const s = parseSchoolId(id) ? await loadSchool(id) : null;
-  if (!s) return { title: "School snow day odds" };
+  if (!s) return { title: "School snow day prediction" };
   const where = [s.city, s.state].filter(Boolean).join(", ");
   return {
-    title: `${s.name} snow day odds`,
+    title: `${s.name} snow day prediction`,
+    alternates: { canonical: `/school/${id}` },
     description: `Chance ${s.name}${where ? ` in ${where}` : ""} closes or delays for snow and ice, with the reasons, the morning commute forecast and ${s.district ?? "the district"}'s official status.`,
   };
 }

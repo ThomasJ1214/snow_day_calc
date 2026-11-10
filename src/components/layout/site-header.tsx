@@ -5,6 +5,8 @@ import { Bookmark, GitCompareArrows, Home, Map, UserRound } from "lucide-react";
 import { Logo } from "./logo";
 import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/components/ui/primitives";
+import { m } from "framer-motion";
+import { SLIDE } from "@/components/ui/motion";
 
 const NAV = [
   { href: "/", label: "Home", icon: Home },
@@ -24,24 +26,22 @@ export function SiteHeader() {
       </a>
       <header className="sticky top-0 z-40 bg-bg shadow-[0_8px_18px_-10px_var(--sh-dark)]">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-          <Link href="/" aria-label="SnowDay home" className="inline-flex min-h-11 items-center rounded-xl">
+          <Link href="/" aria-label="Snow Day Scout home" className="inline-flex min-h-11 items-center rounded-xl">
             <Logo />
           </Link>
           <nav aria-label="Main" className="hidden items-center gap-2 md:flex">
-            {NAV.slice(1).map((n) => (
+            {[...NAV.slice(1), { href: "/methodology", label: "How it works" }].map((n) => (
               <Link
                 key={n.href}
                 href={n.href}
+                data-slide
                 aria-current={active(n.href) ? "page" : undefined}
-                className={cn("neu-press inline-flex min-h-11 items-center rounded-2xl px-4 text-sm font-semibold", active(n.href) ? "text-text" : "text-text-2 hover:text-text")}
+                className={cn("neu-press relative inline-flex min-h-11 items-center rounded-2xl px-4 text-sm font-semibold", active(n.href) ? "text-text" : "text-text-2 hover:text-text")}
               >
-                {n.label}
+                {active(n.href) && <m.span layoutId="nav-desktop" transition={SLIDE} aria-hidden className="neu-inset-sm absolute inset-0 rounded-2xl" />}
+                <span className="relative">{n.label}</span>
               </Link>
             ))}
-            <Link href="/methodology" aria-current={active("/methodology") ? "page" : undefined}
-              className={cn("neu-press inline-flex min-h-11 items-center rounded-2xl px-4 text-sm font-semibold", active("/methodology") ? "text-text" : "text-text-2 hover:text-text")}>
-              How it works
-            </Link>
           </nav>
           <ThemeToggle />
         </div>
@@ -52,11 +52,13 @@ export function SiteHeader() {
             <li key={n.href}>
               <Link
                 href={n.href}
+                data-slide
                 aria-current={active(n.href) ? "page" : undefined}
-                className={cn("neu-press flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-2xl text-[11px] font-semibold", active(n.href) ? "text-ice" : "text-text-2")}
+                className={cn("neu-press relative flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-2xl text-[11px] font-semibold", active(n.href) ? "text-ice" : "text-text-2")}
               >
-                <n.icon className="size-5" aria-hidden />
-                {n.label === "National map" ? "Map" : n.label}
+                {active(n.href) && <m.span layoutId="nav-mobile" transition={SLIDE} aria-hidden className="neu-inset-sm absolute inset-0 rounded-2xl" />}
+                <n.icon className="relative size-5" aria-hidden />
+                <span className="relative">{n.label === "National map" ? "Map" : n.label}</span>
               </Link>
             </li>
           ))}

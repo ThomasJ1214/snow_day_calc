@@ -41,7 +41,7 @@ export function Pill({ className, tone = "neutral", ...p }: ComponentProps<"span
 }
 
 export function Skeleton({ className }: { className?: string }) {
-  return <div aria-hidden className={cn("neu-inset animate-pulse rounded-[22px]", className)} />;
+  return <div aria-hidden className={cn("neu-inset skeleton-breathe rounded-[22px]", className)} />;
 }
 
 export function Notice({ tone = "info", title, children }: { tone?: "info" | "warn" | "error"; title: string; children?: ReactNode }) {
@@ -55,21 +55,4 @@ export function Notice({ tone = "info", title, children }: { tone?: "info" | "wa
   );
 }
 
-/** Segmented control: debossed track, the chosen option rises out of it. */
-export function Segmented<T extends string>({ label, value, options, onChange }: { label: string; value: T; options: { value: T; label: string }[]; onChange: (v: T) => void }) {
-  return (
-    <div role="radiogroup" aria-label={label} className="neu-inset-sm inline-flex rounded-2xl p-1 text-sm">
-      {options.map((o) => (
-        <button
-          key={o.value}
-          role="radio"
-          aria-checked={value === o.value}
-          onClick={() => onChange(o.value)}
-          className={cn("min-h-11 cursor-pointer rounded-xl px-4 font-semibold transition-all duration-150", value === o.value ? "neu-raised-sm text-text" : "text-text-3 hover:text-text-2")}
-        >
-          {o.label}
-        </button>
-      ))}
-    </div>
-  );
-}
+export { Segmented } from "./segmented";

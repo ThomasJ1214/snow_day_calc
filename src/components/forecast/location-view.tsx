@@ -13,6 +13,9 @@ import { HourlyStrip } from "./hourly-strip";
 import { FavoriteButton, ShareButton, UnitToggle } from "./actions";
 import { Notice, Panel, PanelTitle, Skeleton } from "@/components/ui/primitives";
 import { LazyMount } from "@/components/ui/lazy-mount";
+import { TweenNumber } from "@/components/ui/tween-number";
+import { m } from "framer-motion";
+import { DUR, EASE, REVEAL } from "@/components/ui/motion";
 import { useApi } from "@/lib/client/use-api";
 import { useRecents, lastSeen, rememberSeen } from "@/lib/client/storage";
 import { fmtCm, fmtDay, fmtIn, fmtLocal, timeAgo, tzAbbr } from "@/lib/client/format";
@@ -75,7 +78,7 @@ export function LocationView({ name, lat, lon }: { name: string; lat: number; lo
   const fav = { type: "location" as const, name, lat, lon, slug };
 
   return (
-    <div className="space-y-6">
+    <m.div {...REVEAL} className="space-y-6">
       <section className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
         <div>
           <p className="text-sm text-text-3">
@@ -98,9 +101,11 @@ export function LocationView({ name, lat, lon }: { name: string; lat: number; lo
       </section>
 
       {change && (
-        <Notice tone="info" title="The forecast changed since your last visit">
-          Next 72 hours {change.d72 > 0 ? "up" : "down"} {fmtIn(Math.abs(change.d72))} to {amount(w72.likely)}.
-        </Notice>
+        <m.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0, transition: { duration: DUR.reveal, ease: EASE, delay: 0.5 } }}>
+          <Notice tone="info" title="The forecast changed since your last visit">
+            Next 72 hours {change.d72 > 0 ? "up" : "down"} {fmtIn(Math.abs(change.d72))} to {amount(w72.likely)}.
+          </Notice>
+        </m.div>
       )}
       {f.warnings.map((w) => (
         <Notice key={w} tone="warn" title={w} />
@@ -114,7 +119,9 @@ export function LocationView({ name, lat, lon }: { name: string; lat: number; lo
           </div>
           <div className="relative min-w-0 flex-1">
             <p className="text-sm text-text-2">Next 72 hours, most likely</p>
-            <p className="font-display text-6xl font-extrabold leading-none tracking-tight tabular sm:text-7xl">{amount(w72.likely)}</p>
+            <p className="font-display text-6xl font-extrabold leading-none tracking-tight tabular sm:text-7xl">
+              <TweenNumber value={w72.likely} format={amount} />
+            </p>
             <p className="mt-2 text-text-2 tabular">
               {w72.high === 0 ? (
                 "No snow expected"
@@ -233,7 +240,7 @@ export function LocationView({ name, lat, lon }: { name: string; lat: number; lo
           </p>
         )}
       </Panel>
-    </div>
+    </m.div>
   );
 }
 

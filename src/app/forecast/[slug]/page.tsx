@@ -4,8 +4,11 @@ import { decodeSlug } from "@/lib/geo/slug";
 import { LocationView } from "@/components/forecast/location-view";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const p = decodeSlug((await params).slug);
-  return p ? { title: `${p.name} snowfall forecast`, description: `Hourly snowfall, low/likely/high totals and NWS alerts for ${p.name}.` } : { title: "Forecast" };
+  const { slug } = await params;
+  const p = decodeSlug(slug);
+  return p
+    ? { title: `${p.name} snowfall forecast`, description: `Hourly snowfall, low/likely/high totals and NWS alerts for ${p.name}.`, alternates: { canonical: `/forecast/${slug}` } }
+    : { title: "Forecast" };
 }
 
 export default async function ForecastPage({ params }: { params: Promise<{ slug: string }> }) {
