@@ -30,4 +30,12 @@ describe("rankSchools", () => {
     const ranked = rankSchools([s("Montville High School", 41.46, -72.15), s("Montville Township High School", 40.9, -74.36)], "montville high", { lat: 40.91, lon: -74.36 });
     expect((ranked[0] as { name: string }).name).toBe("Montville Township High School");
   });
+  it("ranks names containing every typed word above fuzzy look-alikes", () => {
+    const ranked = rankSchools([s("Pleasantville High School", 39.4, -74.5), s("Belleville High School", 40.8, -74.16), s("Montville Township High School", 40.9, -74.36)], "montville high");
+    expect((ranked[0] as { name: string }).name).toBe("Montville Township High School");
+  });
+  it("keeps the source's own order on ties, so typo matches stay where fuzzy search put them", () => {
+    const ranked = rankSchools([s("Montville Township High School", 40.9, -74.36), s("Abraham Clark High School", 40.6, -74.2)], "montvile high");
+    expect(ranked.map((x) => (x as { name: string }).name)).toEqual(["Montville Township High School", "Abraham Clark High School"]);
+  });
 });

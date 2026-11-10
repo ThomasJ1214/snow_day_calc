@@ -28,7 +28,7 @@ export const supabaseRepo: SchoolRepo = {
     const { data, error } = await db().rpc("search_schools", { q: q ?? null, st: state ?? null, zip_code: zip ?? null, lim: 50 });
     if (error) throw new Error(error.message);
     const rows = (data as Row[]).map(toSchool);
-    return (near ? rankSchools(rows, q ?? "", near) : rows).slice(0, limit);
+    return rankSchools(rows, q ?? "", near).slice(0, limit);
   },
   async get(id: string) {
     if (!parseSchoolId(id)) return null;
